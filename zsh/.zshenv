@@ -12,11 +12,9 @@ export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/lesshst"
 export GOPATH="$HOME"
 
 export HGRCPATH="$HOME/.hgrc:${XDG_CONFIG_HOME:-$HOME/.config}/mercurial/hgrc"
-IFS=":"
-for p in "${XDG_CONFIG_DIRS}"; do
+for p in ${(s.:.)${XDG_CONFIG_DIRS}}; do
   HGRCPATH="${HGRCPATH}:$p/mercurial/hgrc"
 done
-unset IFS
 HGRCPATH="${HGRCPATH}:/etc/mercurial/hgrc:/etc/mercurial/hgrc.d:/usr/etc/mercurial/hgrc"
 
 

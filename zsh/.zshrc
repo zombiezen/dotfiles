@@ -54,6 +54,9 @@ setopt interactivecomments
 # History
 # Makes multiple terminals share history nicely
 setopt sharehistory
+if ! [[ -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ]]; then
+  mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
+fi
 HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 HISTSIZE=1000
 SAVEHIST=1000
