@@ -1,0 +1,20 @@
+[ui]
+username = Ross Light <ross@zombiezen.com>
+
+[alias]
+diffstat = diff --stat --pager=off
+qs = qseries --color=off -v -s
+
+[diff]
+git = True
+
+[extensions]
+hgext.color=
+hgext.histedit=
+hgext.pager=
+hgext.progress=
+hgext.mq=
+hgext.purge=
+hgext.record=
+hgext.schemes=
+hgext.rebase=
