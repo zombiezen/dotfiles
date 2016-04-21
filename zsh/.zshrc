@@ -89,8 +89,6 @@ VS() { tmux split-window -h "$*" }
 SP() { tmux split-window -v "$*" }
 NEWT() { tmux new-window "$*" }
 
-compdef __tmux_split_complete VS SP NEWT
-
 CLR() { clear && tmux clear-history }
 
 GOWEB() {
@@ -105,6 +103,8 @@ autoload -U zmv
 # Load completion
 autoload -U compinit
 compinit
+
+compdef __tmux_split_complete VS SP NEWT
 
 # The next line enables zsh completion for gcloud.
 if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
