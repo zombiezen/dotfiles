@@ -1,0 +1,12 @@
+[user]
+	name = Ross Light
+	email = ross@zombiezen.com
+[push]
+	default = simple
+[alias]
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
