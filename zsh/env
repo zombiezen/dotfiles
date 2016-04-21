@@ -1,6 +1,11 @@
 #!/bin/zsh
 
-export EDITOR=nvim
+if [[ -x /opt/neovim/bin/nvim ]]; then
+  export EDITOR=/opt/neovim/bin/nvim
+else
+  export EDITOR=vim
+fi
+
 export PAGER=less
 export LESS=R
 export GOPATH="$HOME"
