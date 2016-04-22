@@ -1,0 +1,3 @@
+" make.vim
+
+setlocal noexpandtab

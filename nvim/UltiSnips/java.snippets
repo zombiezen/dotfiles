@@ -1,0 +1,31 @@
+global !p
+def nl(snip):
+    if snip.opt("g:ultisnips_java_brace_style", "") == "nl":
+        snip += ""
+    else:
+        snip.rv += " "
+endglobal
+
+snippet get "getter"
+private ${1:String} ${2:variable};
+
+public $1 get${3:${2/[_a-zA-Z]/\u$0/}}()`!p nl(snip)`{
+	return $2;
+}
+endsnippet
+
+snippet getset "getter and setter"
+private ${1:String} ${2:variable};
+
+public $1 get${3:${2/[_a-zA-Z]/\u$0/}}()`!p nl(snip)`{
+	return $2;
+}
+
+public void set$3($1 ${4:newValue})`!p nl(snip)`{
+	$2 = $4;
+}
+endsnippet
+
+snippet civar "construct instance variable"
+this.${1:variable} = $1;
+endsnippet

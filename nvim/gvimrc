@@ -1,0 +1,49 @@
+" Ross's gvimrc
+
+" Source the gvimrc file after saving it
+if has("autocmd") && !exists("gvimrc_au_loaded")
+    let gvimrc_au_loaded = 1
+    autocmd BufWritePost ~/.vim/gvimrc runtime gvimrc
+endif
+
+set background=dark
+
+set columns=84
+set mousefocus
+
+if has("gui_macvim")
+    set fuoptions=maxvert,maxhorz
+    set guifont=Menlo\ Regular:h12
+    set guioptions-=T
+elseif has("gui_win32")
+    set guifont=Courier\ New:h10
+    set guioptions-=T
+elseif has("gui_gtk")
+    set guifont=Monospace\ 9
+    set guioptions-=T
+endif
+
+" Custom font-size hotkeys
+fun! FontDelta(s, delta)
+    let parts = matchlist(a:s, '^\(.*\%(:h\| \)\)\([0-9]\+\)$')
+    if empty(parts)
+        return a:s
+    endif
+
+    let newSize = max([parts[2] + a:delta, 8])
+    return parts[1] . newSize
+endfun
+
+command! -bar -count=1 Zin let &guifont = FontDelta(&guifont, <count>)
+command! -bar -count=1 Zout let &guifont = FontDelta(&guifont, -<count>)
+
+nmap <Leader>+ :Zin
+nmap <Leader>- :Zout
+
+" Compiz seems to goof up if you have scroll bars or change the tab bar.
+" http://stackoverflow.com/questions/5977094/vim-often-needs-redraw-after-splitting
+set guioptions-=l
+set guioptions-=r
+set guioptions-=L
+set guioptions-=R
+set showtabline=2

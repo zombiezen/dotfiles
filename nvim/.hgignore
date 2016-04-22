@@ -1,0 +1,12 @@
+syntax: glob
+.DS_Store
+.VimballRecord
+.netrwhist
+go.vim
+godoc.vim
+
+syntax: regexp
+^autoload/go($|/)
+^ftplugin/go$
+^ftdetect/gofiletype.vim$
+^view/
