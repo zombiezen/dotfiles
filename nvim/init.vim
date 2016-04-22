@@ -181,12 +181,5 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" ConqueTerm
-let g:ConqueTerm_EscKey = '<C-k>'
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_CloseOnEnd = 0
-
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
-command! -bar Zsh ConqueTerm zsh
