@@ -5,7 +5,6 @@ function! s:InitAddons()
     let addons_base = expand('$HOME') . '/vim-addons'
     exec 'set runtimepath+='.escape(addons_base, ' \').'/vim-addon-manager'
     call vam#ActivateAddons([
-\       'Conque_Shell',
 \       'Gundo',
 \       'SWIG_syntax',
 \       'UltiSnips',
