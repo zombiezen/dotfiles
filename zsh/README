@@ -1,5 +1,0 @@
-Install this by copying the following to ~/.zshenv:
-
-export XDG_CONFIG_DIRS="$HOME/dotfiles:$XDG_CONFIG_DIRS"
-ZDOTDIR="$HOME/dotfiles/zsh"
-. "$ZDOTDIR/.zshenv"
