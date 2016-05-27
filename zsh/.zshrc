@@ -115,5 +115,5 @@ compdef __tmux_split_complete VS SP NEWT
 
 # The next line enables zsh completion for gcloud.
 if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
-  source '/home/light/google-cloud-sdk/completion.zsh.inc'
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
