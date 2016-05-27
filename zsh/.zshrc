@@ -88,6 +88,29 @@ open() {
 
 # tmux
 
+findxdgconfig() {
+  if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/$1" ]]; then
+    echo "${XDG_CONFIG_HOME:-$HOME/.config}/$1"
+    return 0
+  fi
+  for p in ${(s.:.)${XDG_CONFIG_DIRS}}; do
+    if [[ -e "${p}/$1" ]]; then
+      echo "${p}/$1"
+      return 0
+    fi
+  done
+  return 1
+}
+
+tmux() {
+  local tmuxconf="$(findxdgconfig tmux.conf || echo 'XXX')"
+  if [[ "$tmuxconf" = 'XXX' ]]; then
+    /usr/bin/tmux "$@"
+    return $?
+  fi
+  /usr/bin/tmux -f "$tmuxconf" "$@"
+}
+
 __tmux_split_complete() {
   _arguments '*::arguments:_normal'
 }
