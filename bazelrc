@@ -1,0 +1,3 @@
+build --show_progress --show_progress_rate_limit=1
+test --show_progress --show_progress_rate_limit=1
+test --test_output=errors

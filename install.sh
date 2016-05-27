@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+appendcfg() {
+  local myfile="$1"
+  local pat="$2"
+  if /bin/grep -F "$pat" "$myfile" >& /dev/null; then
+    return 0
+  fi
+  cat >> "$myfile"
+}
+
 # Set XDG_CONFIG_DIRS environment variable in desktop environment.
 # Stupidly, it seems that some part of XFCE auto-appends /etc/xdg, even
 # though we add it.
@@ -25,6 +34,11 @@ unset -f addDotfiles
 
 ZDOTDIR="$HOME/dotfiles/zsh"
 . "$ZDOTDIR/.zshenv"
+EOF
+
+appendcfg "$HOME/.bazelrc" "$HOME/dotfiles/bazelrc" <<EOF
+# Import configuration from dotfiles
+import $HOME/dotfiles/bazelrc
 EOF
 
 # TODO(light): ln -f -s "$HOME/dotfiles/git" "${XDG_CONFIG_HOME:-$HOME/.config}/git"
