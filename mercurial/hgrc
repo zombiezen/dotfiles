@@ -1,8 +1,10 @@
 [ui]
 username = Ross Light <ross@zombiezen.com>
+commitsubrepos = false
 
 [alias]
 diffstat = diff --stat --pager=off
+qq = qqueue
 qs = qseries --color=off -v -s
 
 [diff]
@@ -11,10 +13,18 @@ git = True
 [extensions]
 hgext.color=
 hgext.histedit=
+hgext.mq=
 hgext.pager=
 hgext.progress=
-hgext.mq=
 hgext.purge=
+hgext.rebase=
 hgext.record=
 hgext.schemes=
-hgext.rebase=
+
+[merge-tools]
+nvimdiff.executable = nvim
+nvimdiff.args = -S ~/dotfiles/nvim/scripts/hgdiff.vim -d $base $local $other $output
+nvimdiff.premerge = keep
+nvimdiff.check = changed
+
+# vim: ft=cfg
