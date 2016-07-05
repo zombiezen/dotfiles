@@ -82,11 +82,15 @@ endif
 " Choose what should be saved during :mks
 set sessionoptions=blank,buffers,curdir,folds,help,options,resize,tabpages,winsize
 
-" Place swap files in system temp directory
+" Swap file location
 if has('win32') || has('win64')
-    set directory=.,C:\\tmp,C:\\temp
-else
-    set directory=/var/tmp,/tmp
+    " Use current directory.  Temp paths are a little more unreliable.
+    set directory=.
+elseif !has('nvim')
+    " Place in /var/tmp, which will be retained across reboots/crashes.
+    set directory=/var/tmp//,/tmp//
+
+    " nvim's default of $XDG_DATA_HOME/nvim/swap// is fine.
 endif
 
 " Ex command-line completion
@@ -101,9 +105,11 @@ cabbr <expr> %% expand('%:h')
 if has('win32') || has('win64')
     cabbr vrc ~/vimfiles/vimrc
     cabbr gvrc ~/vimfiles/gvimrc
-else
+elseif !has('nvim')
     cabbr vrc ~/.vim/vimrc
     cabbr gvrc ~/.vim/gvimrc
+else
+    cabbr vrc ~/dotfiles/nvim/init.vim
 endif
 
 " Common indentation modes
