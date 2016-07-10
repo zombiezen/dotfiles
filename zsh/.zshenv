@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+typeset -T XDG_CONFIG_DIRS xdgconfigdirs
+
 if [[ -x /opt/neovim/bin/nvim ]]; then
   export EDITOR=/opt/neovim/bin/nvim
 else
@@ -11,11 +13,15 @@ export LESS=R
 export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/lesshst"
 export GOPATH="$HOME"
 
-export HGRCPATH="$HOME/.hgrc:${XDG_CONFIG_HOME:-$HOME/.config}/mercurial/hgrc"
-for p in ${(s.:.)${XDG_CONFIG_DIRS}}; do
-  HGRCPATH="${HGRCPATH}:$p/mercurial/hgrc"
+# HGRCPATH reads in files sequentially to build up map, so later entries
+# override earlier ones.  This is the reverse order of common UNIX paths.
+typeset -T HGRCPATH hgrcpath
+hgrcpath=( /usr/etc/mercurial/hgrc /etc/mercurial/hgrc /etc/mercurial/hgrc.d )
+for (( idx=${#xdgconfigdirs[@]}; idx > 0; idx-- )); do
+  hgrcpath+=( "${xdgconfigdirs[idx]}/mercurial/hgrc" )
 done
-HGRCPATH="${HGRCPATH}:/etc/mercurial/hgrc:/etc/mercurial/hgrc.d:/usr/etc/mercurial/hgrc"
+hgrcpath+=( "${XDG_CONFIG_HOME:-$HOME/.config}/mercurial/hgrc" "$HOME/.hgrc" )
+export HGRCPATH
 
 
 path=(
