@@ -20,6 +20,7 @@ hgext.purge=
 hgext.rebase=
 hgext.record=
 hgext.schemes=
+hgext.share=
 
 [merge-tools]
 nvimdiff.executable = nvim
