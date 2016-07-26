@@ -43,3 +43,8 @@ path=(
 if [[ -e "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
+
+# Daisy-chain to local env
+if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv" ]]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv"
+fi

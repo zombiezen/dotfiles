@@ -140,3 +140,8 @@ compdef __tmux_split_complete VS SP NEWT
 if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
+
+# Daisy-chain to local env
+if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc" ]]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc"
+fi
