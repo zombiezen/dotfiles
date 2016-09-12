@@ -71,7 +71,6 @@ alias ls="ls --color"
 alias GRP="grep -Hn --color"
 alias bzip2="bzip2 -k"
 alias bunzip2="bunzip2 -k"
-alias blaze=bazel
 
 alias -g pgd="| ${PAGER-less}"
 alias -g cdf="| colordiff"
