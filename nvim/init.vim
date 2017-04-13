@@ -100,6 +100,7 @@ set wildmenu
 " Keymaps
 nnoremap Y y$
 nnoremap K <Nop>
+nnoremap <leader>n :noh<CR>
 
 cabbr <expr> %% expand('%:h')
 if has('win32') || has('win64')
