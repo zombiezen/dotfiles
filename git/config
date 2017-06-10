@@ -2,7 +2,7 @@
 	name = Ross Light
 	email = ross@zombiezen.com
 [push]
-	default = simple
+	default = upstream
 [alias]
 	change = codereview change
 	gofmt = codereview gofmt
