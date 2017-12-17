@@ -2,11 +2,8 @@
 
 typeset -T XDG_CONFIG_DIRS xdgconfigdirs
 
-if [[ -x /opt/neovim/bin/nvim ]]; then
-  export EDITOR=/opt/neovim/bin/nvim
-else
-  export EDITOR=vim
-fi
+export EDITOR=vim
+export VIMINIT=":source $HOME/dotfiles/vim/init.vim"
 
 export PAGER=less
 export LESS=R

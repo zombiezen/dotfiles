@@ -41,4 +41,6 @@ appendcfg "$HOME/.bazelrc" "$HOME/dotfiles/bazelrc" <<EOF
 import $HOME/dotfiles/bazelrc
 EOF
 
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/vim/{undo,swap,backup}"
+
 # TODO(light): ln -f -s "$HOME/dotfiles/git" "${XDG_CONFIG_HOME:-$HOME/.config}/git"

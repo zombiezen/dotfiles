@@ -1,9 +1,20 @@
 " Ross's vimrc
 
+" XDG directory support
+if strlen($XDG_CONFIG_HOME) == 0
+  let $XDG_CONFIG_HOME = expand('$HOME') . '/.config'
+endif
+if strlen($XDG_CACHE_HOME) == 0
+  let $XDG_CACHE_HOME = expand('$HOME') . '/.cache'
+endif
+set undodir=$XDG_CACHE_HOME/vim/undo
+set directory=$XDG_CACHE_HOME/vim/swap
+set backupdir=$XDG_CACHE_HOME/vim/backup
+set viminfo='100,<50,s10,h,n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$HOME/dotfiles/vim,$HOME/vim-addons/vim-addon-manager,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/dotfiles/vim/after
+
 " Load vim-addon-manager
 function! s:InitAddons()
-    let addons_base = expand('$HOME') . '/vim-addons'
-    exec 'set runtimepath+='.escape(addons_base, ' \').'/vim-addon-manager'
     call vam#ActivateAddons([
 \       'Gundo',
 \       'SWIG_syntax',
@@ -23,12 +34,6 @@ endfunction
 if !exists('vimrc_addons_inited')
     let vimrc_addons_inited = 1
     call s:InitAddons()
-endif
-
-" Source the vimrc file after saving it
-if has("autocmd") && !exists("vimrc_au_loaded")
-    let vimrc_au_loaded = 1
-    autocmd BufWritePost ~/.vim/vimrc runtime vimrc
 endif
 
 " Enable file types/syntax highlighting
@@ -82,17 +87,6 @@ endif
 " Choose what should be saved during :mks
 set sessionoptions=blank,buffers,curdir,folds,help,options,resize,tabpages,winsize
 
-" Swap file location
-if has('win32') || has('win64')
-    " Use current directory.  Temp paths are a little more unreliable.
-    set directory=.
-elseif !has('nvim')
-    " Place in /var/tmp, which will be retained across reboots/crashes.
-    set directory=/var/tmp//,/tmp//
-
-    " nvim's default of $XDG_DATA_HOME/nvim/swap// is fine.
-endif
-
 " Ex command-line completion
 set wildmode=longest,full
 set wildmenu
@@ -103,15 +97,7 @@ nnoremap K <Nop>
 nnoremap <leader>n :noh<CR>
 
 cabbr <expr> %% expand('%:h')
-if has('win32') || has('win64')
-    cabbr vrc ~/vimfiles/vimrc
-    cabbr gvrc ~/vimfiles/gvimrc
-elseif !has('nvim')
-    cabbr vrc ~/.vim/vimrc
-    cabbr gvrc ~/.vim/gvimrc
-else
-    cabbr vrc ~/dotfiles/nvim/init.vim
-endif
+cabbr vrc ~/dotfiles/vim/init.vim
 
 " Common indentation modes
 " Sets the indentation options to common settings.
