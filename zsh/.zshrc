@@ -63,10 +63,6 @@ SAVEHIST=1000
 
 ## ALIASES ##
 
-if which nvim > /dev/null; then
-  alias vi=nvim
-  alias vim=nvim
-fi
 alias ls="ls --color"
 alias GRP="grep -Hn --color"
 alias bzip2="bzip2 -k"

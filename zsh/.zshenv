@@ -25,7 +25,6 @@ path=(
   "$HOME/bin" \
   "$HOME/go/bin" \
   "$HOME/.rvm/bin" \
-  /opt/neovim/bin \
   /opt/rkt/latest \
   /usr/local/sbin \
   /usr/local/bin \
