@@ -1,5 +1,8 @@
 " Ross's vimrc
 
+" Disable vi compatibility (must be first since it sets other options)
+set nocompatible
+
 " XDG directory support
 if strlen($XDG_CONFIG_HOME) == 0
   let $XDG_CONFIG_HOME = expand('$HOME') . '/.config'
@@ -58,6 +61,10 @@ set gdefault                " use /g option by default in :s
 set scrolloff=2             " number of lines to keep on screen around cursor
 set completeopt=menu        " only show completion menu, don't show preview window
 
+if has("mouse")
+  set mouse=a               " enable mouse support
+endif
+
 if has("statusline")
     function! StatusWinnum()
         if winnr("$") == 1
@@ -84,6 +91,10 @@ if has("statusline")
     endif
 endif
 
+" Highlight searches, but hide quickly using \n.
+set hlsearch
+nnoremap <leader>n :noh<CR>
+
 " Choose what should be saved during :mks
 set sessionoptions=blank,buffers,curdir,folds,help,options,resize,tabpages,winsize
 
@@ -94,7 +105,6 @@ set wildmenu
 " Keymaps
 nnoremap Y y$
 nnoremap K <Nop>
-nnoremap <leader>n :noh<CR>
 
 cabbr <expr> %% expand('%:h')
 cabbr vrc ~/dotfiles/vim/init.vim
