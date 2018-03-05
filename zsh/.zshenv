@@ -24,6 +24,7 @@ export HGRCPATH
 path=(
   "$HOME/bin" \
   "$HOME/go/bin" \
+  "$HOME/.cargo/bin" \
   "$HOME/.rvm/bin" \
   /opt/rkt/latest \
   /usr/local/sbin \
