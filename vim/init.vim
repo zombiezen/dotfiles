@@ -27,8 +27,8 @@ function! s:InitAddons()
 \       'github:ervandew/supertab',
 \       'github:lesliev/vim-inform7',
 \       'github:puppetlabs/puppet-syntax-vim',
+\       'github:rust-lang/rust.vim',
 \       'github:zombiezen/vim-capnp',
-\       'rust',
 \       'scss-syntax',
 \       'vim-go',
 \       ], {'auto_install': 0})
