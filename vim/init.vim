@@ -56,6 +56,7 @@ set ruler                   " show cursor position
 set laststatus=2            " always show status bar
 set showcmd                 " display modifiers before a command
 set backspace=indent,start  " what backspace can delete in insert mode
+set nojoinspaces            " only use one space after period when joining lines
 set nrformats=hex,alpha     " what CTRL-A/CTRL-X allows you to change
 set gdefault                " use /g option by default in :s
 set scrolloff=2             " number of lines to keep on screen around cursor
