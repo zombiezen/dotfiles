@@ -63,6 +63,7 @@ set nrformats=hex,alpha     " what CTRL-A/CTRL-X allows you to change
 set gdefault                " use /g option by default in :s
 set scrolloff=2             " number of lines to keep on screen around cursor
 set completeopt=menu        " only show completion menu, don't show preview window
+set nojoinspaces            " one space between sentences when joining lines
 
 if has("mouse")
   set mouse=a               " enable mouse support
