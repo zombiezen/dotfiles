@@ -3,6 +3,11 @@
 	email = ross@zombiezen.com
 [push]
 	default = upstream
+[credential]
+	helper = store
+[credential "https://source.developers.google.com"]
+	helper =
+	helper = gcloud.sh
 [alias]
 	change = codereview change
 	gofmt = codereview gofmt
