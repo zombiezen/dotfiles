@@ -23,9 +23,11 @@ function! s:InitAddons()
 \       'SWIG_syntax',
 \       'UltiSnips',
 \       'github:altercation/vim-colors-solarized',
+\       'github:ctrlpvim/ctrlp.vim',
 \       'github:dart-lang/dart-vim-plugin',
 \       'github:ervandew/supertab',
 \       'github:hashivim/vim-terraform',
+\       'github:ledger/vim-ledger',
 \       'github:lesliev/vim-inform7',
 \       'github:lifepillar/vim-solarized8',
 \       'github:puppetlabs/puppet-syntax-vim',
@@ -190,3 +192,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" Ctrl-P
+let g:ctrlp_map = "<leader>p"
