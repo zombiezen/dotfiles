@@ -44,7 +44,9 @@ EOF
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/vim/"{undo,swap,backup}
 
 vscodeUserDir="${XDG_CONFIG_HOME:-$HOME/.config}/Code/User"
+dotfilesVSCodeUserDir="$HOME/dotfiles/Code/User"
 mkdir -p "$vscodeUserDir"
-ln -s "$HOME/dotfiles/Code/User/settings.json" "$vscodeUserDir/settings.json" || echo "$vscodeUserDir/settings.json already exists" 1>&2
+ln -s "$dotfilesVSCodeUserDir/settings.json" "$vscodeUserDir/settings.json" || echo "$vscodeUserDir/settings.json already exists" 1>&2
+ln -s "$dotfilesVSCodeUserDir/keybindings.json" "$vscodeUserDir/keybindings.json" || echo "$vscodeUserDir/keybindings.json already exists" 1>&2
 
 # TODO(light): ln -f -s "$HOME/dotfiles/git" "${XDG_CONFIG_HOME:-$HOME/.config}/git"
