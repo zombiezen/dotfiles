@@ -4,5 +4,8 @@
     "editor.mouseWheelScrollSensitivity": 0.33,
     "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingIndent": "indent",
-    "ledger.binary": "/usr/bin/ledger"
+    "ledger.binary": "/usr/bin/ledger",
+    "files.associations": {
+        "ledger.txt": "ledger"
+    }
 }
