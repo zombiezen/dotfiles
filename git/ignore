@@ -1,0 +1,36 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# OS files
+._*
+.DS_Store
+
+# Editor files
+# Eclipse
+.classpath
+.project
+.settings/
+# JetBrains
+.idea/
+*.iml
+# VSCode
+.vscode/
+# Emacs
+*~
+\#*\#
+.\#*
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Terraform temporary files
+*.tfstate
+*.tfstate.*
+.terraform/
