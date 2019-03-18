@@ -9,6 +9,7 @@ export PAGER=less
 export LESS=R
 export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/lesshst"
 export GOPATH="$HOME"
+export NPM_CONFIG_PREFIX="$HOME"
 
 # HGRCPATH reads in files sequentially to build up map, so later entries
 # override earlier ones.  This is the reverse order of common UNIX paths.
