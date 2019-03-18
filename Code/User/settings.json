@@ -9,5 +9,7 @@
     "files.associations": {
         "ledger.txt": "ledger"
     },
-    "ledger.binary": "/usr/bin/ledger"
+    "vim.substituteGlobalFlag": true,
+    "ledger.binary": "/usr/bin/ledger",
+    "go.formatTool": "gofmt"
 }
