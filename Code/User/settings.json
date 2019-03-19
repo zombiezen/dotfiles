@@ -4,6 +4,7 @@
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 0.33,
     "editor.smoothScrolling": true,
+    "editor.tabSize": 2,
     "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingIndent": "indent",
     "files.eol": "\n",
