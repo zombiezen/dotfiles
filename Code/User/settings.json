@@ -24,5 +24,15 @@
       "autoComplete": true
     },
     "go.useLanguageServer": true,
-    "ledger.binary": "/usr/bin/ledger"
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true
+    },
+    "ledger.binary": "/usr/bin/ledger",
+    "[ledger]": {
+        "editor.tabSize": 8,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true
+    }
 }
