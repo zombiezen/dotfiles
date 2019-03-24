@@ -52,6 +52,8 @@ setopt extendedglob
 setopt interactivecomments
 
 # History
+# Enable "incognito mode" by prepending space
+setopt histignorespace
 # Makes multiple terminals share history nicely
 setopt sharehistory
 if ! [[ -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ]]; then
