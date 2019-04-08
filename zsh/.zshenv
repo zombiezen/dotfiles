@@ -12,6 +12,7 @@ export GOPATH="$HOME"
 export NPM_CONFIG_PREFIX="$HOME"
 export LEDGER_PEDANTIC=1
 export LEDGER_EXPLICIT=1
+export LEDGER_DATE_FORMAT='%Y-%m-%d'
 
 # HGRCPATH reads in files sequentially to build up map, so later entries
 # override earlier ones.  This is the reverse order of common UNIX paths.
