@@ -1,5 +1,6 @@
 {
     "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 0.33,
