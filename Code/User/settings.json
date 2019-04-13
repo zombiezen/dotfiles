@@ -17,17 +17,27 @@
     "vim.substituteGlobalFlag": true,
     "go.formatTool": "gofmt",
     "go.alternateTools": {
-      "go-langserver": "gopls"
+        "go-langserver": "gopls"
     },
     "go.languageServerExperimentalFeatures": {
-      "format": true,
-      "autoComplete": true
+        "format": true,
+        "autoComplete": true,
+        "diagnostics": true,
+        "goToDefinition": true,
+        "hover": true,
+        "signatureHelp": true,
+        "goToTypeDefinition": true
     },
     "go.useLanguageServer": true,
+    "go.buildOnSave": "off",
+    "go.vetOnSave": "off",
     "[go]": {
         "editor.insertSpaces": false,
         "editor.detectIndentation": false,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
     },
     "ledger.binary": "/usr/bin/ledger",
     "[ledger]": {
