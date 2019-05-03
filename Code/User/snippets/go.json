@@ -1,0 +1,21 @@
+{
+	"subtest": {
+		"prefix": "subtest",
+		"body": [
+			"t.Run($1, func(t *testing.T) {",
+			"\t${0:${TM_SELECTED_TEXT}}",
+			"})"
+		],
+		"description": "Snippet for Go subtest"
+	},
+	"defer anonymous function": {
+		"prefix": "defer",
+		"body": "defer func($1) {\n\t${0:${TM_SELECTED_TEXT}}\n}($2)",
+		"description": "Snippet for defer anonymous function"
+	},
+	"append": {
+		"prefix": "ap",
+		"body": "$1 = append($1, ${0:${TM_SELECTED_TEXT}})",
+		"description": "Snippet for appending to a slice"
+	}
+}
