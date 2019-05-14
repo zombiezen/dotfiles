@@ -9,6 +9,7 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingIndent": "indent",
+    "editor.lineNumbers": "off",
     "editor.rulers": [72, 80, 100],
     "files.eol": "\n",
     "files.insertFinalNewline": true,
