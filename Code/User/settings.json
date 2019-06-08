@@ -1,7 +1,7 @@
 {
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.labelFormat": "short",
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 0.33,
@@ -17,25 +17,11 @@
         "ledger.txt": "ledger"
     },
     "telemetry.enableTelemetry": false,
-    "terminal.integrated.shell.windows": "C:\\\\WINDOWS\\\\System32\\\\wsl.exe",
     "vim.substituteGlobalFlag": true,
-    "go.formatTool": "gofmt",
-    "go.alternateTools": {
-        "go-langserver": "gopls"
-    },
-    "go.languageServerExperimentalFeatures": {
-        "format": true,
-        "autoComplete": true,
-        "diagnostics": true,
-        "goToDefinition": true,
-        "hover": true,
-        "signatureHelp": true,
-        "goToTypeDefinition": true,
-        "documentSymbols": true
-    },
     "go.useLanguageServer": true,
-    "go.buildOnSave": "off",
-    "go.vetOnSave": "off",
+    "go.languageServerExperimentalFeatures": {
+        "diagnostics": true
+    },
     "[go]": {
         "editor.insertSpaces": false,
         "editor.detectIndentation": false,
@@ -45,8 +31,7 @@
         }
     },
     "gopls": {
-        "enablePlaceholders": true,
-        "enhancedHover": true
+        "usePlaceholders": true
     },
     "ledger.binary": "/usr/bin/ledger",
     "[ledger]": {
