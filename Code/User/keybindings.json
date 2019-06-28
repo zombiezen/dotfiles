@@ -2,7 +2,13 @@
 [
     {
         "key": "ctrl+shift+0",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "isWindows"
+    },
+    {
+        "key": "ctrl+shift+0",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "isLinux"
     },
     {
         "key": "ctrl+b",
@@ -14,6 +20,34 @@
     },
     {
         "key": "ctrl+shift+t",
-        "command": "workbench.action.tasks.test"
+        "command": "workbench.action.tasks.test",
+        "when": "isLinux"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.tasks.test",
+        "when": "isWindows"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "workbench.action.terminal.copySelection",
+        "when": "terminalFocus && terminalTextSelected && isWindows"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-workbench.action.terminal.copySelection"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "workbench.action.terminal.paste",
+        "when": "terminalFocus && isWindows"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-workbench.action.terminal.paste"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-markdown.showPreview"
     }
 ]
