@@ -17,8 +17,6 @@
 # JetBrains
 .idea/
 *.iml
-# VSCode
-.vscode/
 # Emacs
 *~
 \#*\#
