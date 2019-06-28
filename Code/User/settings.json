@@ -18,6 +18,7 @@
         "*.erb": "erb"
     },
     "telemetry.enableTelemetry": false,
+    "githubPullRequests.telemetry.enabled": false,
     "vim.substituteGlobalFlag": true,
     "go.useLanguageServer": true,
     "go.languageServerExperimentalFeatures": {
