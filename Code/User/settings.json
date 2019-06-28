@@ -14,7 +14,8 @@
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.associations": {
-        "ledger.txt": "ledger"
+        "ledger.txt": "ledger",
+        "*.erb": "erb"
     },
     "telemetry.enableTelemetry": false,
     "vim.substituteGlobalFlag": true,
@@ -39,5 +40,5 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0
 }
