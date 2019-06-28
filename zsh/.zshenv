@@ -46,6 +46,11 @@ if [[ -e "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
+# Load RVM if present.
+if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then
+  source "$HOME/.rvm/scripts/rvm"
+fi
+
 # Daisy-chain to local env
 if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv" ]]; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv"
