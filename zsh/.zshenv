@@ -63,6 +63,11 @@ for p1 in "${oldpath[@]}"; do
 done
 unset p1 p2 oldpath
 
+# Use VSCode as EDITOR if available.
+if whence -p code 2>&1 > /dev/null; then
+  EDITOR='code --wait'
+fi
+
 # Daisy-chain to local env
 if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv" ]]; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv"
