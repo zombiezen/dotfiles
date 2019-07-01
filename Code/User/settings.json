@@ -15,7 +15,8 @@
     "files.insertFinalNewline": true,
     "files.associations": {
         "ledger.txt": "ledger",
-        "*.erb": "erb"
+        "*.erb": "erb",
+        "COMMIT_MSG": "git-commit"  // gg commit message
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
