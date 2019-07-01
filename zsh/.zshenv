@@ -25,11 +25,11 @@ hgrcpath+=( "${XDG_CONFIG_HOME:-$HOME/.config}/mercurial/hgrc" "$HOME/.hgrc" )
 export HGRCPATH
 
 
+oldpath=( "${path[@]}" )
 path=(
   "$HOME/bin" \
   "$HOME/go/bin" \
   "$HOME/.cargo/bin" \
-  /opt/rkt/latest \
   /usr/local/sbin \
   /usr/local/go/bin \
   /usr/local/bin \
@@ -50,6 +50,18 @@ fi
 if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
+
+# Add any elements that were present in the PATH before to the end of PATH.
+for p1 in "${oldpath[@]}"; do
+  for p2 in "${path[@]}"; do
+    if [[ "$p1" = "$p2" ]]; then
+      # Continue `p1 in oldpath`.
+      continue 2
+    fi
+  done
+  path+=( "$p1" )
+done
+unset p1 p2 oldpath
 
 # Daisy-chain to local env
 if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv" ]]; then
