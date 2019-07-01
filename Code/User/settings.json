@@ -3,6 +3,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.labelFormat": "short",
+    "workbench.startupEditor": "none",
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 0.33,
     "editor.smoothScrolling": true,
