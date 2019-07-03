@@ -27,6 +27,8 @@
 *.un~
 Session.vim
 .netrwhist
+# VSCode
+.vscode/ipch/
 
 # Terraform temporary files
 *.tfstate
