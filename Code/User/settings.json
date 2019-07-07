@@ -4,6 +4,7 @@
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.labelFormat": "short",
     "workbench.startupEditor": "none",
+    "workbench.tree.indent": 12,
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 0.33,
     "editor.smoothScrolling": true,
