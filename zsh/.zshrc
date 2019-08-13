@@ -122,6 +122,36 @@ GOWEB() {
   GOMAXPROCS=8 nice godoc -http=localhost:6060 "$@"
 }
 
+# Ruby
+
+alias bx='bundle exec'
+
+__wrap_bundle_exec() {
+  local dir="$(pwd)"
+  local found_gemfile=0
+  while true; do
+    if [[ -e "$dir/Gemfile" ]]; then
+      found_gemfile=1
+      break
+    fi
+    local newdir="$(dirname "$dir")"
+    if [[ "$dir" == "$newdir" ]]; then
+      break
+    fi
+    dir="$newdir"
+  done
+  if [[ "$found_gemfile" -eq 1 ]]; then
+    bundle exec "$@"
+  else
+    "$@"
+  fi
+}
+
+for cmdname in rails rake rspec rubocop solargraph webpack webpack-dev-server; do
+  alias $cmdname="__wrap_bundle_exec $cmdname"
+done
+unset cmdname
+
 ## EXTENSIONS ##
 
 # Load zmv: The multi-file move
@@ -132,6 +162,7 @@ autoload -U compinit
 compinit
 
 compdef __tmux_split_complete VS SP NEWT
+compdef _precommand __wrap_bundle_exec
 
 # The next line enables zsh completion for gcloud.
 if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
