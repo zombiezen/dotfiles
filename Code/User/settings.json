@@ -5,6 +5,7 @@
     "workbench.editor.labelFormat": "short",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 12,
+    "editor.cursorSurroundingLines": 2,
     "editor.fontFamily": "'Go Mono', 'Droid Sans Mono', 'Courier New', monospace",
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 0.33,
