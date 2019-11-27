@@ -1,0 +1,7 @@
+{
+	"Mobile viewport meta": {
+		"prefix": "metaviewport",
+		"body": "<meta name=\"viewport\" content=\"${1:width=device-width, initial-scale=1}\">",
+		"description": "Sets the viewport to the device's width and sets a default 1:1 zoom"
+	}
+}
