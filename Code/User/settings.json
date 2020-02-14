@@ -3,6 +3,8 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.labelFormat": "short",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 12,
     "zenMode.fullScreen": false,
