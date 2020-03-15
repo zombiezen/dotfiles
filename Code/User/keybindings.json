@@ -57,5 +57,25 @@
         "key": "ctrl+1",
         "command": "editor.action.quickFix",
         "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+;",
+        "command": "-breadcrumbs.focus",
+        "when": "isWindows"
+    },
+    {
+        "key": "ctrl+shift+;",
+        "command": "-breadcrumbs.focus",
+        "when": "isLinux"
+    },
+    {
+        "key": "ctrl+shift+;",
+        "command": "workbench.action.tasks.runTask",
+        "when": "isWindows"
+    },
+    {
+        "key": "ctrl+shift+;",
+        "command": "workbench.action.tasks.runTask",
+        "when": "isLinux"
     }
 ]
