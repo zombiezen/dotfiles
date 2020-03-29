@@ -50,5 +50,8 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true
     },
+    "[rust]": {
+        "editor.formatOnSave": true
+    },
     "window.zoomLevel": 0
 }
