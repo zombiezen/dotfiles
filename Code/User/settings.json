@@ -51,7 +51,8 @@
         "editor.insertSpaces": true
     },
     "[rust]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4
     },
     "window.zoomLevel": 0
 }
