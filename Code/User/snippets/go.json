@@ -8,6 +8,22 @@
 		],
 		"description": "Snippet for Go subtest"
 	},
+	"table test": {
+		"prefix": "tabtest",
+		"body": [
+			"tests := []struct{",
+			"\tname string$1",
+			"}{",
+			"\t{",
+			"\t\tname: \"${2:First}\",",
+			"\t},",
+			"}",
+			"for _, test := range tests {",
+			"\t// TODO: run$0",
+			"}"
+		],
+		"description": "Snippet for table-driven test"
+	},
 	"defer anonymous function": {
 		"prefix": "defer",
 		"body": "defer func($1) {\n\t${0:${TM_SELECTED_TEXT}}\n}($2)",
