@@ -168,6 +168,9 @@ compdef _precommand __wrap_bundle_exec
 if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
+if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
+  source /usr/share/google-cloud-sdk/completion.zsh.inc
+fi
 
 # Daisy-chain to local env
 if [[ -e "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc" ]]; then
