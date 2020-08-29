@@ -14,6 +14,9 @@ export LEDGER_PEDANTIC=1
 export LEDGER_EXPLICIT=1
 export LEDGER_DATE_FORMAT='%Y-%m-%d'
 
+export DEBFULLNAME='Ross Light'
+export DEBEMAIL='ross@zombiezen.com'
+
 # HGRCPATH reads in files sequentially to build up map, so later entries
 # override earlier ones.  This is the reverse order of common UNIX paths.
 typeset -T HGRCPATH hgrcpath
