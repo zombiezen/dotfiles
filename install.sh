@@ -21,6 +21,9 @@ EOF
 
 # Forward zsh over to dotfiles/zsh
 cat > ~/.zshenv <<'EOF'
+# If you're on a particularly nasty system, uncomment this:
+# setopt NO_GLOBAL_RCS
+
 function addDotfiles() {
   for p in ${(s.:.)${XDG_CONFIG_DIRS}}; do
     if [[ "$p" == "$HOME/dotfiles" ]]; then
