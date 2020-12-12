@@ -9,6 +9,7 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 12,
+    "window.newWindowDimensions": "offset",
     "window.openFoldersInNewWindow": "on",
     "zenMode.fullScreen": false,
     "editor.cursorSurroundingLines": 2,
