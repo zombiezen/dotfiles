@@ -1,6 +1,8 @@
 {
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.decorations.colors": false,
+    "workbench.editor.decorations.badges": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.labelFormat": "short",
     "workbench.editor.limit.enabled": true,
