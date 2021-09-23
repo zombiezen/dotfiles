@@ -65,7 +65,11 @@ SAVEHIST=1000
 
 ## ALIASES ##
 
+{{- if eq .chezmoi.os "darwin" }}
+alias ls="ls -G"
+{{- else }}
 alias ls="ls --color"
+{{- end }}
 alias GRP="grep -Hn --color"
 alias bzip2="bzip2 -k"
 alias bunzip2="bunzip2 -k"
@@ -77,11 +81,13 @@ ll() { ls -l -h "$@" }
 pdb() { python -m pdb "$@" }
 mkcd() { mkdir "$@" && cd "${@[-1]}" }
 
+{{- if ne .chezmoi.os "darwin" }}
 open() {
   for arg in "$@"; do
     xdg-open "$arg"
   done
 }
+{{- end }}
 
 # tmux
 
