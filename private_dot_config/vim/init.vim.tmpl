@@ -14,12 +14,11 @@ set undodir=$XDG_CACHE_HOME/vim/undo
 set directory=$XDG_CACHE_HOME/vim/swap
 set backupdir=$XDG_CACHE_HOME/vim/backup
 set viminfo='100,<50,s10,h,n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$HOME/dotfiles/vim,$HOME/vim-addons/vim-addon-manager,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/dotfiles/vim/after
+set runtimepath=$HOME/.config/vim,$HOME/vim-addons/vim-addon-manager,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.config/vim/after
 
 " Load vim-addon-manager
 function! s:InitAddons()
     call vam#ActivateAddons([
-\       'Gundo',
 \       'SWIG_syntax',
 \       'UltiSnips',
 \       'github:altercation/vim-colors-solarized',
@@ -51,8 +50,14 @@ endif
 set background=dark
 
 " Solarized
+{{- if .terminal_true_colors }}
+set termguicolors
+set t_ut=  " disable background color erase so that background is filled
+colorscheme solarized8
+{{- else }}
 let g:solarized_termtrans=1
 colorscheme solarized
+{{- end }}
 
 " Interface options
 set modeline& modelines&    " allow modelines
@@ -113,7 +118,7 @@ nnoremap Y y$
 nnoremap K <Nop>
 
 cabbr <expr> %% expand('%:h')
-cabbr vrc ~/dotfiles/vim/init.vim
+cabbr vrc ~/.config/vim/init.vim
 
 " Common indentation modes
 " Sets the indentation options to common settings.

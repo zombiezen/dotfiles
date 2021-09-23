@@ -21,4 +21,6 @@ data:
   env: {}
   {{- end }}
   # If you're on a particularly nasty system, set to false:
-  global_rcs: {{ if hasKey . "global_rcs" }}{{ .global_rcs }}{{ else }}false{{ end }}
+  global_rcs: {{ if hasKey . "global_rcs" }}{{ .global_rcs }}{{ else }}true{{ end }}
+  # If your terminal supports true colors, then set to true:
+  terminal_true_colors: {{ if hasKey . "terminal_true_colors" }}{{ .terminal_true_colors }}{{ else }}false{{ end }}
