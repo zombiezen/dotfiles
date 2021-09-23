@@ -1,6 +1,8 @@
 [user]
 	name = Ross Light
-	email = ross@zombiezen.com
+	email = {{ get . "email" | default "ross@zombiezen.com" }}
+[core]
+	commentchar = ";"
 [push]
 	default = upstream
 [credential]

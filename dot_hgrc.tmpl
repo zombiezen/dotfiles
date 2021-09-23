@@ -1,5 +1,5 @@
 [ui]
-username = Ross Light <ross@zombiezen.com>
+username = Ross Light <{{ get . "email" | default "ross@zombiezen.com" }}>
 commitsubrepos = false
 
 [alias]
@@ -24,7 +24,7 @@ hgext.share=
 
 [merge-tools]
 nvimdiff.executable = nvim
-nvimdiff.args = -S ~/dotfiles/nvim/scripts/hgdiff.vim -d $base $local $other $output
+nvimdiff.args = -S {{ .chezmoi.sourceDir }}/vim/scripts/hgdiff.vim -d $base $local $other $output
 nvimdiff.premerge = keep
 nvimdiff.check = changed
 

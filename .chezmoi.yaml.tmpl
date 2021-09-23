@@ -1,0 +1,24 @@
+{{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $email := get . "email" -}}
+{{- if not $email -}}
+{{-   if $codespaces -}}
+{{-     $email = "ross@zombiezen.com" -}}
+{{-   else -}}
+{{-     $email = promptString "email" -}}
+{{-   end -}}
+{{- end -}}
+sourceDir: {{ .chezmoi.sourceDir | toJson }}
+data:
+  email: {{ $email | toJson }}
+  {{- with get . "bin_path" }}
+  bin_path: {{ . | toJson }}
+  {{- else }}
+  bin_path: []
+  {{- end }}
+  {{- with get . "env" }}
+  env: {{ . | toJson }}
+  {{- else }}
+  env: {}
+  {{- end }}
+  # If you're on a particularly nasty system, set to false:
+  global_rcs: {{ if hasKey . "global_rcs" }}{{ .global_rcs }}{{ else }}false{{ end }}

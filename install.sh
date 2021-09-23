@@ -1,55 +1,42 @@
 #!/bin/bash
+#
+# Copyright (c) 2020 Tom Payne
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
 set -e
 
-appendcfg() {
-  local myfile="$1"
-  local pat="$2"
-  if /bin/grep -F "$pat" "$myfile" >& /dev/null; then
-    return 0
+if [ ! "$(command -v chezmoi)" ]; then
+  bin_dir="$HOME/.local/bin"
+  chezmoi="$bin_dir/chezmoi"
+  if [ "$(command -v curl)" ]; then
+    sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
+  elif [ "$(command -v wget)" ]; then
+    sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
+  else
+    echo "To install chezmoi, you must have curl or wget installed." >&2
+    exit 1
   fi
-  cat >> "$myfile"
-}
+else
+  chezmoi=chezmoi
+fi
 
-# Set XDG_CONFIG_DIRS environment variable in desktop environment.
-# Stupidly, it seems that some part of XFCE auto-appends /etc/xdg, even
-# though we add it.
-cat > ~/.xsessionrc <<'EOF'
-#!/bin/bash
-# Used to populate environment variables for X session
-export XDG_CONFIG_DIRS="$HOME/dotfiles:${XDG_CONFIG_DIRS:-/etc/xdg}"
-EOF
-
-# Forward zsh over to dotfiles/zsh
-cat > ~/.zshenv <<'EOF'
-# If you're on a particularly nasty system, uncomment this:
-# setopt NO_GLOBAL_RCS
-
-function addDotfiles() {
-  for p in ${(s.:.)${XDG_CONFIG_DIRS}}; do
-    if [[ "$p" == "$HOME/dotfiles" ]]; then
-      return 0
-    fi
-  done
-  export XDG_CONFIG_DIRS="$HOME/dotfiles:${XDG_CONFIG_DIRS:-/etc/xdg}"
-}
-addDotfiles
-unset -f addDotfiles
-
-ZDOTDIR="$HOME/dotfiles/zsh"
-. "$ZDOTDIR/.zshenv"
-EOF
-
-appendcfg "$HOME/.bazelrc" "$HOME/dotfiles/bazelrc" <<EOF
-# Import configuration from dotfiles
-import $HOME/dotfiles/bazelrc
-EOF
-
-mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/vim/"{undo,swap,backup}
-
-vscodeUserDir="${XDG_CONFIG_HOME:-$HOME/.config}/Code/User"
-dotfilesVSCodeUserDir="$HOME/dotfiles/Code/User"
-mkdir -p "$vscodeUserDir"
-ln -s "$dotfilesVSCodeUserDir/settings.json" "$vscodeUserDir/settings.json" || echo "$vscodeUserDir/settings.json already exists" 1>&2
-ln -s "$dotfilesVSCodeUserDir/keybindings.json" "$vscodeUserDir/keybindings.json" || echo "$vscodeUserDir/keybindings.json already exists" 1>&2
-
-# TODO(light): ln -f -s "$HOME/dotfiles/git" "${XDG_CONFIG_HOME:-$HOME/.config}/git"
+# POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
+script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
+exec "$chezmoi" init --apply "--source=$script_dir"
