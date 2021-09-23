@@ -25,9 +25,11 @@ export DEBEMAIL={{ get . "email" | default "ross@zombiezen.com" | squote }}
 GPG_TTY="$(tty)"
 export GPG_TTY
 
+{{- if hasKey . "env" }}
 # Machine-local environment variables
 {{- range $k, $v := .env }}
 export {{ $k | upper }}={{ $v | squote }}
+{{- end }}
 {{- end }}
 
 # HGRCPATH reads in files sequentially to build up map, so later entries
