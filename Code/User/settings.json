@@ -7,12 +7,18 @@
     "workbench.editor.labelFormat": "short",
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.wrapTabs": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "workbench.list.smoothScrolling": true,
+    "workbench.sash.size": 8,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 12,
     "window.newWindowDimensions": "offset",
     "window.openFoldersInNewWindow": "on",
+    "window.titleBarStyle": "custom",
     "zenMode.fullScreen": false,
     "editor.cursorSurroundingLines": 2,
     "editor.fontFamily": "'Go Mono', 'Droid Sans Mono', 'Courier New', monospace",
@@ -37,6 +43,7 @@
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
     "vim.gdefault": true,
+    "diffEditor.renderSideBySide": true,
     "go.useLanguageServer": true,
     "go.lintOnSave": "off",
     "go.languageServerExperimentalFeatures": {
@@ -64,11 +71,17 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true
     },
+    "markdownlint.config": {
+        "MD033": false
+    },
     "[markdown]": {
         "editor.tabSize": 2,
         "editor.detectIndentation": true,
         "editor.insertSpaces": true
     },
+    "python.languageServer": "Pylance",
+    "redhat.telemetry.enabled": false,
+    "ruby.useLanguageServer": true,
     "[rust]": {
         "editor.formatOnSave": true,
         "editor.tabSize": 4
@@ -76,17 +89,6 @@
     "terraform-ls.experimentalFeatures": {
         "validateOnSave": true
     },
-    "[terraform]": {
-        "editor.formatOnSave": true
-    },
-    "remote.SSH.remotePlatform": {
-        "buildsnoop-dev": "linux",
-        "MacinCloud": "macOS",
-        "buildagent-vagrant": "linux",
-        "corpmac": "macOS",
-        "vroengard.home.zombiezen.com": "linux"
-    },
-    "diffEditor.renderSideBySide": true,
     "terraform.languageServer": {
         "external": true,
         "pathToBinary": "",
@@ -96,36 +98,20 @@
         "maxNumberOfProblems": 100,
         "trace.server": "off"
     },
-    "files.exclude": {
-        "**/.yb-output": true
+    "[terraform]": {
+        "editor.formatOnSave": true
     },
-    "files.watcherExclude": {
-        "**/.yb-output/**": true
-    },
-    "workbench.editor.wrapTabs": true,
+    "remoteHub.search.download.enabled": true,
     "settingsSync.ignoredSettings": [
-        "window.titleBarStyle",
-        "workbench.editor.wrapTabs",
-        "workbench.panel.defaultLocation",
         "editor.mouseWheelScrollSensitivity",
         "update.enableWindowsBackgroundUpdates",
-        "update.mode"
+        "update.mode",
+        "window.titleBarStyle",
+        "workbench.editor.wrapTabs",
+        "workbench.panel.defaultLocation"
     ],
     "settingsSync.ignoredExtensions": [
-        "foam.foam-vscode",
-        "ban.spellright"
-    ],
-    "window.titleBarStyle": "custom",
-    "workbench.sash.size": 8,
-    "python.languageServer": "Pylance",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "ruby.useLanguageServer": true,
-    "redhat.telemetry.enabled": false,
-    "zigLanguageClient.path": "/home/light/zls/zls",
-    "remoteHub.search.download.enabled": true,
-    "markdownlint.config": {
-        "MD033": false
-    }
+        "ban.spellright",
+        "foam.foam-vscode"
+    ]
 }
