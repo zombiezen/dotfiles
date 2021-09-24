@@ -126,6 +126,6 @@
     "zigLanguageClient.path": "/home/light/zls/zls",
     "remoteHub.search.download.enabled": true,
     "markdownlint.config": {
-        "MD033": false,
+        "MD033": false
     }
 }
