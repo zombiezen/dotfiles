@@ -31,7 +31,8 @@
     "files.associations": {
         "ledger.txt": "ledger",
         "*.erb": "erb",
-        "COMMIT_MSG": "git-commit"  // gg commit message
+        "COMMIT_MSG": "git-commit",
+        "*.hcl": "terraform"
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
@@ -41,6 +42,9 @@
     "go.languageServerExperimentalFeatures": {
         "diagnostics": true
     },
+    "go.vetFlags": [
+        "-printf.funcs=zombiezen.com/go/log.Infof,zombiezen.com/go/log.Errorf,zombiezen.com/go/log.Warnf,zombiezen.com/go/log.Debugf"
+    ],
     "[go]": {
         "editor.insertSpaces": false,
         "editor.detectIndentation": false,
@@ -50,7 +54,9 @@
         }
     },
     "gopls": {
-        "usePlaceholders": true
+        "usePlaceholders": true,
+        "build.experimentalWorkspaceModule": true,
+        "ui.diagnostic.staticcheck": true
     },
     "ledger.binary": "/usr/bin/ledger",
     "[ledger]": {
@@ -58,9 +64,68 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true
     },
+    "[markdown]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": true,
+        "editor.insertSpaces": true
+    },
     "[rust]": {
         "editor.formatOnSave": true,
         "editor.tabSize": 4
     },
-    "window.zoomLevel": 0
+    "terraform-ls.experimentalFeatures": {
+        "validateOnSave": true
+    },
+    "[terraform]": {
+        "editor.formatOnSave": true
+    },
+    "remote.SSH.remotePlatform": {
+        "buildsnoop-dev": "linux",
+        "MacinCloud": "macOS",
+        "buildagent-vagrant": "linux",
+        "corpmac": "macOS",
+        "vroengard.home.zombiezen.com": "linux"
+    },
+    "diffEditor.renderSideBySide": true,
+    "terraform.languageServer": {
+        "external": true,
+        "pathToBinary": "",
+        "args": [
+            "serve"
+        ],
+        "maxNumberOfProblems": 100,
+        "trace.server": "off"
+    },
+    "files.exclude": {
+        "**/.yb-output": true
+    },
+    "files.watcherExclude": {
+        "**/.yb-output/**": true
+    },
+    "workbench.editor.wrapTabs": true,
+    "settingsSync.ignoredSettings": [
+        "window.titleBarStyle",
+        "workbench.editor.wrapTabs",
+        "workbench.panel.defaultLocation",
+        "editor.mouseWheelScrollSensitivity",
+        "update.enableWindowsBackgroundUpdates",
+        "update.mode"
+    ],
+    "settingsSync.ignoredExtensions": [
+        "foam.foam-vscode",
+        "ban.spellright"
+    ],
+    "window.titleBarStyle": "custom",
+    "workbench.sash.size": 8,
+    "python.languageServer": "Pylance",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "ruby.useLanguageServer": true,
+    "redhat.telemetry.enabled": false,
+    "zigLanguageClient.path": "/home/light/zls/zls",
+    "remoteHub.search.download.enabled": true,
+    "markdownlint.config": {
+        "MD033": false,
+    }
 }
