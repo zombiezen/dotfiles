@@ -9,9 +9,9 @@
 {{- end }}
 [push]
 	default = upstream
+{{- if ne .chezmoi.os "windows" }}
 [credential]
 	helper = store
-{{- if ne .chezmoi.os "windows" }}
 [credential "https://source.developers.google.com"]
 	helper =
 	helper = gcloud.sh
