@@ -1,10 +1,21 @@
 UNLICENSE
 README.md
 install.sh
-Code/**
+Code
 
 {{- if eq .chezmoi.os "darwin" }}
-.config/Code/**
+.config/Code
 {{- else }}
 Library/**
+{{- end }}
+
+{{- if eq .chezmoi.os "windows" }}
+.config/**/*
+!.config/git
+!.config/git/**/*
+.hgrc
+.tmux.conf
+.Xresources
+.zshenv
+.zshrc
 {{- end }}

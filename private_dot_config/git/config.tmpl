@@ -3,10 +3,15 @@
 	email = {{ get . "email" | default "ross@zombiezen.com" }}
 [core]
 	commentchar = ";"
+{{- if eq .chezmoi.os "windows" }}
+	autocrlf = false
+	editor = code --wait
+{{- end }}
 [push]
 	default = upstream
 [credential]
 	helper = store
+{{- if ne .chezmoi.os "windows" }}
 [credential "https://source.developers.google.com"]
 	helper =
 	helper = gcloud.sh
@@ -17,3 +22,4 @@
 	pending = codereview pending
 	submit = codereview submit
 	sync = codereview sync
+{{- end }}
