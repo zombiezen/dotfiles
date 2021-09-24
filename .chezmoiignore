@@ -6,7 +6,7 @@ Code
 {{- if eq .chezmoi.os "darwin" }}
 .config/Code
 {{- else }}
-Library/**
+Library
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
@@ -18,4 +18,6 @@ Library/**
 .Xresources
 .zshenv
 .zshrc
+{{- else }}
+AppData
 {{- end }}
