@@ -67,6 +67,7 @@ alias ls="ls -G"
 alias ls="ls --color"
 {{- end }}
 alias GRP="grep -Hn --color"
+alias ED='export EDITOR=vim && echo "ed is the standard text editor" 1>&2'
 alias bzip2="bzip2 -k"
 alias bunzip2="bunzip2 -k"
 
@@ -146,3 +147,21 @@ fi
 if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
   source /usr/share/google-cloud-sdk/completion.zsh.inc
 fi
+
+{{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+  auth_socks=( "${TMPDIR:-/tmp}"/ssh-*/agent.*(N) )
+  for sf in "${auth_socks[@]}"; do
+    [[ -S "$sf" ]] || continue
+    SSH_AUTH_SOCK="$sf" ssh-add -l >& /dev/null
+    if [[ $? -ne 2 ]]; then
+      export SSH_AUTH_SOCK="$sf"
+      break
+    fi
+  done
+  unset auth_socks
+  if [[ -z "$SSH_AUTH_SOCK" ]]; then
+    eval "$(ssh-agent -s)"
+  fi
+fi
+{{- end }}
