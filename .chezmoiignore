@@ -18,6 +18,7 @@ Library
 .Xresources
 .zshenv
 .zshrc
+vim-addons
 {{- else }}
 AppData
 {{- end }}
