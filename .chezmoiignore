@@ -10,6 +10,8 @@ Library
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
+*.sh
+*/**/*.sh
 .config/**/*
 !.config/git
 !.config/git/**/*
