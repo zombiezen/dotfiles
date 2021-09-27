@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.id "debian" -}}
+{{ if eq (get .chezmoi.osRelease "id") "debian" -}}
 #!/bin/bash
 set -euo pipefail
 echo "** Installing packages..." 1>&2

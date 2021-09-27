@@ -148,7 +148,7 @@ if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
   source /usr/share/google-cloud-sdk/completion.zsh.inc
 fi
 
-{{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{ if and (eq .chezmoi.os "linux") (get .chezmoi.kernel "osrelease" | lower | contains "microsoft") -}}
 if [[ -z "$SSH_AUTH_SOCK" ]]; then
   auth_socks=( "${TMPDIR:-/tmp}"/ssh-*/agent.*(N) )
   for sf in "${auth_socks[@]}"; do
