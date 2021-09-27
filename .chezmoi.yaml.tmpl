@@ -11,7 +11,7 @@
 {{- $personal_machines_authorized := false -}}
 {{- if hasKey . "personal_machines_authorized" -}}
 {{-   $personal_machines_authorized = get . "personal_machines_authorized" -}}
-{{- else if $interactive -}}
+{{- else if and $interactive (ne .chezmoi.os "windows") -}}
 {{-   $personal_machines_authorized = promptBool "allow SSH from personal machines" -}}
 {{- end -}}
 sourceDir: {{ .chezmoi.sourceDir | toJson }}
