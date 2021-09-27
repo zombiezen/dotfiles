@@ -1,15 +1,23 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $interactive := and (not $codespaces) stdinIsATTY -}}
 {{- $email := get . "email" -}}
 {{- if not $email -}}
-{{-   if $codespaces -}}
-{{-     $email = "ross@zombiezen.com" -}}
-{{-   else -}}
+{{-   if $interactive -}}
 {{-     $email = promptString "email" -}}
+{{-   else -}}
+{{-     $email = "ross@zombiezen.com" -}}
 {{-   end -}}
+{{- end -}}
+{{- $personal_machines_authorized := false -}}
+{{- if hasKey . "personal_machines_authorized" -}}
+{{-   $personal_machines_authorized = get . "personal_machines_authorized" -}}
+{{- else if $interactive -}}
+{{-   $personal_machines_authorized = promptBool "allow SSH from personal machines" -}}
 {{- end -}}
 sourceDir: {{ .chezmoi.sourceDir | toJson }}
 data:
   email: {{ $email | toJson }}
+  personal_machines_authorized: {{ $personal_machines_authorized }}
   {{- with get . "bin_path" }}
   bin_path: {{ . | toJson }}
   {{- else }}

@@ -1,0 +1,39 @@
+#!/bin/bash
+set -euo pipefail
+content="$(cat)"
+# ensure-key COMMENT KEY
+ensure-key() {
+  if ! echo "$content" | grep -F "$2" > /dev/null; then
+    if [[ -z "$content" ]]; then
+      content="$2 $1"
+    else
+      content="$content"$'\n'"$2 $1"
+    fi
+  fi
+}
+# remove-key COMMENT KEY
+remove-key() {
+  content="$( echo "$content" | grep -v -F "$1" )"
+}
+
+# Allowed Keys
+{{- if .personal_machines_authorized }}
+{{-   range .ssh_keys.personal }}
+ensure-key {{ .comment | squote }} {{ .key | squote }}
+{{-   end }}
+{{- end }}
+
+# Forbidden Keys
+{{- if not .personal_machines_authorized }}
+{{-   range .ssh_keys.personal }}
+remove-key {{ .key | squote }}
+{{-   end }}
+{{- end }}
+
+# Revoked Keys
+{{- range .ssh_keys.revoked }}
+remove-key {{ . | squote }}
+{{- end }}
+
+# Write output
+echo "$content"
