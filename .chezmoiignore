@@ -7,6 +7,11 @@ Code
 .config/Code
 {{- else }}
 Library
+install-brew-packages.sh
+{{- end }}
+
+{{- if ne (get .chezmoi.osRelease "id") "debian" }}
+install-debian-packages.sh
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}

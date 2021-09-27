@@ -1,4 +1,3 @@
-{{ if eq (get .chezmoi.osRelease "id") "debian" -}}
 #!/bin/bash
 set -euo pipefail
 echo "** Installing packages..." 1>&2
@@ -12,4 +11,3 @@ sudo apt-get install \
   tree \
   vim-nox \
   zsh
-{{ end -}}
