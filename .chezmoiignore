@@ -16,6 +16,7 @@ Library
 !.config/git
 !.config/git/**/*
 .hgrc
+.ssh
 .tmux.conf
 .Xresources
 .zshenv
