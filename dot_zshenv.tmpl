@@ -26,11 +26,13 @@ GPG_TTY="$(tty)"
 export GPG_TTY
 
 {{- if .gnome_keyring }}
+
 eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 {{- end }}
 
 {{- if hasKey . "env" }}
+
 # Machine-local environment variables
 {{- range $k, $v := .env }}
 export {{ $k | upper }}={{ $v | squote }}
