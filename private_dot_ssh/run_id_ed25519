@@ -2,7 +2,7 @@
 set -euo pipefail
 dst=id_ed25519
 if [[ ! -e "$dst" && ! -e id_rsa ]]; then
-  ssh-keygen -t ed25519 -f "$dst"
+  ssh-keygen -t ed25519 -f "$dst" -N ''
 fi
 [[ ! -e id_rsa ]] || chmod 600 id_rsa
 [[ ! -e id_ed25519 ]] || chmod 600 id_ed25519
