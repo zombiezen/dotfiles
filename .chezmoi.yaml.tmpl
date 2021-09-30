@@ -15,6 +15,7 @@
 {{-   $personal_machines_authorized = promptBool "allow SSH from personal machines" -}}
 {{- end -}}
 sourceDir: {{ .chezmoi.sourceDir | toJson }}
+encryption: age
 data:
   email: {{ $email | toJson }}
   personal_machines_authorized: {{ $personal_machines_authorized }}
@@ -34,3 +35,10 @@ data:
   terminal_true_colors: {{ if hasKey . "terminal_true_colors" }}{{ .terminal_true_colors }}{{ else }}false{{ end }}
   # If you're on Crostini and want the GNOME keyring daemon, then set to true:
   gnome_keyring: {{ if hasKey . "gnome_keyring" }}{{ .gnome_keyring }}{{ else }}false{{ end }}
+age:
+  identity: ~/.ssh/id_ed25519
+  recipients:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJANWaHUaIJkoLQNT6lqs7rrhoJROhoZgIANy2O/irh8ojIVcNVKoubVczf4xmz592NtehljVyB+NoLsp7SdDVLlAyoJiKcfAMSym4z1350plq8iDsFMybarzqBxsPiLevtoy7WOluYfWqrEbNdcdPJbFLz7T7PFBnQ9sGeq6K/euEHwHpAMJFK5oUrF7dmr+hvzJWGsQv2dDtGY4bRId1t5+uttO8bJqbviXfPGqJ+ngHan/iCpnew9pCrutPmNxo7D0s1atLqRhvOCtPlbQPxoBsPtDraROg0XeH7MMjYw9HjEImJsDTscPhnND6jk3fNp2MmJLKCKJ1A+FiluwV
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAHSifkYAPkqGy/tUiJgYrc+1Mnzfa+Y2Ml9IR0nrCud
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIML94L6Yk4VV0nEhuWstrmjZekpA/rQ/zbhG01CNzqdo
+    - age1ps57ka8nrsjskq8dapdde0rvulj76jjjqtlq5swwxy38ccq4hplq6vvzpn
