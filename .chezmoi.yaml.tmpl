@@ -1,5 +1,12 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
 {{- $interactive := and (not $codespaces) stdinIsATTY -}}
+{{- if hasKey . "interactive" -}}
+{{-   $interactive = .interactive -}}
+{{- end -}}
+{{- $manage_ssh := not $codespaces -}}
+{{- if hasKey . "manage_ssh" -}}
+{{-   $manage_ssh = .manage_ssh -}}
+{{- end -}}
 {{- $email := get . "email" -}}
 {{- if not $email -}}
 {{-   if $interactive -}}
@@ -18,6 +25,8 @@ sourceDir: {{ .chezmoi.sourceDir | toJson }}
 encryption: age
 data:
   email: {{ $email | toJson }}
+  interactive: {{ $interactive }}
+  manage_ssh: {{ $manage_ssh }}
   personal_machines_authorized: {{ $personal_machines_authorized }}
   {{- with get . "bin_path" }}
   bin_path: {{ . | toJson }}
@@ -36,7 +45,18 @@ data:
   # If you're on Crostini and want the GNOME keyring daemon, then set to true:
   gnome_keyring: {{ if hasKey . "gnome_keyring" }}{{ .gnome_keyring }}{{ else }}false{{ end }}
 age:
+  {{- if stat (joinPath .chezmoi.homeDir ".ssh" "id_ed25519") }}
   identity: ~/.ssh/id_ed25519
+  {{- else if stat (joinPath .chezmoi.homeDir ".ssh" "id_rsa") }}
+  identity: ~/.ssh/id_rsa
+  {{- else if stat (joinPath .chezmoi.homeDir "dotfiles-agekey.txt") }}
+  identity: ~/.ssh/dotfiles-agekey.txt
+  {{- else if $manage_ssh }}
+  {{- /* Identity will get generated during run. */}}
+  identity: ~/.ssh/id_ed25519
+  {{- else }}
+  # identity: ~/.ssh/dotfiles-agekey.txt
+  {{- end }}
   recipients:
     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJANWaHUaIJkoLQNT6lqs7rrhoJROhoZgIANy2O/irh8ojIVcNVKoubVczf4xmz592NtehljVyB+NoLsp7SdDVLlAyoJiKcfAMSym4z1350plq8iDsFMybarzqBxsPiLevtoy7WOluYfWqrEbNdcdPJbFLz7T7PFBnQ9sGeq6K/euEHwHpAMJFK5oUrF7dmr+hvzJWGsQv2dDtGY4bRId1t5+uttO8bJqbviXfPGqJ+ngHan/iCpnew9pCrutPmNxo7D0s1atLqRhvOCtPlbQPxoBsPtDraROg0XeH7MMjYw9HjEImJsDTscPhnND6jk3fNp2MmJLKCKJ1A+FiluwV
     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAHSifkYAPkqGy/tUiJgYrc+1Mnzfa+Y2Ml9IR0nrCud

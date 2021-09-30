@@ -30,3 +30,11 @@ vim-addons
 {{- else }}
 AppData
 {{- end }}
+
+{{- if not .interactive }}
+set-shell.sh
+{{- end }}
+
+{{- if not .manage_ssh }}
+.ssh
+{{- end }}

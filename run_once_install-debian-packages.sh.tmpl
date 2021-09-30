@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+sudo_options=({{ if not .interactive }} --non-interactive {{ end }})
+echo "** Installing packages..." 1>&2
+sudo "${sudo_options[@]}" apt-get update
+sudo "${sudo_options[@]}" apt-get install -y --no-install-recommends \
+  apt-transport-https \
+  curl \
+  netcat \
+  psmisc \
+  sshpass \
+  tree \
+  vim-nox \
+  zsh
