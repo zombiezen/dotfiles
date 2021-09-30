@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+run_as_root() {
+  "$@"
+}
+
+{{ template "install-debian-packages.sh" }}

@@ -1,32 +1,9 @@
 #!/bin/bash
+# shellcheck disable=SC0-SC9999
 set -euo pipefail
 
-# shellcheck disable=SC1083
-sudo_options=({{ if not .interactive }} --non-interactive {{ end }})
-gg_source_list=/etc/apt/sources.list.d/gg.list
-gg_keyring_dest=/usr/share/keyrings/gg.asc
+run_as_root() {
+  sudo {{- if not .interactive }} --non-interactive{{ end }} "$@"
+}
 
-echo "** Adding APT repositories..." 1>&2
-if ! sudo "${sudo_options[@]}" test -e "$gg_keyring_dest"; then
-  sudo "${sudo_options[@]}" curl -fsSLo "$gg_keyring_dest" https://gg-scm.io/apt-key.gpg
-fi
-if ! sudo "${sudo_options[@]}" test -e "$gg_source_list"; then
-  echo "deb [signed-by=${gg_keyring_dest}] https://apt.gg-scm.io gg main" | \
-    sudo "${sudo_options[@]}" tee "$gg_source_list" > /dev/null
-  echo "deb-src [signed-by=${gg_keyring_dest}] https://apt.gg-scm.io gg main" | \
-    sudo "${sudo_options[@]}" tee -a "$gg_source_list" > /dev/null
-fi
-
-echo "** Installing packages..." 1>&2
-sudo "${sudo_options[@]}" apt-get update
-sudo "${sudo_options[@]}" apt-get install -y --no-install-recommends \
-  apt-transport-https \
-  curl \
-  gg \
-  git-core \
-  netcat \
-  psmisc \
-  sshpass \
-  tree \
-  vim-nox \
-  zsh
+{{ template "install-debian-packages.sh" }}

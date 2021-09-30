@@ -1,4 +1,5 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $cloudshell := env "CLOUD_SHELL" | not | not -}}
 {{- $interactive := and (not $codespaces) stdinIsATTY -}}
 {{- if hasKey . "interactive" -}}
 {{-   $interactive = .interactive -}}
@@ -26,6 +27,7 @@ encryption: age
 data:
   email: {{ $email | toJson }}
   interactive: {{ $interactive }}
+  cloudshell: {{ $cloudshell }}
   manage_ssh: {{ $manage_ssh }}
   personal_machines_authorized: {{ $personal_machines_authorized }}
   {{- with get . "bin_path" }}

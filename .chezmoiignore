@@ -31,8 +31,13 @@ vim-addons
 AppData
 {{- end }}
 
-{{- if not .interactive }}
+{{- if or (not .interactive) .cloudshell }}
 set-shell.sh
+{{- end }}
+
+{{- if not .cloudshell }}
+.cloudshell
+.customize_environment
 {{- end }}
 
 {{- if not .manage_ssh }}
