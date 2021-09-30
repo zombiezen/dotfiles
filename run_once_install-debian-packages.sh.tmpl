@@ -4,7 +4,7 @@ set -euo pipefail
 # shellcheck disable=SC1083
 sudo_options=({{ if not .interactive }} --non-interactive {{ end }})
 gg_source_list=/etc/apt/sources.list.d/gg.list
-gg_keyring_dest=/usr/share/keyrings/gg.gpg
+gg_keyring_dest=/usr/share/keyrings/gg.asc
 
 echo "** Adding APT repositories..." 1>&2
 if ! sudo "${sudo_options[@]}" test -e "$gg_keyring_dest"; then
