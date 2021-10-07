@@ -10,7 +10,7 @@ Library
 install-brew-packages.sh
 {{- end }}
 
-{{- if ne (get .chezmoi.osRelease "id") "debian" }}
+{{- if and (ne (get .chezmoi.osRelease "id") "debian") (ne (get .chezmoi.osRelease "idLike") "debian") }}
 install-debian-packages.sh
 {{- end }}
 
