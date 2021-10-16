@@ -39,7 +39,8 @@
         "ledger.txt": "ledger",
         "*.erb": "erb",
         "COMMIT_MSG": "git-commit",
-        "*.hcl": "terraform"
+        "*.hcl": "terraform",
+        "*.do": "shellscript"
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
