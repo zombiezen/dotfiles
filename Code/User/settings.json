@@ -40,7 +40,7 @@
         "*.erb": "erb",
         "COMMIT_MSG": "git-commit",
         "*.hcl": "terraform",
-        "*.do": "shellscript"
+        "*.star": "python"
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
