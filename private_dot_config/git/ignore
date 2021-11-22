@@ -34,3 +34,6 @@ Session.vim
 *.tfstate
 *.tfstate.*
 .terraform/
+
+# Redo
+.redo/
