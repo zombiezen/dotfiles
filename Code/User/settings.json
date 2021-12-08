@@ -42,6 +42,10 @@
         "*.hcl": "terraform",
         "*.star": "python"
     },
+    "files.exclude": {
+        "**/.redo": true,
+        "**/.terraform": true
+    },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
     "vim.gdefault": true,
