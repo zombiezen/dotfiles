@@ -9,6 +9,10 @@
 {{- end }}
 [push]
 	default = upstream
+{{- if .force_github_ssh }}
+[url "ssh://git@github.com/"]
+	insteadOf = "https://github.com/"
+{{- end }}
 {{- if ne .chezmoi.os "windows" }}
 [credential]
 	helper = store

@@ -8,6 +8,10 @@
 {{- if hasKey . "manage_ssh" -}}
 {{-   $manage_ssh = .manage_ssh -}}
 {{- end -}}
+{{- $force_github_ssh := false -}}
+{{- if hasKey . "force_github_ssh" -}}
+{{-   $force_github_ssh = .force_github_ssh -}}
+{{- end -}}
 {{- $email := get . "email" -}}
 {{- if not $email -}}
 {{-   if $interactive -}}
@@ -45,6 +49,7 @@ data:
   {{- else }}
   env: {}
   {{- end }}
+  force_github_ssh: {{ $force_github_ssh }}
   # If you're on a particularly nasty system, set to false:
   global_rcs: {{ if hasKey . "global_rcs" }}{{ .global_rcs }}{{ else }}true{{ end }}
   # If your terminal supports true colors, then set to true:
