@@ -35,6 +35,11 @@ data:
   {{- else }}
   bin_path: []
   {{- end }}
+  {{- with get . "zshrc" }}
+  zshrc: {{ . | toJson }}
+  {{- else }}
+  zshrc: []
+  {{- end }}
   {{- with get . "env" }}
   env: {{ . | toJson }}
   {{- else }}

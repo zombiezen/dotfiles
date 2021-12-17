@@ -131,28 +131,9 @@ for cmdname in rails rake rspec rubocop solargraph webpack webpack-dev-server; d
 done
 unset cmdname
 
-## EXTENSIONS ##
-
-# Load zmv: The multi-file move
-autoload -U zmv
-
-# Load completion
-autoload -U compinit
-compinit
-
-compdef __tmux_split_complete VS SP NEWT
-compdef _precommand __wrap_bundle_exec
-
-# The next line enables zsh completion for gcloud.
-if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
-  source "$HOME/google-cloud-sdk/completion.zsh.inc"
-fi
-if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
-  source /usr/share/google-cloud-sdk/completion.zsh.inc
-fi
-
 {{- if and (eq .chezmoi.os "linux") (get .chezmoi.kernel "osrelease" | lower | contains "microsoft") }}
 
+## SSH AGENT ##
 if [[ -z "$SSH_AUTH_SOCK" ]]; then
   auth_socks=( "${TMPDIR:-/tmp}"/ssh-*/agent.*(N) )
   for sf in "${auth_socks[@]}"; do
@@ -167,5 +148,29 @@ if [[ -z "$SSH_AUTH_SOCK" ]]; then
   if [[ -z "$SSH_AUTH_SOCK" ]]; then
     eval "$(ssh-agent -s)"
   fi
+fi
+{{- end }}
+
+## EXTENSIONS ##
+
+# Load zmv: The multi-file move
+autoload -U zmv
+
+# Load completion
+autoload -U compinit
+compinit
+
+compdef __tmux_split_complete VS SP NEWT
+compdef _precommand __wrap_bundle_exec
+
+if [[ -e "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
+  source /usr/share/google-cloud-sdk/completion.zsh.inc
+fi
+{{- range .zshrc }}
+if [[ -e '{{ . }}' ]]; then
+  source '{{ . }}'
 fi
 {{- end }}
