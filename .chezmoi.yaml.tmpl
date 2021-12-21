@@ -1,10 +1,11 @@
+{{- $coder := env "CODER_WORKSPACE_ID" | not | not -}}
 {{- $codespaces := env "CODESPACES" | not | not -}}
 {{- $cloudshell := env "CLOUD_SHELL" | not | not -}}
-{{- $interactive := and (not $codespaces) stdinIsATTY -}}
+{{- $interactive := and (not (or $coder $codespaces)) stdinIsATTY -}}
 {{- if hasKey . "interactive" -}}
 {{-   $interactive = .interactive -}}
 {{- end -}}
-{{- $manage_ssh := not $codespaces -}}
+{{- $manage_ssh := not (or $coder $codespaces) -}}
 {{- if hasKey . "manage_ssh" -}}
 {{-   $manage_ssh = .manage_ssh -}}
 {{- end -}}
