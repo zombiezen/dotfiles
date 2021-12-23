@@ -72,20 +72,21 @@ path=(
   /usr/local/games \
 )
 
-# The next line updates PATH for the Google Cloud SDK.
+# Environment extensions
 if [[ -e "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
-
-# Load Cargo if present.
 if [[ -e "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
-
-# Load RVM if present.
 if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
+{{- range .zshenv }}
+if [[ -e '{{ . }}' ]]; then
+  source '{{ . }}'
+fi
+{{- end }}
 
 # Add any elements that were present in the PATH before to the end of PATH.
 for p1 in "${oldpath[@]}"; do

@@ -45,6 +45,11 @@ data:
   {{- else }}
   zshrc: []
   {{- end }}
+  {{- with get . "zshenv" }}
+  zshenv: {{ . | toJson }}
+  {{- else }}
+  zshenv: []
+  {{- end }}
   {{- with get . "env" }}
   env: {{ . | toJson }}
   {{- else }}
