@@ -2,12 +2,12 @@ UNLICENSE
 README.md
 install.sh
 Code
+nix
 
 {{- if eq .chezmoi.os "darwin" }}
 .config/Code
 {{- else }}
 Library
-install-brew-packages.sh
 {{- end }}
 
 {{- if and (ne (get .chezmoi.osRelease "id") "debian") (ne (get .chezmoi.osRelease "idLike") "debian") }}
