@@ -37,3 +37,8 @@ Session.vim
 
 # Redo
 .redo/
+
+# Nix
+result
+result-*
+.nix-shell

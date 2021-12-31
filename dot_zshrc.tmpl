@@ -89,6 +89,19 @@ open() {
 }
 {{- end }}
 
+save-nix-shell() {
+  if [[ $# -gt 1 ]]; then
+    echo "usage: save-nix-shell [FILE]" 1>&2
+    return 64
+  fi
+  local shellfile="${1:-shell.nix}"
+  nix-build -o "$(dirname "$shellfile")/.nix-shell" "$shellfile" -A inputDerivation
+}
+
+GOWEB() {
+  GOMAXPROCS=8 nice godoc -http=localhost:6060 "$@"
+}
+
 # tmux
 
 VS() { tmux split-window -h "$*" }
@@ -96,10 +109,6 @@ SP() { tmux split-window -v "$*" }
 NEWT() { tmux new-window "$*" }
 
 CLR() { clear && tmux clear-history }
-
-GOWEB() {
-  GOMAXPROCS=8 nice godoc -http=localhost:6060 "$@"
-}
 
 # Ruby
 
