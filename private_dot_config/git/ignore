@@ -28,7 +28,8 @@
 Session.vim
 .netrwhist
 # VSCode
-.vscode/ipch/
+**/.vscode/ipch/
+**/.vscode/settings.json
 
 # Terraform temporary files
 *.tfstate
