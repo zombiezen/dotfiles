@@ -9,6 +9,7 @@ echo "** Installing Nix packages..." 1>&2
 nix-env \
   --file '{{ .chezmoi.sourceDir }}/nix' \
   --install --attr \
+  nixpkgs._1password \
   nixpkgs.age \
   nixpkgs.cargo \
   nixpkgs.colordiff \
