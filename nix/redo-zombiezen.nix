@@ -13,6 +13,22 @@ rustPlatform.buildRustPackage rec {
   cargoHash = "sha256-0i7c5/rlMiwy144G3JVlIeH8op8NJzvSmqLRwclS6rg=";
   cargoTestFlags = ["--lib" "--bins" "--examples"];
 
+  postInstall = ''
+    for name in \
+        redo-always \
+        redo-ifchange \
+        redo-ifcreate \
+        redo-log \
+        redo-ood \
+        redo-sources \
+        redo-stamp \
+        redo-targets \
+        redo-unlocked \
+        redo-whichdo; do
+      ln -s redo "$out/bin/$name"
+    done
+  '';
+
   meta = with lib; {
     description = "Port of apenwarr's redo to Rust";
     homepage = "https://github.com/zombiezen/redo-rs";
