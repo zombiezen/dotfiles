@@ -34,6 +34,6 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/zombiezen/redo-rs";
     license = licenses.asl20;
     mainProgram = "redo";
-    platforms = platforms.linux ++ platforms.darwin;
+    platforms = [ "x86_64-linux" "i686-linux" "x86_64-darwin" ];
   };
 }
