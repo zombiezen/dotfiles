@@ -8,6 +8,7 @@ fi
 echo "** Installing Nix packages..." 1>&2
 nix-env \
   --file '{{ .chezmoi.sourceDir }}/nix' \
+  --profile "/nix/var/nix/profiles/per-user/$USER/profile" \
   --install --attr \
   nixpkgs._1password \
   nixpkgs.age \
