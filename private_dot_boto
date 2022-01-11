@@ -1,0 +1,2 @@
+[GSUtil]
+parallel_composite_upload_threshold = 1073741824
