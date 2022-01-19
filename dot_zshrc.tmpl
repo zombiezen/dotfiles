@@ -89,6 +89,10 @@ open() {
 }
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
+alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
+{{- end }}
+
 save-nix-shell() {
   if [[ $# -gt 1 ]]; then
     echo "usage: save-nix-shell [FILE]" 1>&2
