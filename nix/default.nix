@@ -1,5 +1,5 @@
 rec {
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/6f05cfdb1e78d36c0337516df674560e4b51c79b.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/cc68710784ffe0ee035ee7b726656c44566cac94.tar.gz") {
     overlays = [
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
@@ -28,6 +28,7 @@ rec {
       graphviz-nox
       heroku
       hugo
+      ivy
       jq
       ledger
       mercurial
