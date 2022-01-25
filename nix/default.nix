@@ -32,6 +32,7 @@ rec {
       ledger
       mercurial
       netcat-gnu
+      nix-prefetch-github
       nodejs-16_x
       redo-zombiezen
       rust-analyzer
