@@ -46,6 +46,7 @@ rec {
       tree
       vim_configurable
     ;
+    inherit (nixpkgs.nodePackages) node2nix;
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
     glibcLocales = glibcLocales.override {
       allLocales = false;
