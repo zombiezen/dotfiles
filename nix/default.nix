@@ -1,5 +1,5 @@
-rec {
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/cc68710784ffe0ee035ee7b726656c44566cac94.tar.gz") {
+let
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/942b0817e898262cc6e3f0a5f706ce09d8f749f1.tar.gz") {
     overlays = [
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
@@ -8,8 +8,13 @@ rec {
     ];
   };
 
-  mypkgs = with nixpkgs; {
-    inherit
+  inherit (nixpkgs) lib glibcLocales;
+in
+{
+  inherit nixpkgs;
+
+  mypkgs = {
+    inherit (nixpkgs)
       _1password
       age
       cargo
@@ -24,7 +29,6 @@ rec {
       go_1_17
       gohack
       google-cloud-sdk
-      gopls
       graphviz-nox
       heroku
       hugo
@@ -47,6 +51,10 @@ rec {
       vim_configurable
     ;
     inherit (nixpkgs.nodePackages) node2nix;
+
+    gopls = nixpkgs.gopls.override {
+      buildGoModule = nixpkgs.buildGo118Module;
+    };
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
     glibcLocales = glibcLocales.override {
       allLocales = false;
