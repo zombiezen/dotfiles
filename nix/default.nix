@@ -1,5 +1,5 @@
 let
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/942b0817e898262cc6e3f0a5f706ce09d8f749f1.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/74b10859829153d5c5d50f7c77b86763759e8654.tar.gz") {
     overlays = [
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
