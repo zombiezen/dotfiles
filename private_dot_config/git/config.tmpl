@@ -14,6 +14,8 @@
 	insteadOf = "https://github.com/"
 {{- end }}
 {{- if ne .chezmoi.os "windows" }}
+[http]
+	cookiefile = {{ .chezmoi.homeDir }}/.gitcookies
 [credential]
 	helper = store
 [credential "https://source.developers.google.com"]
