@@ -2,6 +2,7 @@ let
   nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/74b10859829153d5c5d50f7c77b86763759e8654.tar.gz") {
     overlays = [
       (self: super: {
+        gg-scm = super.callPackage ./gg-scm.nix {};
         gohack = super.callPackage ./gohack.nix {};
         redo-zombiezen = super.callPackage ./redo-zombiezen.nix {};
       })
