@@ -10,7 +10,8 @@ buildGoModule rec {
     rev = "v${version}";
     sha256 = "BNBIz7X1vaE9J0NdywO1WgZq+0uO7tlCtZBEkM900p0=";
   };
-  vendorSha256 = "CO1zyEFbu/vGgYzZUtOAypkcQTwVoVqB0OFsx3vdyEA=";
+  proxyVendor = true;
+  vendorSha256 = "9RRiMxTreb+3qEsu60D0co6jTivyEsiTjF04f2VXyaQ=";
 
   # TODO(soon): Various problems with testscript
   doCheck = false;
