@@ -24,6 +24,7 @@ in
       gcrane
       gg-scm
       git
+      git-lfs
       gnupg
       go-font
       go_1_17
