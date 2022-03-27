@@ -69,7 +69,8 @@
     "gopls": {
         "usePlaceholders": true,
         "build.experimentalWorkspaceModule": true,
-        "ui.diagnostic.staticcheck": true
+        "ui.diagnostic.staticcheck": true,
+        "ui.semanticTokens": true
     },
     "ledger.binary": "/usr/bin/ledger",
     "[ledger]": {
