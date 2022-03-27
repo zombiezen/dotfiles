@@ -1,5 +1,5 @@
 let
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/e9545762b032559c27d8ec9141ed63ceca1aa1ac.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/30d3d79b7d3607d56546dd2a6b49e156ba0ec634.tar.gz") {
     overlays = [
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
@@ -27,9 +27,10 @@ in
       git-lfs
       gnupg
       go-font
-      go_1_17
+      go_1_18
       gohack
       google-cloud-sdk
+      gopls
       graphviz-nox
       heroku
       hugo
@@ -52,10 +53,6 @@ in
       vim_configurable
     ;
     inherit (nixpkgs.nodePackages) node2nix;
-
-    gopls = nixpkgs.gopls.override {
-      buildGoModule = nixpkgs.buildGo118Module;
-    };
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
     glibcLocales = glibcLocales.override {
       allLocales = false;
