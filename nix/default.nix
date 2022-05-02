@@ -27,6 +27,7 @@ in
       git-lfs
       gnupg
       go-font
+      go-outline
       go_1_18
       gohack
       google-cloud-sdk
