@@ -10,6 +10,7 @@ let
 
   inherit (nixpkgs) lib glibcLocales;
 in
+{ discord ? false }:
 {
   inherit nixpkgs;
 
@@ -17,7 +18,6 @@ in
     inherit (nixpkgs)
       _1password
       age
-      cargo
       colordiff
       crane
       delve
@@ -30,22 +30,13 @@ in
       go-outline
       go_1_18
       gohack
-      google-cloud-sdk
       gopls
       graphviz-nox
-      heroku
-      hugo
       ivy
       jq
-      ledger
       mercurial
       netcat-gnu
       nix-prefetch-github
-      nodejs-16_x
-      redo-zombiezen
-      rust-analyzer
-      rustc
-      rustfmt
       shellcheck
       subversionClient
       sqlite-interactive
@@ -54,6 +45,25 @@ in
       vim_configurable
     ;
     inherit (nixpkgs.nodePackages) node2nix;
+  } // lib.optionalAttrs (!discord) {
+    # Install these in non-work environments.
+    # Use managed versions at work.
+    inherit (nixpkgs)
+      cargo
+      google-cloud-sdk
+      nodejs-16_x
+      rust-analyzer
+      rustc
+      rustfmt
+    ;
+
+    # These packages are only useful outside of work.
+    inherit (nixpkgs)
+      heroku
+      hugo
+      ledger
+      redo-zombiezen
+    ;
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
     glibcLocales = glibcLocales.override {
       allLocales = false;
