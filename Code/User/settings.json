@@ -8,7 +8,7 @@
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 10,
     "workbench.editor.limit.perEditorGroup": true,
-    "workbench.editor.wrapTabs": false,
+    "workbench.editor.wrapTabs": true,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
@@ -32,7 +32,7 @@
     "editor.wrappingIndent": "indent",
     "editor.lineNumbers": "off",
     "editor.renderWhitespace": "trailing",
-    "editor.rulers": [72, 80, 100],
+    "editor.rulers": [80, 100],
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.associations": {
