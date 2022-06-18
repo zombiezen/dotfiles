@@ -32,6 +32,7 @@ in
       gohack
       gopls
       graphviz-nox
+      grpcurl
       ivy
       jq
       mercurial
@@ -62,6 +63,7 @@ in
       heroku
       hugo
       ledger
+      postman
       redo-zombiezen
     ;
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
