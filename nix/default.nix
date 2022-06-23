@@ -56,6 +56,7 @@ in
       rust-analyzer
       rustc
       rustfmt
+      yarn
     ;
 
     # These packages are only useful outside of work.
