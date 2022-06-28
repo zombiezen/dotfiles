@@ -81,6 +81,21 @@ ll() { ls -l -h "$@" }
 pdb() { python -m pdb "$@" }
 mkcd() { mkdir "$@" && cd "${@[-1]}" }
 
+gitroot() {
+  case $# in
+    0)
+      git rev-parse --show-toplevel
+      ;;
+    1)
+      git -C "$1" rev-parse --show-toplevel
+      ;;
+    *)
+      echo "usage: gitroot [DIR]" 1>&2
+      return 64
+      ;;
+  esac
+}
+
 {{- if ne .chezmoi.os "darwin" }}
 open() {
   for arg in "$@"; do
