@@ -2,6 +2,7 @@ let
   nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/41cc1d5d9584103be4108c1815c350e07c807036.tar.gz") {
     overlays = [
       (self: super: {
+        ghz = super.callPackage ./ghz.nix {};
         gohack = super.callPackage ./gohack.nix {};
         redo-zombiezen = super.callPackage ./redo-zombiezen.nix {};
       })
@@ -24,6 +25,7 @@ in
       delve
       gcrane
       gg-scm
+      ghz
       git
       git-lfs
       gnupg
