@@ -18,6 +18,7 @@ in
     inherit (nixpkgs)
       _1password
       age
+      bloaty
       colordiff
       crane
       delve
