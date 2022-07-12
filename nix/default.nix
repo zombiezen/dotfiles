@@ -1,5 +1,5 @@
 let
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/41cc1d5d9584103be4108c1815c350e07c807036.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/85deee6d6c8127d360096a5caa0aeb876b976496.tar.gz") {
     overlays = [
       (self: super: {
         ghz = super.callPackage ./ghz.nix {};
