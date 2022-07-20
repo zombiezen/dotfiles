@@ -55,6 +55,8 @@
     "go.languageServerExperimentalFeatures": {
         "diagnostics": true
     },
+    "go.inlayHints.constantValues": true,
+    "go.inlayHints.parameterNames": true,
     "go.vetFlags": [
         "-printf.funcs=zombiezen.com/go/log.Infof,zombiezen.com/go/log.Errorf,zombiezen.com/go/log.Warnf,zombiezen.com/go/log.Debugf"
     ],
