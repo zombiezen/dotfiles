@@ -43,3 +43,7 @@ Session.vim
 result
 result-*
 .nix-shell
+
+# direnv
+.envrc
+.env

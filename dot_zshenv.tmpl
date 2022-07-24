@@ -112,3 +112,10 @@ unset p1 p2 oldpath
 if whence -p code 2>&1 > /dev/null; then
   EDITOR='code --wait'
 fi
+
+{{- if eq .chezmoi.os "linux" }}
+# VSCode seems to not set XDG_RUNTIME_DIR sometimes in SSH.
+if [[ -z "${XDG_RUNTIME_DIR:-}" ]]; then
+  export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+fi
+{{- end }}

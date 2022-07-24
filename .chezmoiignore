@@ -10,6 +10,10 @@ nix
 Library
 {{- end }}
 
+{{- if ne .chezmoi.os "linux" }}
+.config/systemd
+{{- end }}
+
 {{- if and (ne (get .chezmoi.osRelease "id") "debian") (ne (get .chezmoi.osRelease "idLike") "debian") }}
 install-debian-packages.sh
 {{- end }}

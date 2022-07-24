@@ -197,6 +197,9 @@ fi
 if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
   source /usr/share/google-cloud-sdk/completion.zsh.inc
 fi
+{{- if not (contains "discordapp.com" ( get . "email" | default "ross@zombiezen.com" )) }}
+eval "$(direnv hook zsh)"
+{{- end }}
 {{- range .zshrc }}
 if [[ -e '{{ . }}' ]]; then
   source '{{ . }}'

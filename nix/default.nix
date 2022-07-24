@@ -64,9 +64,11 @@ in
 
     # These packages are only useful outside of work.
     inherit (nixpkgs)
+      direnv
       heroku
       hugo
       ledger
+      lorri
       postman
       redo-zombiezen
     ;
