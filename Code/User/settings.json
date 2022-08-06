@@ -33,6 +33,7 @@
     "editor.lineNumbers": "off",
     "editor.renderWhitespace": "trailing",
     "editor.rulers": [80, 100],
+    "editor.inlayHints.enabled": "offUnlessPressed",
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.associations": {
