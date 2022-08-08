@@ -121,6 +121,15 @@ GOWEB() {
   GOMAXPROCS=8 nice godoc -http=localhost:6060 "$@"
 }
 
+mkruntimedir() {
+  if [[ -z "${XDG_RUNTIME_DIR:-}" ]]; then
+    echo '$XDG_RUNTIME_DIR not set' 1>&2
+    return 1
+  fi
+  sudo bash -c \
+    "mkdir -p '$XDG_RUNTIME_DIR' && chown $(id -u):$(id -g) '$XDG_RUNTIME_DIR' && chmod 700 '$XDG_RUNTIME_DIR'"
+}
+
 # tmux
 
 VS() { tmux split-window -h "$*" }
