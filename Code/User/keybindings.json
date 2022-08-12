@@ -77,5 +77,26 @@
         "key": "ctrl+shift+;",
         "command": "workbench.action.tasks.runTask",
         "when": "isLinux"
-    }
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.terminal.runRecentCommand",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {"text": "\u0012"/*^R*/ },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.quickOpenNavigateNextInViewPicker",
+        "when": "inQuickOpen && inTerminalRunCommandPicker"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen && inTerminalRunCommandPicker"
+    },
 ]
