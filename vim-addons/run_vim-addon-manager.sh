@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 dst=vim-addon-manager
 if [[ ! -d "$dst" ]]; then

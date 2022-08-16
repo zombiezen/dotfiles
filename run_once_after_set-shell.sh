@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 want=/bin/zsh
 if [[ -x "$want" && "$( basename "$SHELL" )" != "$( basename "$want" )" ]]; then
