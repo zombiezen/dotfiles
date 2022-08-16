@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# email hash: {{ get . "email" | default "ross@zombiezen.com" | sha256sum }}
+# nix/default.nix hash: {{ include "nix/default.nix" | sha256sum }}
+# nix/ghz.nix hash: {{ include "nix/ghz.nix" | sha256sum }}
+# nix/gohack.nix hash: {{ include "nix/gohack.nix" | sha256sum }}
+# nix/redo-zombiezen.nix hash: {{ include "nix/redo-zombiezen.nix" | sha256sum }}
+
 set -euo pipefail
 if ! command -v nix-env > /dev/null; then
   echo "** warning: nix not installed" 1>&2
