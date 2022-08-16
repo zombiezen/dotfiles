@@ -1,0 +1,9 @@
+[Unit]
+Description=VSCode server directory
+
+[Path]
+MakeDirectory=true
+PathChanged={{ .chezmoi.homeDir }}/.vscode-server/bin
+
+[Install]
+WantedBy=paths.target

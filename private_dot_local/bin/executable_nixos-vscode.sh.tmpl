@@ -1,0 +1,7 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash --pure {{ .chezmoi.sourceDir }}/nix --attr nixos-vscode-shell
+set -euo pipefail
+
+serverbin="$HOME/.vscode-server/bin"
+find "$serverbin" -mindepth 2 -maxdepth 2 -name node -exec ln -sfT "$(command -v node)" {} \;
+find "$serverbin" -path '*/@vscode/ripgrep/bin/rg' -exec ln -sfT "$(command -v rg)" {} \;

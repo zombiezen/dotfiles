@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# nixos-vscode.path hash: {{ include "private_dot_config/systemd/user/nixos-vscode.path.tmpl" | sha256sum }}
+# nixos-vscode.service hash: {{ include "private_dot_config/systemd/user/nixos-vscode.service.tmpl" | sha256sum }}
+
+set -euo pipefail
+systemctl daemon-reload --user
+systemctl enable --user nixos-vscode.path
+systemctl start --user nixos-vscode.path

@@ -1,0 +1,7 @@
+[Unit]
+Description=Fix VSCode server for SSH
+
+[Service]
+Type=oneshot
+Environment=PATH=/run/current-system/sw/bin:/usr/bin:/bin
+ExecStart={{ .chezmoi.homeDir }}/.local/bin/nixos-vscode.sh

@@ -2,6 +2,7 @@ UNLICENSE
 README.md
 install.sh
 Code
+.vscode
 nix
 
 {{- if eq .chezmoi.os "darwin" }}
@@ -16,6 +17,12 @@ Library
 
 {{- if and (ne (get .chezmoi.osRelease "id") "debian") (ne (get .chezmoi.osRelease "idLike") "debian") }}
 install-debian-packages.sh
+{{- end }}
+
+{{- if and (ne (get .chezmoi.osRelease "id") "nixos") }}
+.local/bin/nixos-vscode.sh
+.config/systemd/user/nixos-vscode.*
+.config/systemd/user/enable-nixos-vscode.sh
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}

@@ -78,4 +78,17 @@ in
       locales = [ "C.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
     };
   };
+
+  # Environment for ~/.local/bin/nixos-vscode.sh
+  nixos-vscode-shell = nixpkgs.mkShell {
+    packages = [
+      nixpkgs.bash
+      nixpkgs.coreutils
+      nixpkgs.findutils
+
+      # VSCode dependencies
+      nixpkgs.nodejs-16_x
+      nixpkgs.ripgrep
+    ];
+  };
 }
