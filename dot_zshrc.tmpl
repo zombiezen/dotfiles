@@ -4,7 +4,7 @@
 
 ## PROMPT ##
 
-precmd() {
+function precmd {
   vcs_info
 }
 
@@ -77,11 +77,11 @@ alias bunzip2="bunzip2 -k"
 alias -g pgd="| ${PAGER-less}"
 alias -g cdf="| colordiff"
 
-ll() { ls -l -h "$@" }
-pdb() { python -m pdb "$@" }
-mkcd() { mkdir "$@" && cd "${@[-1]}" }
+function ll { ls -l -h "$@" }
+function pdb { python -m pdb "$@" }
+function mkcd { mkdir "$@" && cd "${@[-1]}" }
 
-gitroot() {
+function gitroot {
   case $# in
     0)
       git rev-parse --show-toplevel
@@ -97,7 +97,7 @@ gitroot() {
 }
 
 {{- if ne .chezmoi.os "darwin" }}
-open() {
+function open {
   for arg in "$@"; do
     xdg-open "$arg"
   done
@@ -108,7 +108,7 @@ open() {
 alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 {{- end }}
 
-save-nix-shell() {
+function save-nix-shell {
   if [[ $# -gt 1 ]]; then
     echo "usage: save-nix-shell [FILE]" 1>&2
     return 64
@@ -117,7 +117,7 @@ save-nix-shell() {
   nix-build -o "$(dirname "$shellfile")/.nix-shell" "$shellfile" -A inputDerivation
 }
 
-GOWEB() {
+function GOWEB {
   GOMAXPROCS=8 nice godoc -http=localhost:6060 "$@"
 }
 
@@ -132,17 +132,17 @@ mkruntimedir() {
 
 # tmux
 
-VS() { tmux split-window -h "$*" }
-SP() { tmux split-window -v "$*" }
-NEWT() { tmux new-window "$*" }
+function VS { tmux split-window -h "$*" }
+function SP { tmux split-window -v "$*" }
+function NEWT { tmux new-window "$*" }
 
-CLR() { clear && tmux clear-history }
+function CLR { clear && tmux clear-history }
 
 # Ruby
 
 alias bx='bundle exec'
 
-__wrap_bundle_exec() {
+function __wrap_bundle_exec {
   local dir="$(pwd)"
   local found_gemfile=0
   while true; do
