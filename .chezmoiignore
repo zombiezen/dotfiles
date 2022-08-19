@@ -32,6 +32,7 @@ install-debian-packages.sh
 !.config/git
 !.config/git/**/*
 .hgrc
+.local
 .ssh
 .tmux.conf
 .Xresources
