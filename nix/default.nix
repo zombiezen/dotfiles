@@ -36,6 +36,7 @@ in
       gopls
       graphviz-nox
       grpcurl
+      htop
       ivy
       jq
       mercurial
