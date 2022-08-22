@@ -53,6 +53,12 @@
     "githubPullRequests.telemetry.enabled": false,
     "vim.gdefault": true,
     "diffEditor.renderSideBySide": true,
+    "[diff]": {
+        "editor.renderWhitespace": "all",
+        "editor.trimAutoWhitespace": false,
+        "files.insertFinalNewline": false,
+        "files.trimTrailingWhitespace": false,
+    },
     "go.useLanguageServer": true,
     "go.lintOnSave": "off",
     "go.languageServerExperimentalFeatures": {
