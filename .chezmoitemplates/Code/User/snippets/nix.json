@@ -1,0 +1,7 @@
+{
+  "nixpkgs": {
+    "prefix": "nixpkgs",
+    "body": "import (fetchTarball \"https://github.com/NixOS/nixpkgs/archive/${1:nixpkgs-unstable}.tar.gz\") {}",
+    "description": "Import the nixpkgs tarball",
+  }
+}
