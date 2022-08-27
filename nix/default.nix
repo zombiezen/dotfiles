@@ -20,9 +20,11 @@ in
       _1password
       age
       bloaty
+      chezmoi
       colordiff
       crane
       delve
+      file
       gcrane
       gg-scm
       ghz
@@ -47,7 +49,9 @@ in
       sqlite-interactive
       terraform
       tree
+      unzip
       vim_configurable
+      zip
     ;
     inherit (nixpkgs.nodePackages) node2nix;
   } // lib.optionalAttrs (!discord) {
@@ -70,7 +74,6 @@ in
       hugo
       ledger
       lorri
-      postman
       redo-zombiezen
     ;
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
