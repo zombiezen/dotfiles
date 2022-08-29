@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# shellcheck disable=SC0-SC9999
-set -euo pipefail
-
-run_as_root() {
-  sudo {{- if not .interactive }} --non-interactive{{ end }} "$@"
-}
-
-{{ template "install-debian-packages.sh" }}
