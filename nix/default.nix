@@ -54,6 +54,9 @@ in
       zip
     ;
     inherit (nixpkgs.nodePackages) node2nix;
+  } // lib.optionalAttrs nixpkgs.targetPlatform.isLinux {
+    inherit (nixpkgs)
+      psmisc;
   } // lib.optionalAttrs (!discord) {
     # Install these in non-work environments.
     # Use managed versions at work.
