@@ -24,6 +24,7 @@ in
       colordiff
       crane
       delve
+      dig
       file
       gcrane
       gg-scm
