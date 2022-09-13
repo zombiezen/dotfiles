@@ -92,8 +92,11 @@ in
       nixpkgs.bash
       nixpkgs.coreutils
       nixpkgs.findutils
-
-      # VSCode dependencies
+    ];
+  };
+  nixos-vscode-deps = nixpkgs.symlinkJoin {
+    name = "nixos-vscode";
+    paths = [
       nixpkgs.nodejs-16_x
       nixpkgs.ripgrep
     ];

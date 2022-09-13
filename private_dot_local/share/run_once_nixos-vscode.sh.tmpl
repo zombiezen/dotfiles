@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# nix/default.nix hash: {{ include "nix/default.nix" | sha256sum }}
+nix_dir='{{ .chezmoi.sourceDir }}/nix'
+
+nix-build "$nix_dir" \
+  --out-link nixos-vscode \
+  --attr nixos-vscode-deps \
+  > /dev/null

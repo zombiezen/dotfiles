@@ -21,6 +21,7 @@ install-debian-packages.sh
 
 {{- if and (ne (get .chezmoi.osRelease "id") "nixos") }}
 .local/bin/nixos-vscode.sh
+.local/share/nixos-vscode.sh
 .config/systemd/user/nixos-vscode.*
 .config/systemd/user/enable-nixos-vscode.sh
 {{- end }}
