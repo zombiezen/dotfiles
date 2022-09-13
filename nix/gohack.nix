@@ -11,7 +11,7 @@ buildGoModule rec {
     sha256 = "BNBIz7X1vaE9J0NdywO1WgZq+0uO7tlCtZBEkM900p0=";
   };
   proxyVendor = true;
-  vendorSha256 = "9RRiMxTreb+3qEsu60D0co6jTivyEsiTjF04f2VXyaQ=";
+  vendorHash = "sha256-JFCk0fj/HQTboR2Uc9iyKT4yjzIqdOkuqv2Rf5zRwfA=";
 
   # TODO(soon): Various problems with testscript
   doCheck = false;

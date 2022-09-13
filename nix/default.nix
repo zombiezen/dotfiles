@@ -1,8 +1,7 @@
 let
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/85deee6d6c8127d360096a5caa0aeb876b976496.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/a0b7e70db7a55088d3de0cc370a59f9fbcc906c3.tar.gz") {
     overlays = [
       (self: super: {
-        ghz = super.callPackage ./ghz.nix {};
         gohack = super.callPackage ./gohack.nix {};
         redo-zombiezen = super.callPackage ./redo-zombiezen.nix {};
       })
@@ -34,7 +33,7 @@ in
       gnupg
       go-font
       go-outline
-      go_1_18
+      go_1_19
       gohack
       gopls
       graphviz-nox
