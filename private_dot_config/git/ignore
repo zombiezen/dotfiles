@@ -44,6 +44,5 @@ result
 result-*
 .nix-shell
 
-# direnv
-.envrc
+# Environment variable files
 .env
