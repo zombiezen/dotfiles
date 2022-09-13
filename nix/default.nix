@@ -4,6 +4,9 @@ let
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
         redo-zombiezen = super.callPackage ./redo-zombiezen.nix {};
+        gopls = super.gopls.override {
+          buildGoModule = self.buildGo119Module;
+        };
       })
     ];
   };
