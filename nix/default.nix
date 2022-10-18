@@ -13,7 +13,7 @@ let
 
   inherit (nixpkgs) lib glibcLocales;
 in
-{ discord ? false }:
+{ discord ? false, gui ? false }:
 {
   inherit nixpkgs;
 
@@ -81,6 +81,11 @@ in
       ledger
       lorri
       redo-zombiezen
+    ;
+  } // lib.optionalAttrs (gui && !discord) {
+    inherit (nixpkgs)
+      postman
+      zotero
     ;
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
     glibcLocales = glibcLocales.override {

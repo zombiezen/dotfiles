@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # email hash: {{ get . "email" | default "ross@zombiezen.com" | sha256sum }}
+# gui: {{ get . "gui" }}
 # nix/default.nix hash: {{ include "nix/default.nix" | sha256sum }}
 # nix/gohack.nix hash: {{ include "nix/gohack.nix" | sha256sum }}
 # nix/redo-zombiezen.nix hash: {{ include "nix/redo-zombiezen.nix" | sha256sum }}
@@ -11,10 +12,11 @@ if ! command -v nix-env > /dev/null; then
 fi
 
 echo "** Installing Nix packages..." 1>&2
+discord='{{ contains "discordapp.com" ( get . "email" | default "ross@zombiezen.com" ) }}'
+gui='{{ get . "gui" | default false }}'
 nix-env \
   --file '{{ .chezmoi.sourceDir }}/nix' \
   --profile "/nix/var/nix/profiles/per-user/$USER/profile" \
-  {{- if contains "discordapp.com" ( get . "email" | default "ross@zombiezen.com" ) }}
-  --arg discord true \
-  {{- end }}
+  --arg discord "$discord" \
+  --arg gui "$gui" \
   --install --attr mypkgs
