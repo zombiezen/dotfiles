@@ -7,20 +7,34 @@
 	autocrlf = false
 	editor = code --wait
 {{- end }}
+
 [push]
 	default = upstream
+
 {{- if .force_github_ssh }}
 [url "ssh://git@github.com/"]
 	insteadOf = "https://github.com/"
 {{- end }}
+
 {{- if ne .chezmoi.os "windows" }}
-[http]
-	cookiefile = {{ .chezmoi.homeDir }}/.gitcookies
 [credential]
 	helper = store
+{{- end }}
+
 [credential "https://source.developers.google.com"]
 	helper =
+{{- if eq .chezmoi.os "windows" }}
+	helper = gcloud.cmd
+{{- else }}
 	helper = gcloud.sh
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+
+[http]
+	cookiefile = {{ .chezmoi.homeDir }}/.gitcookies
+{{- end }}
+
 [alias]
 	change = codereview change
 	gofmt = codereview gofmt
@@ -28,7 +42,7 @@
 	pending = codereview pending
 	submit = codereview submit
 	sync = codereview sync
-{{- end }}
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
