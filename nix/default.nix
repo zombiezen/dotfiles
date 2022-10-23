@@ -80,7 +80,6 @@ in
       hugo
       ledger
       lorri
-      redo-zombiezen
     ;
   } // lib.optionalAttrs (gui && !discord) {
     inherit (nixpkgs)
