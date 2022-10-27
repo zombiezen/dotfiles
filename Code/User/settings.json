@@ -43,7 +43,8 @@
         "*.erb": "erb",
         "COMMIT_MSG": "git-commit",
         "*.hcl": "terraform",
-        "*.star": "python"
+        "*.star": "python",
+        "*.gs": "javascript"
     },
     "files.exclude": {
         "**/.redo": true,
