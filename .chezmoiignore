@@ -55,6 +55,10 @@ set-shell.sh
 .customize_environment
 {{- end }}
 
+{{- if not .codespaces }}
+set-timezone.sh
+{{- end }}
+
 {{- if not .manage_ssh }}
 .ssh
 {{- end }}

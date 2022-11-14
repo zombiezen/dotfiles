@@ -33,6 +33,7 @@ data:
   email: {{ $email | toJson }}
   interactive: {{ $interactive }}
   gui: {{ if hasKey . "gui" }}{{ .gui }}{{ else }}false{{ end }}
+  codespaces: {{ $codespaces }}
   cloudshell: {{ $cloudshell }}
   manage_ssh: {{ $manage_ssh }}
   personal_machines_authorized: {{ $personal_machines_authorized }}
