@@ -6,9 +6,10 @@ Code
 .vscode
 nix
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- if or (eq .chezmoi.os "darwin") (not .gui) }}
 .config/Code
-{{- else }}
+{{- end }}
+{{- if ne .chezmoi.os "darwin" }}
 Library
 {{- end }}
 
