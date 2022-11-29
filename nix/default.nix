@@ -45,7 +45,7 @@ in
       ivy
       jq
       mercurial
-      netcat-gnu
+      netcat-openbsd
       nix-prefetch-github
       shellcheck
       subversionClient
