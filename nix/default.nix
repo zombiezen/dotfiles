@@ -1,5 +1,5 @@
 let
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/a0b7e70db7a55088d3de0cc370a59f9fbcc906c3.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/a5f661b80e4c163510a5013b585a040a5c7ef55e.tar.gz") {
     overlays = [
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
@@ -34,7 +34,6 @@ in
       git
       git-lfs
       gnupg
-      go-font
       go-outline
       go_1_19
       gohack
@@ -50,7 +49,6 @@ in
       shellcheck
       subversionClient
       sqlite-interactive
-      terraform
       tree
       unzip
       vim_configurable
@@ -58,33 +56,14 @@ in
     ;
     inherit (nixpkgs.nodePackages) node2nix;
   } // lib.optionalAttrs nixpkgs.targetPlatform.isLinux {
-    inherit (nixpkgs)
-      psmisc;
+    inherit (nixpkgs) psmisc;
+  } // lib.optionalAttrs gui {
+    inherit (nixpkgs) go-font;
   } // lib.optionalAttrs (!discord) {
-    # Install these in non-work environments.
-    # Use managed versions at work.
-    inherit (nixpkgs)
-      cargo
-      google-cloud-sdk
-      nodejs-16_x
-      rust-analyzer
-      rustc
-      rustfmt
-      yarn
-    ;
-
     # These packages are only useful outside of work.
     inherit (nixpkgs)
       direnv
-      heroku
-      hugo
-      ledger
       lorri
-    ;
-  } // lib.optionalAttrs (gui && !discord) {
-    inherit (nixpkgs)
-      postman
-      zotero
     ;
   } // lib.optionalAttrs (!builtins.isNull glibcLocales) {
     glibcLocales = glibcLocales.override {
@@ -92,6 +71,8 @@ in
       locales = [ "C.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
     };
   };
+
+  mypkgsList = builtins.attrValues mypkgs;
 
   # Environment for ~/.local/bin/nixos-vscode.sh
   nixos-vscode-shell = nixpkgs.mkShell {
