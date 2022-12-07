@@ -13,10 +13,8 @@ let
 
   inherit (nixpkgs) lib glibcLocales;
 in
-{ discord ? false, gui ? false }:
-{
-  inherit nixpkgs;
 
+{ discord ? false, gui ? false }: let
   mypkgs = {
     inherit (nixpkgs)
       _1password
@@ -71,6 +69,9 @@ in
       locales = [ "C.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
     };
   };
+in
+{
+  inherit nixpkgs mypkgs;
 
   mypkgsList = builtins.attrValues mypkgs;
 
