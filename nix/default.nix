@@ -58,6 +58,11 @@ in
   } // lib.optionalAttrs gui {
     inherit (nixpkgs) go-font;
   } // lib.optionalAttrs (!discord) {
+    # Use managed versions at work.
+    inherit (nixpkgs)
+      google-cloud-sdk
+    ;
+
     # These packages are only useful outside of work.
     inherit (nixpkgs)
       direnv
