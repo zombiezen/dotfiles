@@ -123,6 +123,7 @@
     ],
     "settingsSync.ignoredExtensions": [
         "ban.spellright",
-        "foam.foam-vscode"
-    ]
+        "foam.foam-vscode",
+        "ms-vscode.powershell",
+    ],
 }
