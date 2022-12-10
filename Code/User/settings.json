@@ -106,18 +106,9 @@
         "editor.formatOnSave": true,
         "editor.tabSize": 4
     },
-    "terraform-ls.experimentalFeatures": {
-        "validateOnSave": true
-    },
-    "terraform.languageServer": {
-        "external": true,
-        "pathToBinary": "",
-        "args": [
-            "serve"
-        ],
-        "maxNumberOfProblems": 100,
-        "trace.server": "off"
-    },
+    "terraform.languageServer.enable": true,
+    "terraform.languageServer.path": "",
+    "terraform.experimentalFeatures.validateOnSave": true,
     "[terraform]": {
         "editor.formatOnSave": true
     },
