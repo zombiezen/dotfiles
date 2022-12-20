@@ -42,6 +42,7 @@ in
       ivy
       jq
       mercurial
+      moreutils  # sponge
       netcat-openbsd
       nix-prefetch-github
       shellcheck
