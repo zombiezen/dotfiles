@@ -81,7 +81,6 @@
     },
     "gopls": {
         "usePlaceholders": true,
-        "build.experimentalWorkspaceModule": true,
         "ui.diagnostic.staticcheck": true,
         "ui.semanticTokens": true
     },
