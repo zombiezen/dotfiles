@@ -46,6 +46,7 @@ in
       netcat-openbsd
       nix-prefetch-github
       shellcheck
+      strace
       subversionClient
       sqlite-interactive
       tree
@@ -61,6 +62,7 @@ in
   } // lib.optionalAttrs (!discord) {
     # Use managed versions at work.
     inherit (nixpkgs)
+      binutils
       google-cloud-sdk
     ;
 
