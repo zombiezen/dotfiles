@@ -59,6 +59,8 @@ in
     inherit (nixpkgs) psmisc;
   } // lib.optionalAttrs gui {
     inherit (nixpkgs) go-font;
+  } // lib.optionalAttrs (gui && !discord) {
+    inherit (nixpkgs) wireshark;
   } // lib.optionalAttrs (!discord) {
     # Use managed versions at work.
     inherit (nixpkgs)
