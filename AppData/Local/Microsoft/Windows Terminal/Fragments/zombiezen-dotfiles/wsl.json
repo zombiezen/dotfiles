@@ -1,0 +1,20 @@
+{
+  "profiles": [
+    // Debian
+    {
+      "updates": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+      "colorScheme": "Solarized Dark",
+      "cursorShape": "filledBox",
+      "fontFace": "Go Mono",
+      "fontSize": 11
+    },
+    // Ubuntu
+    {
+      "updates": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+      "colorScheme": "Solarized Dark",
+      "cursorShape": "filledBox",
+      "fontFace": "Go Mono",
+      "fontSize": 11
+    }
+  ]
+}
