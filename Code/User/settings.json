@@ -37,15 +37,17 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.shellIntegration.history": 1000,
+    "terminal.integrated.tabs.hideCondition": "singleGroup",
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.associations": {
-        "ledger.txt": "ledger",
         "*.erb": "erb",
-        "COMMIT_MSG": "git-commit",
+        "*.gs": "javascript",
         "*.hcl": "terraform",
+        "*.jwcc": "jsonc",
         "*.star": "python",
-        "*.gs": "javascript"
+        "COMMIT_MSG": "git-commit",
+        "ledger.txt": "ledger",
     },
     "files.exclude": {
         "**/.redo": true,
@@ -83,6 +85,16 @@
         "usePlaceholders": true,
         "ui.diagnostic.staticcheck": true,
         "ui.semanticTokens": true
+    },
+    "hexeditor.columnWidth": 4,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.showDecodedText": true,
+    "hexeditor.inspectorType": "sidebar",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "ledger.binary": "/usr/bin/ledger",
     "[ledger]": {
