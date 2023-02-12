@@ -23,6 +23,7 @@ in
       chezmoi
       colordiff
       crane
+      curl
       delve
       dig
       file
