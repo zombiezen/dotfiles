@@ -1,5 +1,5 @@
 let
-  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/ba6ba2b90096dc49f448aa4d4d783b5081b1cc87.tar.gz") {
+  nixpkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/6ccc4a59c3f1b56d039d93da52696633e641bc71.tar.gz") {
     overlays = [
       (self: super: {
         gohack = super.callPackage ./gohack.nix {};
@@ -34,7 +34,7 @@ in
       git-lfs
       gnupg
       go-outline
-      go_1_19
+      go_1_20
       gohack
       gopls
       graphviz-nox
