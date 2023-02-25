@@ -46,3 +46,4 @@ result-*
 
 # Environment variable files
 .env
+.direnv/
