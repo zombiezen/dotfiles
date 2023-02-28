@@ -50,6 +50,7 @@
         "ledger.txt": "ledger",
     },
     "files.exclude": {
+        "**/.direnv": true,
         "**/.redo": true,
         "**/.terraform": true
     },
