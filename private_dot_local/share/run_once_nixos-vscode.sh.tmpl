@@ -3,6 +3,7 @@ set -euo pipefail
 
 # nix/default.nix hash: {{ include "nix/default.nix" | sha256sum }}
 # nix/flake.nix hash: {{ include "nix/flake.nix" | sha256sum }}
+# nix/flake.lock hash: {{ include "nix/flake.lock" | sha256sum }}
 nix_dir='{{ .chezmoi.sourceDir }}/nix'
 
 nix build --out-link nixos-vscode "${nix_dir}#nixos-vscode-deps"
