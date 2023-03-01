@@ -49,6 +49,7 @@
               go_1_20
               gohack
               gopls
+              govulncheck
               graphviz-nox
               grpcurl
               htop
@@ -129,6 +130,9 @@
         gopls = super.gopls.override {
           buildGoModule = self.buildGo120Module;
         };
+        govulncheck = super.callPackage ./govulncheck.nix {
+          buildGoModule = self.buildGo120Module;
+        };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
       let
@@ -136,7 +140,6 @@
           inherit system;
           overlays = [ self.overlays.default ];
         };
-
       in
       {
         packages =
