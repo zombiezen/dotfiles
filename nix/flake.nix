@@ -60,7 +60,6 @@
               netcat-openbsd
               nix-prefetch-github
               shellcheck
-              strace
               subversionClient
               sqlite-interactive
               tree
@@ -70,7 +69,7 @@
             ;
             inherit (pkgs.nodePackages) node2nix;
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
-            inherit (pkgs) psmisc;
+            inherit (pkgs) psmisc strace;
           } // lib.optionalAttrs (!builtins.isNull pkgs.glibcLocales) {
             glibcLocales = pkgs.glibcLocales.override {
               allLocales = false;
@@ -124,13 +123,13 @@
         mypkgsList = args: builtins.attrValues (self.lib.mypkgs args);
       };
 
-      overlays.default = self: super: {
-        gohack = super.callPackage ./gohack.nix {};
-        gopls = super.gopls.override {
-          buildGoModule = self.buildGo120Module;
+      overlays.default = final: prev: {
+        gohack = prev.callPackage ./gohack.nix {};
+        gopls = prev.gopls.override {
+          buildGoModule = final.buildGo120Module;
         };
-        govulncheck = super.callPackage ./govulncheck.nix {
-          buildGoModule = self.buildGo120Module;
+        govulncheck = prev.callPackage ./govulncheck.nix {
+          buildGoModule = final.buildGo120Module;
         };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
