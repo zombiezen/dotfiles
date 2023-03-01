@@ -2,6 +2,7 @@
 # email hash: {{ get . "email" | default "ross@zombiezen.com" | sha256sum }}
 # gui: {{ get . "gui" }}
 # nix/default.nix hash: {{ include "nix/default.nix" | sha256sum }}
+# nix/flake.nix hash: {{ include "nix/flake.nix" | sha256sum }}
 # nix/gohack.nix hash: {{ include "nix/gohack.nix" | sha256sum }}
 # nix/redo-zombiezen.nix hash: {{ include "nix/redo-zombiezen.nix" | sha256sum }}
 
