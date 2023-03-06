@@ -68,6 +68,8 @@
               zip
             ;
             inherit (pkgs.nodePackages) node2nix;
+
+            nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
           } // lib.optionalAttrs (!builtins.isNull pkgs.glibcLocales) {

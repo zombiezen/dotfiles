@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#shellcheck shell=bash
 # Script to rebuild a profile.
 # I use this in cases where I hit a "bad meta.outputsToInstall" error.
 set -euo pipefail
