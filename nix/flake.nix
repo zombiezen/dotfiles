@@ -103,6 +103,7 @@
               direnv
               lorri
             ;
+            nix-op-key = pkgs.callPackage ./nix-op-key {};
           };
 
         personalGUIPackages = system:
