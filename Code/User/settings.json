@@ -48,6 +48,7 @@
         "*.star": "python",
         "COMMIT_MSG": "git-commit",
         "ledger.txt": "ledger",
+        "flake.lock": "json",
     },
     "files.exclude": {
         "**/.direnv": true,
