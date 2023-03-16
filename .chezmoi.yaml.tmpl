@@ -65,12 +65,12 @@ data:
   # If you're on Crostini and want the GNOME keyring daemon, then set to true:
   gnome_keyring: {{ if hasKey . "gnome_keyring" }}{{ .gnome_keyring }}{{ else }}false{{ end }}
 age:
-  {{- if stat (joinPath .chezmoi.homeDir ".ssh" "id_ed25519") }}
+  {{- if stat (joinPath .chezmoi.homeDir "dotfiles-agekey.txt") }}
+  identity: ~/dotfiles-agekey.txt
+  {{- else if stat (joinPath .chezmoi.homeDir ".ssh" "id_ed25519") }}
   identity: ~/.ssh/id_ed25519
   {{- else if stat (joinPath .chezmoi.homeDir ".ssh" "id_rsa") }}
   identity: ~/.ssh/id_rsa
-  {{- else if stat (joinPath .chezmoi.homeDir "dotfiles-agekey.txt") }}
-  identity: ~/.ssh/dotfiles-agekey.txt
   {{- else if $manage_ssh }}
   {{- /* Identity will get generated during run. */}}
   identity: ~/.ssh/id_ed25519
