@@ -14,7 +14,42 @@
         "type": "indirect"
       }
     },
+    "mdunwrap": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1679099652,
+        "narHash": "sha256-44xoM4RpkjwAxOMlwzJE1Ih9Cl9u/FIP4wUzhsGUIus=",
+        "owner": "zombiezen",
+        "repo": "mdunwrap",
+        "rev": "2bbcc92c838ff55033f8ed98f913ffa522be66c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zombiezen",
+        "repo": "mdunwrap",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1678086707,
+        "narHash": "sha256-y1uXdxzinIne4FW3TF7DCtxEB9gAbQ4qnbpYzhvkFm8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "21eda9bc80bef824a037582b1e5a43ba74e92daa",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1677560409,
         "narHash": "sha256-PIvUIsVNozPXe1FmNe9c6B8Febl3t9+51uBKMJ1Q8o0=",
@@ -31,7 +66,8 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "mdunwrap": "mdunwrap",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
