@@ -61,7 +61,6 @@
               jq
               mercurial
               moreutils  # sponge
-              netcat-openbsd
               nix-prefetch-github
               shellcheck
               subversionClient
@@ -77,6 +76,9 @@
             mdunwrap = inputs.mdunwrap.packages.${system}.default;
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
+          } // lib.optionalAttrs (!pkgs.targetPlatform.isDarwin) {
+            # TODO(someday): netcat-openbsd has been marked as broken on Darwin.
+            inherit (pkgs) netcat-openbsd;
           } // lib.optionalAttrs (!builtins.isNull pkgs.glibcLocales) {
             glibcLocales = pkgs.glibcLocales.override {
               allLocales = false;
