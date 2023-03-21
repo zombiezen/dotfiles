@@ -136,6 +136,18 @@
           nixpkgs.lib.optionalAttrs (gui && !discord) (self.lib.personalGUIPackages system);
 
         mypkgsList = args: builtins.attrValues (self.lib.mypkgs args);
+
+        mkProfile = args:
+          let
+            pkgs = self.lib.nixpkgs args.system;
+            sourceInfo = pkgs.lib.lists.optional
+              (!builtins.isNull self.sourceInfo.rev or null)
+              (pkgs.writeTextDir "zombiezen-dotfiles-revision.txt" self.sourceInfo.rev);
+          in pkgs.buildEnv {
+            name = "zombiezen-dotfiles-profile";
+            paths = self.lib.mypkgsList args ++ sourceInfo;
+            extraOutputsToInstall = [ "man" ];
+          };
       };
 
       overlays.default = final: prev: {
