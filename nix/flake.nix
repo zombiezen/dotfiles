@@ -161,22 +161,7 @@
           self.lib.personalPackages system //
           self.lib.personalGUIPackages system //
           {
-            nixos-vscode-deps = pkgs.symlinkJoin {
-              name = "nixos-vscode";
-              paths = [
-                pkgs.nodejs-16_x
-                pkgs.ripgrep
-              ];
-            };
+            nixos-vscode = pkgs.callPackage ./nixos-vscode {};
           };
-
-        # Environment for ~/.local/bin/nixos-vscode.sh
-        devShells.nixos-vscode = pkgs.mkShell {
-          packages = [
-            pkgs.bash
-            pkgs.coreutils
-            pkgs.findutils
-          ];
-        };
       });
 }
