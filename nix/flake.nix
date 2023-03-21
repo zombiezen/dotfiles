@@ -24,6 +24,11 @@
         nixpkgs = system: import nixpkgs {
           inherit system;
           overlays = [ self.overlays.default ];
+          config = {
+            allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+              "1password-cli"
+            ];
+          };
         };
 
         basePackages = system:
