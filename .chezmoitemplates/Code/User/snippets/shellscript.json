@@ -1,0 +1,12 @@
+{
+  "shell": {
+    "prefix": "shell",
+    "body": "# shellcheck shell=${1:bash}",
+    "description": "ShellCheck shell declaration"
+  },
+  "disable": {
+    "prefix": "disable",
+    "body": "# shellcheck disable=SC${1:1234}",
+    "description": "ShellCheck error disable directive"
+  }
+}
