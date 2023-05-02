@@ -66,6 +66,7 @@
               jq
               mercurial
               moreutils  # sponge
+              nil
               nix-prefetch-github
               shellcheck
               subversionClient

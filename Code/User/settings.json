@@ -112,6 +112,8 @@
         "editor.detectIndentation": true,
         "editor.insertSpaces": true
     },
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nil",
     "python.languageServer": "Pylance",
     "redhat.telemetry.enabled": false,
     "ruby.useLanguageServer": true,
