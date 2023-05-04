@@ -1,8 +1,25 @@
 # Ross's dot files
 
-These are my settings files, managed by [chezmoi][].
+These are my settings files.
+They are public for convenience of bootstrapping
+and occasionally demonstrating weird hacks I'm doing to make my life work.
+You're free to [copy anything](UNLICENSE) if you find it useful.
+
+## How does this work?
+
+My settings files are managed by [chezmoi][],
+but most of the software is managed by [Nix][] (see [`flake.nix`](nix/flake.nix)).
 
 [chezmoi]: https://www.chezmoi.io/
+[Nix]: https://nixos.org/
+
+### Why not use [home-manager][]?
+
+While I very much like Nix,
+my primary dev machines run Windows (upon which I run WSL),
+so I need a cross-platform solution to manage my files.
+
+[home-manager]: https://github.com/nix-community/home-manager
 
 ## New Machine Instructions
 
