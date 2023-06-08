@@ -13,7 +13,7 @@
 # nix/nixos-vscode/default.nix hash: {{ include "nix/nixos-vscode/default.nix" | sha256sum }}
 
 set -euo pipefail
-if ! command -v nix-env > /dev/null; then
+if ! command -v nix > /dev/null; then
   echo "** warning: nix not installed" 1>&2
   exit 0
 fi
@@ -31,4 +31,4 @@ nix build \
   --arg discord "$discord" \
   --arg gui "$gui" \
   --file '{{ .chezmoi.sourceDir }}/nix' profile
-nix-store --gc
+"$profile/bin/nix-store" --gc
