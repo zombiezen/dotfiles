@@ -14,27 +14,6 @@
         "type": "indirect"
       }
     },
-    "mdunwrap": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1679099652,
-        "narHash": "sha256-44xoM4RpkjwAxOMlwzJE1Ih9Cl9u/FIP4wUzhsGUIus=",
-        "owner": "zombiezen",
-        "repo": "mdunwrap",
-        "rev": "2bbcc92c838ff55033f8ed98f913ffa522be66c6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zombiezen",
-        "repo": "mdunwrap",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1678086707,
@@ -66,7 +45,6 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "mdunwrap": "mdunwrap",
         "nixpkgs": "nixpkgs_2"
       }
     }

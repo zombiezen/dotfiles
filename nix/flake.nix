@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs";
     flake-utils.url = "flake-utils";
-    mdunwrap = {
-      url = "github:zombiezen/mdunwrap";
-      inputs.flake-utils.follows = "flake-utils";
-    };
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
@@ -79,7 +75,6 @@
             inherit (pkgs.nodePackages) node2nix;
 
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
-            mdunwrap = inputs.mdunwrap.packages.${system}.default;
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
           } // lib.optionalAttrs (!pkgs.targetPlatform.isDarwin) {
