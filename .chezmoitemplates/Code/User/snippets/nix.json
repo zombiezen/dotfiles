@@ -49,5 +49,16 @@
     ],
     "description": "Nix Flake",
     "isFileTemplate": true
+  },
+  "phase": {
+    "prefix": "phase",
+    "description": "phase with pre/post hooks",
+    "body": [
+      "${1:build}Phase = ''",
+      "\trunHook pre${1/(.)(.*)/${1:/capitalize}$2/}",
+      "\t$0",
+      "\trunHook post${1/(.)(.*)/${1:/capitalize}$2/}",
+      "'';"
+    ]
   }
 }
