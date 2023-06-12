@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+if ! command -v nix > /dev/null; then
+  echo "** warning: nix not installed" 1>&2
+  exit 0
+fi
+
+echo "** Installing Nix packages..." 1>&2
+discord='{{ contains "discordapp.com" ( get . "email" | default "ross@zombiezen.com" ) }}'
+gui='{{ get . "gui" | default false }}'
+profile_dir="${XDG_DATA_HOME:-$HOME/.local/share}/nix/profiles"
+mkdir -p "$profile_dir"
+profile="$profile_dir/profile"
+# Add a GC root for older versions of Nix.
+gcroot="/nix/var/nix/gcroots/per-user/$(id -un)/myprofile"
+rm -f "$gcroot"
+# Save location of nix-store binary in case Nix gets removed by the `nix build` step.
+nix_store="$(command -v nix-store)"
+nix build \
+  --impure \
+  --out-link "$gcroot" \
+  --profile "$profile" \
+  --arg discord "$discord" \
+  --arg gui "$gui" \
+  --file '{{ .chezmoi.sourceDir }}/nix' profile
+"$nix_store" --gc
