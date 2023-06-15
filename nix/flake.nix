@@ -74,6 +74,7 @@
             ;
             inherit (pkgs.nodePackages) node2nix;
 
+            nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
@@ -113,7 +114,6 @@
               direnv
               lorri
             ;
-            nix-op-key = pkgs.callPackage ./nix-op-key {};
           };
 
         personalGUIPackages = system:
