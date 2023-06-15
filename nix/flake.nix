@@ -130,7 +130,7 @@
             pkgs = self.lib.nixpkgs system;
           in
           {
-            inherit (pkgs) nix;
+            inherit (pkgs) nix jsonnet-language-server;
           };
 
         mypkgs = { system, discord ? false, gui ? false }:
