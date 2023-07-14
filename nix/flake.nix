@@ -65,6 +65,7 @@
               moreutils  # sponge
               nil
               nix-prefetch-github
+              patchutils
               shellcheck
               subversionClient
               sqlite-interactive
