@@ -49,6 +49,7 @@
               ghz
               git
               git-lfs
+              gnupatch
               gnupg
               go-outline
               go_1_20
@@ -124,7 +125,7 @@
           {
             inherit (pkgs) wireshark;
           };
-        
+
         workPackages = system:
           let
             pkgs = self.lib.nixpkgs system;
