@@ -2,7 +2,6 @@
 	name = Ross Light
 	email = {{ get . "email" | default "ross@zombiezen.com" }}
 [core]
-	commentchar = ";"
 {{- if eq .chezmoi.os "windows" }}
 	autocrlf = false
 	editor = code --wait
