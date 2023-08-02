@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs";
+    gg.url = "github:gg-scm/gg/5d8345c8ffd00baa1bc5ff44cf446ed9d6dbd55d";
     flake-utils.url = "flake-utils";
   };
 
@@ -45,7 +46,6 @@
               dig
               file
               gcrane
-              gg-scm
               ghz
               git
               git-lfs
@@ -75,6 +75,8 @@
               zip
             ;
             inherit (pkgs.nodePackages) node2nix;
+
+            gg-scm = inputs.gg.packages.${system}.default;
 
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
