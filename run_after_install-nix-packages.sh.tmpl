@@ -24,4 +24,4 @@ nix build \
   --arg discord "$discord" \
   --arg gui "$gui" \
   --file '{{ .chezmoi.sourceDir }}/nix' profile
-"$nix_store" --gc
+"$nix_store" --gc --keep-derivations --keep-outputs
