@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs";
-    gg.url = "github:gg-scm/gg/5d8345c8ffd00baa1bc5ff44cf446ed9d6dbd55d";
+    gg.url = "github:gg-scm/gg/87491309f384566c7587fa9ed0b55fbd51a312e4";
     flake-utils.url = "flake-utils";
   };
 
