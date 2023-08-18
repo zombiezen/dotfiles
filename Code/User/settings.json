@@ -9,6 +9,7 @@
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 10,
     "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.revealIfOpen": true,
     "workbench.editor.wrapTabs": true,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
