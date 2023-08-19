@@ -99,4 +99,14 @@
         "command": "workbench.action.closeQuickOpen",
         "when": "inQuickOpen && inTerminalRunCommandPicker"
     },
+    {
+        "key": "o",
+        "command": "notebook.cell.insertCodeCellBelowAndFocusContainer",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+    },
+    {
+        "key": "shift+o",
+        "command": "notebook.cell.insertCodeCellAboveAndFocusContainer",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+    },
 ]
