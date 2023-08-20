@@ -64,6 +64,23 @@
         "type": "indirect"
       }
     },
+    "flake-utils_4": {
+      "inputs": {
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
     "gg": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -120,6 +137,25 @@
       "original": {
         "type": "tarball",
         "url": "https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz"
+      }
+    },
+    "jupyter-ivy": {
+      "inputs": {
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1692506552,
+        "narHash": "sha256-avkb3bMDUn6H0EBQ7kQxhROHO3S1uM6Mk0auSUCewi4=",
+        "owner": "zombiezen",
+        "repo": "jupyter-ivy",
+        "rev": "416eee340b124f4bef9257a1e032bba2ffdb2dce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zombiezen",
+        "repo": "jupyter-ivy",
+        "type": "github"
       }
     },
     "nixpkgs": {
@@ -216,6 +252,20 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1692343221,
+        "narHash": "sha256-aCQE0eXmQ36ouEFfRf4gxGHELo/GFW2UzGj8DU7CtfU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "babf56d5b24a91526a208cad1dde3d6ddbe4878c",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1689321787,
         "narHash": "sha256-ifk7hrfWnJaLlcjCf8YaWDR+9kQ0uT3x9eCz31D9qB0=",
         "owner": "NixOS",
@@ -232,7 +282,8 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "gg": "gg",
-        "nixpkgs": "nixpkgs_3"
+        "jupyter-ivy": "jupyter-ivy",
+        "nixpkgs": "nixpkgs_4"
       }
     },
     "systems": {
@@ -251,6 +302,21 @@
       }
     },
     "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

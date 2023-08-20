@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs";
     gg.url = "github:gg-scm/gg/87491309f384566c7587fa9ed0b55fbd51a312e4";
+    jupyter-ivy.url = "github:zombiezen/jupyter-ivy";
     flake-utils.url = "flake-utils";
   };
 
@@ -77,6 +78,7 @@
             inherit (pkgs.nodePackages) node2nix;
 
             gg-scm = inputs.gg.packages.${system}.default;
+            jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
 
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
