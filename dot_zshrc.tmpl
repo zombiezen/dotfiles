@@ -74,7 +74,7 @@ alias ED='export EDITOR=vim && echo "ed is the standard text editor" 1>&2'
 alias bzip2="bzip2 -k"
 alias bunzip2="bunzip2 -k"
 
-alias -g pgd="| ${PAGER-less}"
+alias -g pgd="|& ${PAGER-less}"
 alias -g cdf="| colordiff"
 
 function ll { ls -l -h "$@" }
