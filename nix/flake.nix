@@ -80,6 +80,9 @@
             gg-scm = inputs.gg.packages.${system}.default;
             jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
 
+            gonb = pkgs.callPackage ./gonb.nix {
+              buildGoModule = pkgs.buildGo120Module;
+            };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
@@ -97,7 +100,6 @@
         baseGUIPackages = system:
           let
             pkgs = self.lib.nixpkgs system;
-            inherit (pkgs) lib;
           in
           {
             inherit (pkgs) go-font;
@@ -106,7 +108,6 @@
         personalPackages = system:
           let
             pkgs = self.lib.nixpkgs system;
-            inherit (pkgs) lib;
           in
           {
             # Use managed versions at work.
@@ -125,7 +126,6 @@
         personalGUIPackages = system:
           let
             pkgs = self.lib.nixpkgs system;
-            inherit (pkgs) lib;
           in
           {
             inherit (pkgs) wireshark;
