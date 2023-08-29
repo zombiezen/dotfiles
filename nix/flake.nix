@@ -5,6 +5,7 @@
     nixpkgs.url = "nixpkgs";
     gg.url = "github:gg-scm/gg/87491309f384566c7587fa9ed0b55fbd51a312e4";
     jupyter-ivy.url = "github:zombiezen/jupyter-ivy";
+    sqlite-notebook.url = "github:zombiezen/sqlite-notebook";
     flake-utils.url = "flake-utils";
   };
 
@@ -79,6 +80,7 @@
 
             gg-scm = inputs.gg.packages.${system}.default;
             jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
+            sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
 
             gonb = pkgs.callPackage ./gonb.nix {
               buildGoModule = pkgs.buildGo120Module;
