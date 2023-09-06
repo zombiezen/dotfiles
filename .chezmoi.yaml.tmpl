@@ -42,6 +42,11 @@ data:
   {{- else }}
   bin_path: []
   {{- end }}
+  {{- with get . "fpath" }}
+  fpath: {{ . | toJson }}
+  {{- else }}
+  fpath: []
+  {{- end }}
   {{- with get . "zshrc" }}
   zshrc: {{ . | toJson }}
   {{- else }}
