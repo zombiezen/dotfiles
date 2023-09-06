@@ -16,8 +16,8 @@ function precmd {
 # Z
 PROMPT=\
 $'%(?..%F{red}exit code %?%f\n)'\
-$'\n%F{cyan}%n@%m%f:%F{magenta}%~%f\n'\
-$'${vcs_info_msg_0_}'\
+$'\n%F{cyan}%n@%m%f:${vcs_info_msg_0_:-"%F{magenta}%~%f"}\n'\
+$'${vcs_info_msg_1_}'\
 $'%(!.#.Z) '
 
 setopt promptsubst
@@ -35,8 +35,8 @@ zstyle ':vcs_info:*' branchformat '%b'
 zstyle ':vcs_info:*' hgrevformat '%r'
 zstyle ':vcs_info:*' patch-format ' [%p]'
 zstyle ':vcs_info:*' nopatch-format ''
-zstyle ':vcs_info:*' formats $'%F{cyan}%s%f:%b/%F{magenta}%S%f%m %u\n'
-zstyle ':vcs_info:*' actionformats $'%F{cyan}%s%f:%b/%F{magenta}%S%f%m [%a]%u\n'
+zstyle ':vcs_info:*' formats $'%F{magenta}%R%f/%F{magenta}%S%f' $'@ %b%m %u\n'
+zstyle ':vcs_info:*' actionformats $'%F{magenta}%R%f/%F{magenta}%S%f'  $'@ %b%m [%a]%u\n'
 
 ## SHELL VARIABLES ##
 
