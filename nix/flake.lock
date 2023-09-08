@@ -324,11 +324,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1694113242,
-        "narHash": "sha256-BiOfMC/7xVyoqqpZHfa5QtTvLd3QlisC6PMScoh0dmg=",
+        "lastModified": 1694210611,
+        "narHash": "sha256-BGFKch5n3r8jTO89Q//4A+16vIknwvnQtveKsFjdv7I=",
         "owner": "zombiezen",
         "repo": "sqlite-notebook",
-        "rev": "75ce6399b7bf9c73529e2319bb2d9f2e7e2d118b",
+        "rev": "35917ee62690865b7eaace8b194e247bbcebaa8a",
         "type": "github"
       },
       "original": {
