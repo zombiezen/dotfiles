@@ -54,7 +54,7 @@
               gnupatch
               gnupg
               go-outline
-              go_1_20
+              go_1_21
               gohack
               gopls
               govulncheck
