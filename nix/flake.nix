@@ -77,6 +77,7 @@
               zip
             ;
             inherit (pkgs.nodePackages) node2nix;
+            inherit (pkgs.unixtools) watch;
 
             gg-scm = inputs.gg.packages.${system}.default;
             jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
