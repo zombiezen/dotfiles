@@ -27,6 +27,10 @@
             allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
               "1password-cli"
             ];
+
+            permittedInsecurePackages = [
+              "nodejs-16.20.2"
+            ];
           };
         };
 
@@ -175,10 +179,7 @@
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ self.overlays.default ];
-        };
+        pkgs = self.lib.nixpkgs system;
       in
       {
         packages =
