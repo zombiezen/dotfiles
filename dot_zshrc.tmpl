@@ -213,9 +213,7 @@ if [[ "$TERM_PROGRAM" == vscode && ! -z "$TERM_PROGRAM_VERSION" ]]; then
   fi
   unset vscode_minor_version
 fi
-{{- if not (contains "discordapp.com" ( get . "email" | default "ross@zombiezen.com" )) }}
 eval "$(direnv hook zsh)"
-{{- end }}
 {{- range .zshrc }}
 if [[ -e '{{ . }}' ]]; then
   source '{{ . }}'

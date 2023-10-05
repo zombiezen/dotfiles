@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.os "linux" }}
+.config/systemd/user/lorri.service
+.config/systemd/user/lorri.socket
+{{- end }}

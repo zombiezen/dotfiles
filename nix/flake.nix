@@ -50,6 +50,7 @@
               curl
               delve
               dig
+              direnv
               file
               gcrane
               ghz
@@ -121,12 +122,6 @@
             inherit (pkgs)
               binutils
               google-cloud-sdk
-            ;
-
-            # These packages are only useful outside of work.
-            inherit (pkgs)
-              direnv
-              lorri
             ;
           };
 
