@@ -119,6 +119,10 @@
     "nix.enableLanguageServer": true,
     "nix.serverPath": "nil",
     "python.languageServer": "Pylance",
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
     "redhat.telemetry.enabled": false,
     "ruby.useLanguageServer": true,
     "[rust]": {
