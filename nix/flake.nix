@@ -116,13 +116,21 @@
         personalPackages = system:
           let
             pkgs = self.lib.nixpkgs system;
+
+            google-cloud-sdk = let c = pkgs.google-cloud-sdk.components; in
+              pkgs.google-cloud-sdk.withExtraComponents [
+                c.beta
+                c.config-connector
+                c.pubsub-emulator
+              ];
           in
           {
             # Use managed versions at work.
             inherit (pkgs)
               binutils
-              google-cloud-sdk
             ;
+
+            inherit google-cloud-sdk;
           };
 
         personalGUIPackages = system:

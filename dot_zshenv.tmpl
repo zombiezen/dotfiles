@@ -22,6 +22,9 @@ export LEDGER_DATE_FORMAT='%Y-%m-%d'
 export DEBFULLNAME='Ross Light'
 export DEBEMAIL={{ get . "email" | default "ross@zombiezen.com" | squote }}
 
+# gcloud settings
+export CLOUDSDK_COMPONENT_MANAGER_DISABLE_UPDATE_CHECK=True
+
 GPG_TTY="$(tty)"
 export GPG_TTY
 
