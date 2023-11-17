@@ -176,9 +176,6 @@
         gopls = prev.gopls.override {
           buildGoModule = final.buildGo121Module;
         };
-        govulncheck = prev.callPackage ./govulncheck.nix {
-          buildGoModule = final.buildGo121Module;
-        };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
       let
