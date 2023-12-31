@@ -89,10 +89,13 @@
             sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
 
             gonb = pkgs.callPackage ./gonb.nix {
-              buildGoModule = pkgs.buildGo120Module;
+              buildGoModule = pkgs.buildGo121Module;
             };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
+            pkgsite = pkgs.callPackage ./pkgsite.nix {
+              buildGoModule = pkgs.buildGo121Module;
+            };
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
           } // lib.optionalAttrs (!pkgs.targetPlatform.isDarwin) {
