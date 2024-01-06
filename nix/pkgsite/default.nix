@@ -17,7 +17,11 @@ buildGoModule {
   };
   inherit vendorHash;
 
-  subpackages = [ "./cmd/pkgsite" ];
+  patches = [
+    ./cl554195.diff
+  ];
+
+  subPackages = [ "./cmd/pkgsite" ];
 
   doCheck = false;
 

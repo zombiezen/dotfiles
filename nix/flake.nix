@@ -93,7 +93,7 @@
             };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
-            pkgsite = pkgs.callPackage ./pkgsite.nix {
+            pkgsite = pkgs.callPackage ./pkgsite {
               buildGoModule = pkgs.buildGo121Module;
             };
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
