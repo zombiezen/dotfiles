@@ -35,3 +35,22 @@ Then I run:
 ```shell
 sh -c "$(curl -fsSL git.io/chezmoi)" -- init --apply zombiezen
 ```
+
+## Using the flake
+
+My scripts are [bundled with Nix][],
+so you can run them
+and they're guaranteed to work in the same way as they do on my machines.
+To see a list of packages I'm using:
+
+```shell
+nix flake show 'github:zombiezen/dotfiles?dir=nix'
+```
+
+To run one:
+
+```shell
+nix run 'github:zombiezen/dotfiles?dir=nix#nix-op-key'
+```
+
+[bundled with Nix]: https://www.zombiezen.com/blog/2023/12/bundling-scripts-nix/
