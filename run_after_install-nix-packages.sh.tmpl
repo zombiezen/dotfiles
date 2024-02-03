@@ -7,7 +7,6 @@ if ! command -v nix > /dev/null; then
 fi
 
 echo "** Installing Nix packages..." 1>&2
-discord='{{ contains "discordapp.com" ( get . "email" | default "ross@zombiezen.com" ) }}'
 gui='{{ get . "gui" | default false }}'
 profile_dir="${XDG_DATA_HOME:-$HOME/.local/share}/nix/profiles"
 mkdir -p "$profile_dir"
@@ -21,7 +20,6 @@ nix build \
   --impure \
   --out-link "$gcroot" \
   --profile "$profile" \
-  --arg discord "$discord" \
   --arg gui "$gui" \
   --file '{{ .chezmoi.sourceDir }}/nix' profile
 "$nix_store" --gc --keep-derivations --keep-outputs

@@ -1,5 +1,4 @@
 { system ? builtins.currentSystem
-, discord ? false
 , gui ? false
 , rev ? null
 }:
@@ -11,7 +10,7 @@ let
 in {
   nixpkgs = flake.lib.nixpkgs system;
 
-  mypkgs = flake.lib.mypkgs { inherit system discord gui; };
-  mypkgsList = flake.lib.mypkgsList { inherit system discord gui; };
-  profile = flake.lib.mkProfile { inherit system discord gui; };
+  mypkgs = flake.lib.mypkgs { inherit system gui; };
+  mypkgsList = flake.lib.mypkgsList { inherit system gui; };
+  profile = flake.lib.mkProfile { inherit system gui; };
 }

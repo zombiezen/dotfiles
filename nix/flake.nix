@@ -144,20 +144,11 @@
             inherit (pkgs) wireshark;
           };
 
-        workPackages = system:
-          let
-            pkgs = self.lib.nixpkgs system;
-          in
-          {
-            inherit (pkgs) nix jsonnet-language-server;
-          };
-
-        mypkgs = { system, discord ? false, gui ? false }:
+        mypkgs = { system, gui ? false }:
           self.lib.basePackages system //
           nixpkgs.lib.optionalAttrs gui (self.lib.baseGUIPackages system) //
-          nixpkgs.lib.optionalAttrs discord (self.lib.workPackages system) //
-          nixpkgs.lib.optionalAttrs (!discord) (self.lib.personalPackages system) //
-          nixpkgs.lib.optionalAttrs (gui && !discord) (self.lib.personalGUIPackages system);
+          self.lib.personalPackages system //
+          nixpkgs.lib.optionalAttrs gui (self.lib.personalGUIPackages system);
 
         mypkgsList = args: builtins.attrValues (self.lib.mypkgs args);
 
