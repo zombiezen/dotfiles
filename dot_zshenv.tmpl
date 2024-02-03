@@ -57,6 +57,7 @@ oldpath=( "${path[@]}" )
 path=(
   "$HOME/bin" \
   "$HOME/.local/bin" \
+  "$HOME/.local/state/nix/profile/bin" \
   "$HOME/.nix-profile/bin" \
   /nix/var/nix/profiles/default/bin \
   {{- if hasKey . "bin_path" }}
@@ -75,6 +76,7 @@ path=(
   /usr/local/games \
 )
 fpath=(
+  "$HOME/.local/state/nix/profile/share/zsh/site-functions" \
   "$HOME/.nix-profile/share/zsh/site-functions" \
   {{- if hasKey . "fpath" }}
   {{- range .fpath }}
@@ -92,7 +94,9 @@ fi
 if [[ -e "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
-if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
+if [[ -e "$HOME/.local/state/nix/profile/etc/profile.d/nix.sh" ]]; then
+  source "$HOME/.local/state/nix/profile/etc/profile.d/nix.sh"
+elif [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
   source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
 if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then

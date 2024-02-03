@@ -8,7 +8,7 @@ fi
 
 echo "** Installing Nix packages..." 1>&2
 gui='{{ get . "gui" | default false }}'
-profile_dir="${XDG_DATA_HOME:-$HOME/.local/share}/nix/profiles"
+profile_dir="${XDG_STATE_HOME:-$HOME/.local/state}/nix/profiles"
 mkdir -p "$profile_dir"
 profile="$profile_dir/profile"
 # Add a GC root for older versions of Nix.
