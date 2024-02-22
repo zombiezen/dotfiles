@@ -59,7 +59,7 @@
               gnupatch
               gnupg
               go-outline
-              go_1_21
+              go_1_22
               gohack
               gopls
               govulncheck
@@ -89,12 +89,12 @@
             sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
 
             gonb = pkgs.callPackage ./gonb.nix {
-              buildGoModule = pkgs.buildGo121Module;
+              buildGoModule = pkgs.buildGo122Module;
             };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
             pkgsite = pkgs.callPackage ./pkgsite {
-              buildGoModule = pkgs.buildGo121Module;
+              buildGoModule = pkgs.buildGo122Module;
             };
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
@@ -168,7 +168,7 @@
       overlays.default = final: prev: {
         gohack = prev.callPackage ./gohack.nix {};
         gopls = prev.gopls.override {
-          buildGoModule = final.buildGo121Module;
+          buildGoModule = final.buildGo122Module;
         };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
