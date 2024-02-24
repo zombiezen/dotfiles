@@ -34,6 +34,11 @@
 	cookiefile = {{ .chezmoi.homeDir }}/.gitcookies
 {{- end }}
 
+{{- if eq .chezmoi.os "windows" }}
+[safe]
+	directory = C:/tools/flutter
+{{- end }}
+
 [alias]
 	change = codereview change
 	gofmt = codereview gofmt
