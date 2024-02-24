@@ -23,6 +23,7 @@
     "window.newWindowDimensions": "offset",
     "window.openFoldersInNewWindow": "on",
     "window.titleBarStyle": "custom",
+    "window.zoomPerWindow": true,
     "zenMode.fullScreen": false,
     "editor.accessibilitySupport": "off",
     "editor.cursorSurroundingLines": 2,
