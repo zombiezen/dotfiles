@@ -1,0 +1,15 @@
+{
+  "built": {
+    "prefix": "built",
+    "body": [
+      "abstract class ${1:Foo} implements Built<$1, ${1}Builder> {",
+      "\t$0",
+      "\t$1._();",
+      "\tfactory $1([void Function(${1}Builder) updates]) = _\\$$1;",
+      "",
+      "\tstatic Serializer<$1> get serializer => _\\$${1/(.)(.*)/${1:/downcase}$2/}Serializer;",
+      "}"
+    ],
+    "description": "built_value"
+  }
+}
