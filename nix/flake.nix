@@ -73,6 +73,7 @@
               nil
               nix-prefetch-github
               patchutils
+              rsync
               shellcheck
               subversionClient
               sqlite-interactive
