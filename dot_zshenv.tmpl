@@ -25,6 +25,8 @@ export DEBEMAIL={{ get . "email" | default "ross@zombiezen.com" | squote }}
 
 # gcloud settings
 export CLOUDSDK_COMPONENT_MANAGER_DISABLE_UPDATE_CHECK=True
+export CLOUDSDK_STORAGE_PARALLEL_COMPOSITE_UPLOAD_ENABLED=True
+export CLOUDSDK_STORAGE_PARALLEL_COMPOSITE_UPLOAD_COMPATIBILITY_CHECK=True
 
 GPG_TTY="$(tty)"
 export GPG_TTY
