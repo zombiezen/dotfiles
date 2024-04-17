@@ -62,5 +62,18 @@
       "\trunHook post${1/(.)(.*)/${1:/capitalize}$2/}",
       "'';"
     ]
+  },
+  "option": {
+    "prefix": "mkopt",
+    "description": "Option declaration",
+    "body": [
+      "${1:foo} = mkOption {",
+      "\tdescription = ''",
+      "\t\t$2",
+      "\t'';",
+      "\tdefault = ${3:null};",
+      "\ttype = ${4:types.nullOr ${5:types.str}};",
+      "};$0"
+    ]
   }
 }
