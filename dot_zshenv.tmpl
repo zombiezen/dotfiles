@@ -3,6 +3,8 @@
 setopt NO_GLOBAL_RCS
 {{- end }}
 
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS:-/etc/xdg}"
 typeset -T XDG_CONFIG_DIRS xdgconfigdirs
 
 export EDITOR=vim
@@ -28,6 +30,13 @@ export CLOUDSDK_COMPONENT_MANAGER_DISABLE_UPDATE_CHECK=True
 export CLOUDSDK_STORAGE_PARALLEL_COMPOSITE_UPLOAD_ENABLED=True
 export CLOUDSDK_STORAGE_PARALLEL_COMPOSITE_UPLOAD_COMPATIBILITY_CHECK=True
 
+# Permit extra Nix configuration in ~/.config/nix/nix-local.conf.
+# This allows setting a GitHub access token, for example.
+export NIX_USER_CONF_FILES="$XDG_CONFIG_HOME/nix/nix-local.conf:$XDG_CONFIG_HOME/nix/nix.conf"
+for d in "${xdgconfigdirs[@]}"; do
+  NIX_USER_CONF_FILES="$NIX_USER_CONF_FILES:$d/nix/nix.conf"
+done
+
 GPG_TTY="$(tty)"
 export GPG_TTY
 
@@ -52,7 +61,7 @@ hgrcpath=( /usr/etc/mercurial/hgrc /etc/mercurial/hgrc /etc/mercurial/hgrc.d )
 for (( idx=${#xdgconfigdirs[@]}; idx > 0; idx-- )); do
   hgrcpath+=( "${xdgconfigdirs[idx]}/mercurial/hgrc" )
 done
-hgrcpath+=( "${XDG_CONFIG_HOME:-$HOME/.config}/mercurial/hgrc" "$HOME/.hgrc" )
+hgrcpath+=( "$XDG_CONFIG_HOME/mercurial/hgrc" "$HOME/.hgrc" )
 export HGRCPATH
 
 
