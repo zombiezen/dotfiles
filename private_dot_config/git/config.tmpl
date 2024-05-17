@@ -5,6 +5,22 @@
 {{- if eq .chezmoi.os "windows" }}
 	autocrlf = false
 	editor = code --wait
+{{- else }}
+	pager = delta
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
 {{- end }}
 
 [push]

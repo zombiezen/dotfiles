@@ -48,6 +48,7 @@
               colordiff
               crane
               curl
+              delta
               delve
               dig
               direnv
