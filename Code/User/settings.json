@@ -62,6 +62,7 @@
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
+    "update.showReleaseNotes": false,
     "vim.gdefault": true,
     "vim.handleKeys": {"<C-p>": false},
     "[dart]": {
