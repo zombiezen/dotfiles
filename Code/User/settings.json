@@ -48,7 +48,7 @@
     "files.associations": {
         "*.erb": "erb",
         "*.gs": "javascript",
-        "*.hcl": "terraform",
+        "*.hcl": "hcl",
         "*.jwcc": "jsonc",
         "*.star": "python",
         "COMMIT_MSG": "git-commit",
