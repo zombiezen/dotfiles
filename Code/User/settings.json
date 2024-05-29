@@ -118,7 +118,7 @@
         "editor.detectIndentation": false,
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": false
+            "source.organizeImports": "never"
         }
     },
     "gopls": {
