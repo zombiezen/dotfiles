@@ -130,6 +130,11 @@
     "hexeditor.defaultEndianness": "little",
     "hexeditor.showDecodedText": true,
     "hexeditor.inspectorType": "sidebar",
+    "[html]": {
+        // Hides element symbols, since they can get unwieldy with Tailwind class names.
+        "breadcrumbs.showFields": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
