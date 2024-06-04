@@ -100,6 +100,7 @@
             };
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
+            chroot-init = pkgs.callPackage ./chroot-init {};
           } // lib.optionalAttrs (!pkgs.targetPlatform.isDarwin) {
             # TODO(someday): netcat-openbsd has been marked as broken on Darwin.
             inherit (pkgs) netcat-openbsd;
