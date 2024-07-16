@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:     Plan 9 Assembler
-" Maintainer:   Ross Light <ross@zombiezen.com>
+" Maintainer:   Roxy Light <roxy@zombiezen.com>
 
 if exists("b:current_syntax")
     finish

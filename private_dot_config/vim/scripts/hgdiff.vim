@@ -1,5 +1,5 @@
 " hgdiff.vim -- Configure a session for Mercurial merging.
-" Copyright (c) 2011 Ross Light.
+" Copyright (c) 2011 Roxy Light.
 "
 " Usage: vim -S ~/.vim/scripts/hgdiff.vim -d $base $local $other $output
 

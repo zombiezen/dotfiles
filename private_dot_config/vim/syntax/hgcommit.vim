@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:   mercurial commit file
-" Maintainer: Ross Light <ross@zombiezen.com>
+" Maintainer: Roxy Light <roxy@zombiezen.com>
 " Filenames:  hg-editor-*
 
 " Influenced heavily by gitcommit.vim

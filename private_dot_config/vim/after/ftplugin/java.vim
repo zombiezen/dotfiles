@@ -1,4 +1,4 @@
-" Ross's Java import plugin
+" Roxy's Java import plugin
 " Based on Go's Import/Drop commands
 
 " Register commands (local to buffer)

@@ -1,4 +1,4 @@
-# Ross's dot files
+# Roxy's dot files
 
 These are my settings files.
 They are public for convenience of bootstrapping

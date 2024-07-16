@@ -1,6 +1,6 @@
 " see.vim -- Vim color file for SubEthaEdit colors
 " For other Vim UI elements, I use desert. I *like* desert.
-" Maintainer: Ross Light <ross@zombiezen.com>
+" Maintainer: Roxy Light <roxy@zombiezen.com>
 
 highlight clear
 if exists("syntax_on")

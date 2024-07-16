@@ -1,4 +1,4 @@
-" Ross's vimrc
+" Roxy's vimrc
 
 " Disable vi compatibility (must be first since it sets other options)
 set nocompatible
@@ -132,7 +132,9 @@ command! -bar -count=4 Spaces set ts=8 sts=<count> sw=<count> et
 " Command to replace carriage returns with newlines.
 " Usage: :Cr        " for the whole file
 "        :1,10Cr    " for a range
-command! -bar -nargs=0 -range=% Cr <line1>,<line2>s///
+command! -bar -nargs=0 -range=% Cr <line1>,<line2>s/
+/
+/
 
 " Run a command and put output in new buffer
 command! -nargs=+ -complete=file Run call s:OutputBuffer(<q-args>)
@@ -188,7 +190,7 @@ let g:user_zen_leader_key = '<c-h>'
 let g:user_zen_settings = {
 \   'indentation' : '    '
 \}
-
+Roxy
 " UltiSnips
 let g:snips_author = "Ross Light"
 let g:UltiSnipsExpandTrigger="<tab>"

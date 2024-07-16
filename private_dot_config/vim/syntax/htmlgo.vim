@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	Go HTML template
-" Maintainer:	Ross Light <ross@zombiezen.com>
+" Maintainer:	Roxy Light <roxy@zombiezen.com>
 
 if exists("b:current_syntax")
     finish

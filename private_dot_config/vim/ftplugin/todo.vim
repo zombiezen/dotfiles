@@ -1,6 +1,6 @@
 " File:         ftplugin/todo.vim
 " Language:     To-Do List
-" Maintainer:   Ross Light <ross@zombiezen.com>
+" Maintainer:   Roxy Light <roxy@zombiezen.com>
 
 setlocal tabstop=4
 setlocal shiftwidth=4

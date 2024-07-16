@@ -1,6 +1,6 @@
 " File:         syntax/todo.vim
 " Language:     To-Do List
-" Maintainer:   Ross Light <ross@zombiezen.com>
+" Maintainer:   Roxy Light <roxy@zombiezen.com>
 
 if exists("b:current_syntax")
     finish
