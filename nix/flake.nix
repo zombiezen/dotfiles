@@ -60,7 +60,7 @@
               gnupatch
               gnupg
               go-outline
-              go_1_22
+              go_1_23
               gohack
               gopls
               govulncheck
@@ -172,7 +172,7 @@
       overlays.default = final: prev: {
         gohack = prev.callPackage ./gohack.nix {};
         gopls = prev.gopls.override {
-          buildGoModule = final.buildGo122Module;
+          buildGoModule = final.buildGo123Module;
         };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
