@@ -174,6 +174,14 @@
         gopls = prev.gopls.override {
           buildGoModule = final.buildGo123Module;
         };
+
+        go_1_23 = prev.go_1_23.overrideAttrs {
+          version = "1.23.2";
+          src = prev.fetchurl {
+            url = "https://go.dev/dl/go1.23.2.src.tar.gz";
+            hash = "sha256-NpMBYqk99BfZC9IsbhTa/0cFuqwrAkGO3aZxzfqc0H8=";
+          };
+        };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
       let
