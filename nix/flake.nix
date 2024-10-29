@@ -44,6 +44,7 @@
               _1password
               age
               bloaty
+              bzip2
               chezmoi
               colordiff
               crane
@@ -59,6 +60,7 @@
               git-lfs
               gnupatch
               gnupg
+              gnutar
               go-outline
               go_1_23
               gohack
@@ -66,6 +68,7 @@
               govulncheck
               graphviz-nox
               grpcurl
+              gzip
               htop
               ivy
               jq
