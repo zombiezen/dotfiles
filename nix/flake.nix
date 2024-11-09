@@ -27,10 +27,6 @@
             allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
               "1password-cli"
             ];
-
-            permittedInsecurePackages = [
-              "nodejs-16.20.2"
-            ];
           };
         };
 

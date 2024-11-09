@@ -4,7 +4,7 @@
 , coreutils
 , findutils
 , symlinkJoin
-, nodejs-16_x
+, nodejs_20
 , ripgrep
 , runtimeShell
 }:
@@ -18,7 +18,7 @@ let
   deps = symlinkJoin {
     name = "nixos-vscode-deps";
     paths = [
-      nodejs-16_x
+      nodejs_20
       ripgrep
     ];
   };
