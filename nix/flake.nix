@@ -137,6 +137,8 @@
             ;
 
             inherit google-cloud-sdk;
+
+            rsrcdump = pkgs.callPackage ./rsrcdump.nix {};
           };
 
         personalGUIPackages = system:
