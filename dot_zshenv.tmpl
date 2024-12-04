@@ -69,7 +69,7 @@ oldpath=( "${path[@]}" )
 path=(
   "$HOME/bin" \
   "$HOME/.local/bin" \
-  "$HOME/.local/state/nix/profile/bin" \
+  "$HOME/.local/state/nix/profiles/profile/bin" \
   "$HOME/.nix-profile/bin" \
   /nix/var/nix/profiles/default/bin \
   {{- if hasKey . "bin_path" }}
@@ -88,7 +88,7 @@ path=(
   /usr/local/games \
 )
 fpath=(
-  "$HOME/.local/state/nix/profile/share/zsh/site-functions" \
+  "$HOME/.local/state/nix/profiles/profile/share/zsh/site-functions" \
   "$HOME/.nix-profile/share/zsh/site-functions" \
   {{- if hasKey . "fpath" }}
   {{- range .fpath }}
