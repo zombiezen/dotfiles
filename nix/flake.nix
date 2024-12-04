@@ -72,7 +72,6 @@
               moreutils  # sponge
               nil
               nix-prefetch-github
-              otel-desktop-viewer
               patchutils
               rsync
               shellcheck
