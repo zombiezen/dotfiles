@@ -2,12 +2,12 @@
     {
         "key": "ctrl+shift+0",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "isWindows"
+        "when": "isWindows || isLinux"
     },
     {
-        "key": "ctrl+shift+0",
+        "key": "cmd+shift+0",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "isLinux"
+        "when": "isMac"
     },
     {
         "key": "ctrl+b",
@@ -20,26 +20,52 @@
     {
         "key": "ctrl+shift+t",
         "command": "workbench.action.tasks.test",
-        "when": "isLinux"
+        "when": "isWindows || isLinux"
     },
     {
-        "key": "ctrl+shift+t",
+        "key": "cmd+shift+t",
+        "command": "-workbench.action.reopenClosedEditor"
+    },
+    {
+        "key": "cmd+shift+t",
         "command": "workbench.action.tasks.test",
-        "when": "isWindows"
+        "when": "isMac"
     },
     {
         "key": "ctrl+shift+c",
         "command": "workbench.action.terminal.copySelection",
-        "when": "terminalFocus && terminalTextSelected && isWindows"
+        "when": "terminalFocus && terminalTextSelected && (isWindows || isLinux)"
+    },
+    {
+        "key": "cmd+shift+c",
+        "command": "workbench.action.terminal.copySelection",
+        "when": "terminalFocus && terminalTextSelected && isMac"
     },
     {
         "key": "ctrl+c",
         "command": "-workbench.action.terminal.copySelection"
     },
     {
+        "key": "cmd+c",
+        "command": "-workbench.action.terminal.copySelection",
+        "when": "terminalFocus && !isTerminalTextSelected && isMac"
+    },
+    {
+        "key": "cmd+c",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {"text": "\u0003"/*^C*/ },
+        "when": "terminalFocus && !terminalTextSelected && isMac"
+    },
+    {
+        "key": "cmd+d",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {"text": "\u0004"/*^D*/ },
+        "when": "terminalFocus && isMac"
+    },
+    {
         "key": "ctrl+shift+v",
         "command": "workbench.action.terminal.paste",
-        "when": "terminalFocus && isWindows"
+        "when": "terminalFocus && (isWindows || isLinux)"
     },
     {
         "key": "ctrl+v",
@@ -50,33 +76,44 @@
         "command": "-markdown.showPreview"
     },
     {
+        "key": "cmd+shift+v",
+        "command": "-markdown.showPreview"
+    },
+    {
         "key": "ctrl+1",
+        "command": "-workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+1",
         "command": "-workbench.action.focusFirstEditorGroup"
     },
     {
         "key": "ctrl+1",
         "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly && (isWindows || isLinux)"
+    },
+    {
+        "key": "cmd+1",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly && isMac"
     },
     {
         "key": "ctrl+shift+;",
-        "command": "-breadcrumbs.focus",
-        "when": "isWindows"
+        "command": "-breadcrumbs.focus"
     },
     {
-        "key": "ctrl+shift+;",
-        "command": "-breadcrumbs.focus",
-        "when": "isLinux"
+        "key": "cmd+shift+;",
+        "command": "-breadcrumbs.focus"
     },
     {
         "key": "ctrl+shift+;",
         "command": "workbench.action.tasks.runTask",
-        "when": "isWindows"
+        "when": "isWindows || isLinux"
     },
     {
-        "key": "ctrl+shift+;",
+        "key": "cmd+shift+;",
         "command": "workbench.action.tasks.runTask",
-        "when": "isLinux"
+        "when": "isMac"
     },
     {
         "key": "ctrl+r",
@@ -109,4 +146,9 @@
         "command": "notebook.cell.insertCodeCellAboveAndFocusContainer",
         "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
     },
+    {
+        "key": "cmd+`",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "isMac"
+    }
 ]
