@@ -1,0 +1,7 @@
+{
+	"SPDX language identifier": {
+		"prefix": "spdx",
+		"body": "$LINE_COMMENT SPDX-License-Identifier: ${1:https://spdx.org/licenses/}",
+		"description": "SPDX short-form identifier"
+	}
+}
