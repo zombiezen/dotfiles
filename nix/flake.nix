@@ -37,7 +37,7 @@
           in
           {
             inherit (pkgs)
-              _1password
+              _1password-cli
               age
               bloaty
               bzip2
