@@ -1,7 +1,7 @@
 { lib
 , writeTextFile
 , runtimeShell
-, _1password
+, _1password-cli
 , coreutils
 , jq
 , nix
@@ -13,7 +13,7 @@ writeTextFile {
   destination = "/bin/nix-op-key";
   text = ''
     #!${runtimeShell}
-    PATH=${coreutils}/bin:${jq}/bin:"$PATH":${nix}/bin:${_1password}/bin
+    PATH=${coreutils}/bin:${jq}/bin:"$PATH":${nix}/bin:${_1password-cli}/bin
     ${builtins.readFile ./nix-op-key.sh}
   '';
 

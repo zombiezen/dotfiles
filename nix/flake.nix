@@ -58,7 +58,7 @@
               gnupg
               gnutar
               go-outline
-              go_1_23
+              go_1_24
               gohack
               gopls
               govulncheck
@@ -90,12 +90,12 @@
             sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
 
             gonb = pkgs.callPackage ./gonb.nix {
-              buildGoModule = pkgs.buildGo122Module;
+              buildGoModule = pkgs.buildGo124Module;
             };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
             pkgsite = pkgs.callPackage ./pkgsite {
-              buildGoModule = pkgs.buildGo122Module;
+              buildGoModule = pkgs.buildGo124Module;
             };
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
@@ -172,15 +172,7 @@
       overlays.default = final: prev: {
         gohack = prev.callPackage ./gohack.nix {};
         gopls = prev.gopls.override {
-          buildGoModule = final.buildGo123Module;
-        };
-
-        go_1_23 = prev.go_1_23.overrideAttrs {
-          version = "1.23.2";
-          src = prev.fetchurl {
-            url = "https://go.dev/dl/go1.23.2.src.tar.gz";
-            hash = "sha256-NpMBYqk99BfZC9IsbhTa/0cFuqwrAkGO3aZxzfqc0H8=";
-          };
+          buildGoModule = final.buildGo124Module;
         };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
