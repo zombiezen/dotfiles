@@ -134,7 +134,7 @@ unset p1 p2 oldpath
 
 # Use VSCode as EDITOR if available.
 if whence -p code 2>&1 > /dev/null; then
-  EDITOR='code --wait'
+  EDITOR="$HOME/.local/bin/code-wait"
 fi
 
 {{- if eq .chezmoi.os "linux" }}
