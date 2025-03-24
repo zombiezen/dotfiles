@@ -73,6 +73,7 @@
               nil
               nix-prefetch-github
               patchutils
+              quilt
               rsync
               shellcheck
               subversionClient
