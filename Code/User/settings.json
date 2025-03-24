@@ -58,7 +58,8 @@
     "files.exclude": {
         "**/.direnv": true,
         "**/.redo": true,
-        "**/.terraform": true
+        "**/.terraform": true,
+        "**/.pc": true
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,

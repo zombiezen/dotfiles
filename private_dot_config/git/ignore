@@ -48,3 +48,6 @@ result-*
 # Environment variable files
 .env
 .direnv/
+
+# Quilt
+.pc/
