@@ -90,6 +90,7 @@
             jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
             sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
 
+            fix-zsh-history = pkgs.callPackage ./fix-zsh-history {};
             gonb = pkgs.callPackage ./gonb.nix {
               buildGoModule = pkgs.buildGo124Module;
             };
