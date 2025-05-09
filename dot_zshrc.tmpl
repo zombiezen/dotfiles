@@ -64,11 +64,7 @@ setopt sharehistory
 
 ## ALIASES ##
 
-{{- if eq .chezmoi.os "darwin" }}
-alias ls="ls -G"
-{{- else }}
-alias ls="ls --color"
-{{- end }}
+alias ls="ls --color=auto"
 alias GRP="grep -Hn --color"
 alias ED='export EDITOR=vim && echo "ed is the standard text editor" 1>&2'
 alias bzip2="bzip2 -k"
