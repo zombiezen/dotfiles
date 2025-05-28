@@ -24,6 +24,7 @@
     "window.openFoldersInNewWindow": "on",
     "window.titleBarStyle": "custom",
     "window.zoomPerWindow": true,
+    "chat.commandCenter.enabled": false,
     "zenMode.fullScreen": false,
     "editor.accessibilitySupport": "off",
     "editor.cursorSurroundingLines": 2,
