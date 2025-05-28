@@ -146,6 +146,14 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "json.schemas": [
+        {
+            "fileMatch": ["*.jwcc"],
+            "schema": {
+                "allowTrailingCommas": true
+            }
+        },
+    ],
     "ledger.binary": "/usr/bin/ledger",
     "[ledger]": {
         "editor.tabSize": 8,
