@@ -129,10 +129,10 @@
         "ui.diagnostic.staticcheck": true,
         "ui.semanticTokens": true
     },
-    "hexeditor.columnWidth": 4,
+    "hexeditor.columnWidth": 16,
     "hexeditor.defaultEndianness": "little",
     "hexeditor.showDecodedText": true,
-    "hexeditor.inspectorType": "sidebar",
+    "hexeditor.inspectorType": "aside",
     "[html]": {
         // Hides element symbols, since they can get unwieldy with Tailwind class names.
         "breadcrumbs.showFields": false,
