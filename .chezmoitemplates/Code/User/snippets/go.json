@@ -18,6 +18,7 @@
 			"\t\tname: \"${2:First}\",",
 			"\t},",
 			"}",
+			"",
 			"for _, test := range tests {",
 			"\t// TODO: run$0",
 			"}"
