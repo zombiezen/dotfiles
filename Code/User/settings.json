@@ -43,6 +43,7 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.shellIntegration.history": 1000,
+    "terminal.integrated.scrollback": 10000,
     "terminal.integrated.tabs.hideCondition": "singleGroup",
     "files.eol": "\n",
     "files.insertFinalNewline": true,
@@ -100,6 +101,7 @@
 		"editor.wordBasedSuggestions": "off",
 	},
     "diffEditor.renderSideBySide": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
     "[diff]": {
         "editor.renderWhitespace": "all",
         "editor.trimAutoWhitespace": false,
