@@ -1,9 +1,9 @@
 { lib, buildGoModule, fetchgit }:
 
 let
-  rev = "475d4c57676e9e93276be3b802aaa7e758610ead";
-  srcHash = "sha256-kKwqNNrshqIu+ZUEU0bTKYZzb4t6FOcRsIhUeq9Lpdc=";
-  vendorHash = "sha256-i4AQJ6J0qfhmpteJ52vHyUp/jpO+IbNiPoyROkaXpLM=";
+  rev = "d4de6668b91034bd7c6315aff98f232c1339335f";
+  srcHash = "sha256-H3yL82obJ/z8BDeyLdR1DVCxsPwrn0xxHLoMFHKhQn8=";
+  vendorHash = "sha256-sHpWI3oUuazFlWJhHB5uZ89z1GPbPfLoFQL12Jk3NP0=";
 in
 
 buildGoModule {
@@ -16,10 +16,6 @@ buildGoModule {
     hash = srcHash;
   };
   inherit vendorHash;
-
-  patches = [
-    ./cl554195.diff
-  ];
 
   subPackages = [ "./cmd/pkgsite" ];
 

@@ -175,9 +175,6 @@
 
       overlays.default = final: prev: {
         gohack = prev.callPackage ./gohack.nix {};
-        gopls = prev.gopls.override {
-          buildGoModule = final.buildGo124Module;
-        };
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
       let
