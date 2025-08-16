@@ -142,6 +142,7 @@
             inherit google-cloud-sdk;
 
             rsrcdump = pkgs.callPackage ./rsrcdump.nix {};
+            tclip = pkgs.callPackage ./tclip {};
           };
 
         personalGUIPackages = system:
