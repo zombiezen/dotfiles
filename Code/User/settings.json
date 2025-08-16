@@ -68,6 +68,11 @@
     "update.showReleaseNotes": false,
     "vim.gdefault": true,
     "vim.handleKeys": {"<C-p>": false},
+    "[cue]": {
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true,
+    },
     "[dart]": {
 		// Automatically format code on save and during typing of certain characters
 		// (like `;` and `}`).
