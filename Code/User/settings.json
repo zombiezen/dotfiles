@@ -199,7 +199,8 @@
         "update.mode",
         "window.titleBarStyle",
         "workbench.editor.wrapTabs",
-        "workbench.panel.defaultLocation"
+        "workbench.panel.defaultLocation",
+        "files.enableTrash",
     ],
     "settingsSync.ignoredExtensions": [
         "ban.spellright",
