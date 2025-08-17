@@ -58,7 +58,7 @@
               gnupg
               gnutar
               go-outline
-              go_1_24
+              go_1_25
               gohack
               gopls
               govulncheck
@@ -92,12 +92,12 @@
 
             fix-zsh-history = pkgs.callPackage ./fix-zsh-history {};
             gonb = pkgs.callPackage ./gonb.nix {
-              buildGoModule = pkgs.buildGo124Module;
+              buildGoModule = pkgs.buildGo125Module;
             };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
             pkgsite = pkgs.callPackage ./pkgsite {
-              buildGoModule = pkgs.buildGo124Module;
+              buildGoModule = pkgs.buildGo125Module;
             };
           } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
