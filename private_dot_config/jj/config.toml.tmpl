@@ -4,6 +4,9 @@
 name = "Roxy Light"
 email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 
+[ui]
+merge-editor = "vscode"
+
 [fix.tools.gofmt]
 command = ["gofmt", "-w", "$path"]
 patterns = ["glob:'**/*.go'"]
