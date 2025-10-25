@@ -4,5 +4,7 @@
 name = "Roxy Light"
 email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 
-[aliases]
-st = ["status", "--no-pager"]
+[[--scope]]
+--when.commands = ["status"]
+[--scope.ui]
+paginate = "never"
