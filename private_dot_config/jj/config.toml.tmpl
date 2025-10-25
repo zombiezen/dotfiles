@@ -1,0 +1,8 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Roxy Light"
+email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
+
+[aliases]
+st = ["status", "--no-pager"]

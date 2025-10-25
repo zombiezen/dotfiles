@@ -67,6 +67,7 @@
               gzip
               htop
               ivy
+              jujutsu
               jq
               mercurial
               moreutils  # sponge
