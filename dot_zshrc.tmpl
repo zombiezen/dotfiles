@@ -202,6 +202,9 @@ fi
 if [[ -e /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
   source /usr/share/google-cloud-sdk/completion.zsh.inc
 fi
+if command -v jj >& /dev/null; then
+  source <(jj util completion zsh)
+fi
 if [[ "$TERM_PROGRAM" == vscode && ! -z "$TERM_PROGRAM_VERSION" ]]; then
   vscode_minor_version="$(echo "$TERM_PROGRAM_VERSION" | sed -e 's/^1\.//' | sed -e 's/\.[0-9]\+$//')"
   if [[ "$vscode_minor_version" -ge 70 ]]; then
