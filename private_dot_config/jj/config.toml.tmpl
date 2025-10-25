@@ -4,6 +4,10 @@
 name = "Roxy Light"
 email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 
+[fix.tools.gofmt]
+command = ["gofmt", "-w", "$path"]
+patterns = ["glob:'**/*.go'"]
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
