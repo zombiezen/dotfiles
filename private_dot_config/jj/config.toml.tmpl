@@ -8,7 +8,7 @@ email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 merge-editor = "vscode"
 
 [fix.tools.gofmt]
-command = ["gofmt", "-w", "$path"]
+command = ["gofmt"]
 patterns = ["glob:'**/*.go'"]
 
 [[--scope]]
