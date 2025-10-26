@@ -61,7 +61,8 @@
         "**/.direnv": true,
         "**/.redo": true,
         "**/.terraform": true,
-        "**/.pc": true
+        "**/.pc": true,
+        "**/.jj": true,
     },
     "telemetry.enableTelemetry": false,
     "githubPullRequests.telemetry.enabled": false,
