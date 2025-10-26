@@ -5,6 +5,7 @@ install.sh
 Code
 .vscode
 nix
+dotfiles.code-workspace
 
 {{- if or (eq .chezmoi.os "darwin") (not .gui) }}
 .config/Code

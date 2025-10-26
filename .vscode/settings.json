@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    "*.sh.tmpl": "shellscript",
-    "dot_zshrc.tmpl": "shellscript",
-    "dot_zshenv.tmpl": "shellscript",
-    "*.service.tmpl": "systemd-unit-file",
-    "*.path.tmpl": "systemd-unit-file"
-  }
-}
