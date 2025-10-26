@@ -5,6 +5,7 @@ name = "Roxy Light"
 email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 
 [ui]
+diff-editor = ":builtin"  # disables noisy messages
 merge-editor = "vscode"
 {{- if eq .chezmoi.os "windows" }}
 editor = "code.cmd --wait"
