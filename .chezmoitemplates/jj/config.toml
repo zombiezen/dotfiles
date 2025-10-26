@@ -1,0 +1,17 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Roxy Light"
+email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
+
+[ui]
+merge-editor = "vscode"
+
+[fix.tools.gofmt]
+command = ["gofmt"]
+patterns = ["glob:'**/*.go'"]
+
+[[--scope]]
+--when.commands = ["status"]
+[--scope.ui]
+paginate = "never"
