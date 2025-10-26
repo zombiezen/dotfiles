@@ -11,6 +11,9 @@ merge-editor = "vscode"
 command = ["gofmt"]
 patterns = ["glob:'**/*.go'"]
 
+[git]
+private-commits = "description(glob:'private:*') | description(glob:'wip:*')"
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
