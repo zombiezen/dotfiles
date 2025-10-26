@@ -6,6 +6,9 @@ email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 
 [ui]
 merge-editor = "vscode"
+{{- if eq .chezmoi.os "windows" }}
+editor = "code.cmd --wait"
+{{- end }}
 
 [fix.tools.gofmt]
 command = ["gofmt"]
