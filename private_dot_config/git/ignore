@@ -51,3 +51,6 @@ result-*
 
 # Quilt
 .pc/
+
+# Jujutsu
+.jj/
