@@ -43,6 +43,7 @@ install-debian-packages.sh
 vim-addons
 {{- else }}
 AppData
+Documents
 {{- end }}
 
 {{- if or (not .interactive) .cloudshell }}
