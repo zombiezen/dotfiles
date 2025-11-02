@@ -81,7 +81,7 @@
               sqlite-interactive
               tree
               unzip
-              vim_configurable
+              vim-full
               zip
             ;
             inherit (pkgs.nodePackages) node2nix;
@@ -100,13 +100,13 @@
             pkgsite = pkgs.callPackage ./pkgsite {
               buildGoModule = pkgs.buildGo125Module;
             };
-          } // lib.optionalAttrs pkgs.targetPlatform.isLinux {
+          } // lib.optionalAttrs pkgs.stdenv.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
             chroot-init = pkgs.callPackage ./chroot-init {};
-          } // lib.optionalAttrs (!pkgs.targetPlatform.isDarwin) {
+          } // lib.optionalAttrs (!pkgs.stdenv.targetPlatform.isDarwin) {
             # TODO(someday): netcat-openbsd has been marked as broken on Darwin.
             inherit (pkgs) netcat-openbsd;
-          } // lib.optionalAttrs pkgs.targetPlatform.isDarwin {
+          } // lib.optionalAttrs pkgs.stdenv.targetPlatform.isDarwin {
             inherit (pkgs) lima;
           } // lib.optionalAttrs (!builtins.isNull pkgs.glibcLocales) {
             glibcLocales = pkgs.glibcLocales.override {
@@ -151,6 +151,7 @@
             pkgs = self.lib.nixpkgs system;
           in
           {
+          } // pkgs.lib.optionalAttrs pkgs.stdenv.targetPlatform.isLinux {
             inherit (pkgs) wireshark;
           };
 
