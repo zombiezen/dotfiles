@@ -7,6 +7,9 @@
     jupyter-ivy.url = "github:zombiezen/jupyter-ivy";
     sqlite-notebook.url = "github:zombiezen/sqlite-notebook";
     flake-utils.url = "flake-utils";
+
+    # TODO(NixOS/nixpkgs#468388): Use nixpkgs input.
+    nixpkgs-gcloud.url = "nixpkgs/84f137743d3c5af0e0186f0306f41fe9ee80c282";
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
@@ -178,6 +181,9 @@
 
       overlays.default = final: prev: {
         gohack = prev.callPackage ./gohack.nix {};
+
+        # TODO(NixOS/nixpkgs#468388): Use nixpkgs input.
+        inherit (inputs.nixpkgs-gcloud.legacyPackages.${prev.stdenv.hostPlatform.system}) google-cloud-sdk;
       };
     } // flake-utils.lib.eachSystem supportedSystems (system:
       let

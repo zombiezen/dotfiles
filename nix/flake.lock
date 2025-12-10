@@ -189,6 +189,21 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-gcloud": {
+      "locked": {
+        "lastModified": 1764756470,
+        "narHash": "sha256-XjplTgPDBPNnNlrzocVYqjrac1jTrVA9tbmfQyDEmUc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "84f137743d3c5af0e0186f0306f41fe9ee80c282",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "84f137743d3c5af0e0186f0306f41fe9ee80c282",
+        "type": "indirect"
+      }
+    },
     "nixpkgs-git_2_17_1": {
       "flake": false,
       "locked": {
@@ -283,11 +298,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1761880412,
-        "narHash": "sha256-QoJjGd4NstnyOG4mm4KXF+weBzA2AH/7gn1Pmpfcb0A=",
+        "lastModified": 1765270179,
+        "narHash": "sha256-g2a4MhRKu4ymR4xwo+I+auTknXt/+j37Lnf0Mvfl1rE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a7fc11be66bdfb5cdde611ee5ce381c183da8386",
+        "rev": "677fbe97984e7af3175b6c121f3c39ee5c8d62c9",
         "type": "github"
       },
       "original": {
@@ -315,6 +330,7 @@
         "gg": "gg",
         "jupyter-ivy": "jupyter-ivy",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-gcloud": "nixpkgs-gcloud",
         "sqlite-notebook": "sqlite-notebook"
       }
     },
