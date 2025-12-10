@@ -7,6 +7,7 @@ email = "{{ get . "email" | default "roxy@zombiezen.com" }}"
 [ui]
 diff-editor = ":builtin"  # disables noisy messages
 merge-editor = "vscode"
+revsets-use-glob-by-default = true
 {{- if eq .chezmoi.os "windows" }}
 editor = "code.cmd --wait"
 {{- end }}
