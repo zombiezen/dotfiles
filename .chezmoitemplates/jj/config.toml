@@ -12,6 +12,9 @@ revsets-use-glob-by-default = true
 editor = "code.cmd --wait"
 {{- end }}
 
+[aliases]
+touch = ["metaedit", "--update-author-timestamp"]
+
 [fix.tools.gofmt]
 command = ["gofmt"]
 patterns = ["glob:'**/*.go'"]
