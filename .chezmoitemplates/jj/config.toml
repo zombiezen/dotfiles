@@ -13,7 +13,7 @@ editor = "code.cmd --wait"
 {{- end }}
 
 [aliases]
-touch = ["metaedit", "--update-author-timestamp"]
+touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 
 [fix.tools.gofmt]
 command = ["gofmt"]
