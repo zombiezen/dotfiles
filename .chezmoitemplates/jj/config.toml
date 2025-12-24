@@ -14,6 +14,7 @@ editor = "code.cmd --wait"
 
 [aliases]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
+mm = ["bookmark", "move", "main"]
 
 [fix.tools.gofmt]
 command = ["gofmt"]
