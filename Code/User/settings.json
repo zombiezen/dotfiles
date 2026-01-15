@@ -115,6 +115,9 @@
         "files.insertFinalNewline": false,
         "files.trimTrailingWhitespace": false,
     },
+    "[gdscript]": {
+        "editor.insertSpaces": false,
+    },
     "go.useLanguageServer": true,
     "go.lintOnSave": "off",
     "go.languageServerExperimentalFeatures": {
