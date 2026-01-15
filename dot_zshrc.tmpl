@@ -126,6 +126,16 @@ mkruntimedir() {
     "mkdir -p '$XDG_RUNTIME_DIR' && chown $(id -u):$(id -g) '$XDG_RUNTIME_DIR' && chmod 700 '$XDG_RUNTIME_DIR'"
 }
 
+tempe() {
+  local d
+  d="$(MKTEMPDIR)" && pushd "$d" >& /dev/null
+}
+
+tempc() {
+  local d
+  d="$(MKTEMPDIR)" && code --new-window -- "$d"
+}
+
 # tmux
 
 function VS { tmux split-window -h "$*" }
