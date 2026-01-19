@@ -46,6 +46,7 @@
     "terminal.integrated.shellIntegration.history": 1000,
     "terminal.integrated.scrollback": 10000,
     "terminal.integrated.tabs.hideCondition": "singleGroup",
+    "terminal.integrated.initialHint": false,
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.associations": {
