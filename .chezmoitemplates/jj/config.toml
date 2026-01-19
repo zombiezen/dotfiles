@@ -15,6 +15,9 @@ editor = "code.cmd --wait"
 [aliases]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
+{{- if ne .chezmoi.os "windows" }}
+rbp = ["util", "exec", "--", "jj-rebase-public"]
+{{- end }}
 
 [fix.tools.gofmt]
 command = ["gofmt"]

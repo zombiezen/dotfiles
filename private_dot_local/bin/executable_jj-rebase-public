@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Frequently, I will keep a "private" bookmark
+# that contains local-only changes that I don't want to share.
+# (Usually these shim in some dev tools settings or something.)
+# My working copy commit will then be a merge of the change I want and the "private" branch.
+# This script untangles the change(s) from the "private" branch.
+
+# Capture arguments for Step 2.
+rebase_wc_args=()
+while IFS='' read -r line; do
+  rebase_wc_args+=( --onto="$line" )
+done < <( jj log --no-graph --revisions='@' --template='parents.map(|c| c.change_id()).join("\n") ++ "\n"' )
+rebase_wc_args+=( --onto=private )
+
+# Step 1: Rebase any commits that descend from the "private" branch
+# and are ancestors of the working copy commit
+# back onto the main branch.
+jj rebase \
+  --revisions='private..@-' \
+  --onto='first_parent(private+ & ::@)'
+
+# Step 2: Rebase the working copy onto the same change(s) it was based on before,
+# plus private.
+jj rebase \
+  --revisions=@ \
+  "${rebase_wc_args[@]}"
