@@ -18,7 +18,7 @@ rebase_wc_args+=( --onto=private )
 # and are ancestors of the working copy commit
 # back onto the main branch.
 jj rebase \
-  --revisions='private..@-' \
+  --revisions='private::@- & ~private' \
   --onto='first_parent(private+ & ::@)'
 
 # Step 2: Rebase the working copy onto the same change(s) it was based on before,
