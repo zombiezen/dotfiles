@@ -1,0 +1,7 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[[--scope]]
+--when.repositories = ["~/src/github.com/zombiezen", "~/src/zombiezen.com", "~/dotfiles"]
+
+[--scope.user]
+email = "roxy@zombiezen.com"
