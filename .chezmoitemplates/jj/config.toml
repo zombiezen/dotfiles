@@ -26,6 +26,9 @@ patterns = ["glob:'**/*.go'"]
 [git]
 private-commits = "description(glob:'private:*') | description(glob:'wip:*')"
 
+[template-aliases]
+'commit_timestamp(commit)' = 'commit.author().timestamp()'
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
