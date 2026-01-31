@@ -33,3 +33,8 @@ private-commits = "description(glob:'private:*') | description(glob:'wip:*') | d
 --when.commands = ["status"]
 [--scope.ui]
 paginate = "never"
+
+[[--scope]]
+--when.commands = ["evolog"]
+[--scope.template-aliases]
+'commit_timestamp(commit)' = 'commit.committer().timestamp()'
