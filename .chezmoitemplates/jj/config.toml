@@ -15,9 +15,14 @@ editor = "code.cmd --wait"
 [aliases]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
-{{- if ne .chezmoi.os "windows" }}
-rbp = ["util", "exec", "--", "jj-rebase-public"]
-{{- end }}
+
+# Frequently, I will keep a "private" bookmark
+# that contains local-only changes that I don't want to share.
+# (Usually these shim in some dev tools settings or something.)
+# My working copy commit will then be a merge of the change I want and the "private" branch.
+# This alias untangles the change(s) from the "private" branch.
+rebase-public = ["rebase", "--revisions=private::@- & ~private", "--after=first_parent(private+ & ::@)"]
+rbp = ["rebase-public"]
 
 [fix.tools.gofmt]
 command = ["gofmt"]
