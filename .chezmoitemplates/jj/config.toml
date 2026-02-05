@@ -22,7 +22,7 @@ mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
 # (Usually these shim in some dev tools settings or something.)
 # My working copy commit will then be a merge of the change I want and the "private" branch.
 # This alias untangles the change(s) from the "private" branch.
-rebase-public = ["rebase", "--revisions=private::@- & ~private", "--after=first_parent(private+ & ::@)"]
+rebase-public = ["rebase", "--revisions=private::@- & ~private", "--insert-after=first_parent(private+ & ::@)", "--insert-before=@"]
 rbp = ["rebase-public"]
 
 [fix.tools.gofmt]
