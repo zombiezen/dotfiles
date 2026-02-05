@@ -15,6 +15,7 @@ editor = "code.cmd --wait"
 [aliases]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
+mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
 
 # Frequently, I will keep a "private" bookmark
 # that contains local-only changes that I don't want to share.
