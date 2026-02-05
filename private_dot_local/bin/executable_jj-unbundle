@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+abspath() {
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
+}
+
+repo="$(mktemp -d 2> /dev/null || mktemp -d -t 'jj-bundle.')"
+trap 'rm -rf "$repo"' EXIT
+
+pack_file="$(abspath "$1")"
+x="$(openssl rand -hex 4)"
+bookmark_name="unbundle-temp-$x"
+
+( cd "$repo" && git -c init.defaultBranch=main init --bare )
+head="$(git bundle list-heads "$pack_file" | awk '{ print $2 }' | head -n1)"
+( cd "$repo" && git fetch "$pack_file" "$head" )
+( cd "$repo" && git branch -- "$bookmark_name" FETCH_HEAD )
+
+remote_name="unbundle-remote-$x"
+jj git remote add "$remote_name" "$repo"
+jj git fetch --remote="$remote_name" --bookmark="$bookmark_name"
+jj bookmark forget "$bookmark_name"
+jj git remote remove "$remote_name"

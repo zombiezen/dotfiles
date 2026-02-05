@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+abspath() {
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
+}
+
+ref="refs/jj/keep/$(jj show --no-patch --template='commit_id' "$1")"
+out="$(abspath "$2")"
+if [[ -d "$out" ]]; then
+  out="$out/$(jj show --no-patch --template='change_id' "$1").pack"
+fi
+
+( cd "$(jj git root)" && git bundle create "$out" "$ref" )
