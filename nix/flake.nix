@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs";
-    deltat.url = "github:zombiezen/deltat/v0.1.0";
+    deltat.url = "github:zombiezen/deltat/v0.1.1";
     gg.url = "github:gg-scm/gg/87491309f384566c7587fa9ed0b55fbd51a312e4";
     jupyter-ivy.url = "github:zombiezen/jupyter-ivy";
     sqlite-notebook.url = "github:zombiezen/sqlite-notebook";

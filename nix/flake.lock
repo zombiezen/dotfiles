@@ -6,16 +6,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1770499043,
-        "narHash": "sha256-mjNrPbRAoYK6zRUgAvoBKH0VovNpj7houUo2wo8GxWU=",
+        "lastModified": 1770660299,
+        "narHash": "sha256-88iZ94tCPPbMGIgbXh6/djABTrkpDmvU5XvJAZD5658=",
         "owner": "zombiezen",
         "repo": "deltat",
-        "rev": "a265154dc05836d377085c79ad480b005d5c1d04",
+        "rev": "245ceb04cf4f6c774b8fb801f766ce1ed9ce6052",
         "type": "github"
       },
       "original": {
         "owner": "zombiezen",
-        "ref": "v0.1.0",
+        "ref": "v0.1.1",
         "repo": "deltat",
         "type": "github"
       }
