@@ -12,7 +12,7 @@ pack_file="$(abspath "$1")"
 x="$(openssl rand -hex 4)"
 bookmark_name="unbundle-temp-$x"
 
-( cd "$repo" && git -c init.defaultBranch=main init --bare )
+git clone --bare "$(jj git root)" "$repo"
 head="$(git bundle list-heads "$pack_file" | awk '{ print $2 }' | head -n1)"
 ( cd "$repo" && git fetch "$pack_file" "$head" )
 ( cd "$repo" && git branch -- "$bookmark_name" FETCH_HEAD )
