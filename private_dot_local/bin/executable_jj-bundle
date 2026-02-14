@@ -5,10 +5,46 @@ abspath() {
   echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
 }
 
+base=''
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --base)
+      base="$2"
+      shift 2
+      ;;
+    --base=*)
+      base="${1#--base=}"
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    --*)
+      # Unrecognized option.
+      echo "usage: jj-bundle [--base REV] REV OUT" >&2
+      if [[ "$1" = '--help' ]]; then
+        exit 0
+      else
+        exit 64
+      fi
+      ;;
+    *)
+      # Positional arguments
+      break
+      ;;
+  esac
+done
+
 ref="refs/jj/keep/$(jj show --no-patch --template='commit_id' "$1")"
 out="$(abspath "$2")"
 if [[ -d "$out" ]]; then
   out="$out/$(jj show --no-patch --template='change_id' "$1").pack"
 fi
 
-( cd "$(jj git root)" && git bundle create "$out" "$ref" )
+if [[ -z "$base" ]]; then
+  ( cd "$(jj git root)" && git bundle create "$out" "$ref" )
+else
+  base="$(jj show --no-patch --template='commit_id' "$base")"
+  ( cd "$(jj git root)" && git bundle create "$out" "$base..$ref" )
+fi
