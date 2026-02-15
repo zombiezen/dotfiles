@@ -32,6 +32,11 @@ patterns = ["glob:'**/*.go'"]
 [git]
 private-commits = "description(glob:'private:*') | description(glob:'wip:*') | diff_contains(glob:'*TODO(now)*')"
 
+[revset-aliases]
+'fp' = 'first_parent(@)'
+'fp(x)' = 'first_parent(x)'
+'fp(x, depth)' = 'first_parent(x, depth)'
+
 [template-aliases]
 'commit_timestamp(commit)' = 'commit.author().timestamp()'
 
