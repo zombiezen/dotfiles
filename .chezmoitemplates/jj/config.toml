@@ -35,6 +35,13 @@ private-commits = "description(glob:'private:*') | description(glob:'wip:*') | d
 [template-aliases]
 'commit_timestamp(commit)' = 'commit.author().timestamp()'
 
+# Change the display of the time in `jj operation log`
+# so the exact time is shown instead of "N minutes ago".
+'format_time_range(time_range)' = '''
+time_range.start().local().format("%Y-%m-%d %-I:%M:%S %p") ++
+label("time", ", lasted ") ++ time_range.duration()
+'''
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
