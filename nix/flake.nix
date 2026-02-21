@@ -53,6 +53,7 @@
               delve
               dig
               direnv
+              figlet
               file
               gcrane
               ghz
