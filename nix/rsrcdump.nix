@@ -1,8 +1,8 @@
-{ python310Packages
+{ python3Packages
 , fetchFromGitHub
 }:
 
-python310Packages.buildPythonApplication {
+python3Packages.buildPythonApplication {
   pname = "rsrcdump";
   version = "20231230";
   pyproject = true;
@@ -15,7 +15,7 @@ python310Packages.buildPythonApplication {
   };
 
   build-system = [
-    python310Packages.poetry-core
+    python3Packages.poetry-core
   ];
 
   meta = {
