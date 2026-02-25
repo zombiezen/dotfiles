@@ -63,7 +63,7 @@
               gnupg
               gnutar
               go-outline
-              go_1_25
+              go_1_26
               gohack
               gopls
               govulncheck
@@ -89,7 +89,6 @@
               vim-full
               zip
             ;
-            inherit (pkgs.nodePackages) node2nix;
             inherit (pkgs.unixtools) watch;
 
             deltat = inputs.deltat.packages.${system}.default;
@@ -99,12 +98,12 @@
 
             fix-zsh-history = pkgs.callPackage ./fix-zsh-history {};
             gonb = pkgs.callPackage ./gonb.nix {
-              buildGoModule = pkgs.buildGo125Module;
+              buildGoModule = pkgs.buildGo126Module;
             };
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
             pkgsite = pkgs.callPackage ./pkgsite {
-              buildGoModule = pkgs.buildGo125Module;
+              buildGoModule = pkgs.buildGo126Module;
             };
           } // lib.optionalAttrs pkgs.stdenv.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
