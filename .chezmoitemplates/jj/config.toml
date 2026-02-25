@@ -30,7 +30,7 @@ command = ["gofmt"]
 patterns = ["glob:'**/*.go'"]
 
 [git]
-private-commits = "description(glob:'private:*') | description(glob:'wip:*') | diff_contains(glob:'*TODO(now)*')"
+private-commits = "description(glob:'private:*') | description(glob:'wip:*') | diff_lines(glob:'*TODO(now)*')"
 
 [revset-aliases]
 'fp' = 'first_parent(@)'
