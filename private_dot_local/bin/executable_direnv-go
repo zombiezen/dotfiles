@@ -1,0 +1,8 @@
+#!/bin/sh
+
+export DIRENV_LOG_FORMAT=''
+if [ $# -gt 1 ] && [ "$1" = env ]; then
+  # VSCode does not like having stderr output on go env.
+  exec direnv exec . go "$@" 2> /dev/null
+fi
+exec direnv exec . go "$@"

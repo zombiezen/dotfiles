@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export DIRENV_LOG_FORMAT=''
+exec direnv exec . gopls "$@"
