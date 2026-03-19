@@ -36,6 +36,8 @@ private-commits = "description(glob:'private:*') | description(glob:'wip:*') | d
 'fp' = 'first_parent(@)'
 'fp(x)' = 'first_parent(x)'
 'fp(x, depth)' = 'first_parent(x, depth)'
+'branches_off(base, x)' = 'roots(base..x):: ~ ::x'
+'branches_off(x)' = 'branches_off(trunk(), x)'
 
 [template-aliases]
 'commit_timestamp(commit)' = 'commit.author().timestamp()'
