@@ -55,6 +55,7 @@
               direnv
               figlet
               file
+              gcc
               gcrane
               ghz
               git
