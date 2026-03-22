@@ -32,6 +32,9 @@ patterns = ["glob:'**/*.go'"]
 [git]
 private-commits = "description(glob:'private:*') | description(glob:'wip:*') | diff_lines(glob:'*TODO(now)*')"
 
+[revsets]
+bookmark-advance-to = "first_parent(@)"
+
 [revset-aliases]
 'fp' = 'first_parent(@)'
 'fp(x)' = 'first_parent(x)'
