@@ -141,13 +141,7 @@
               ];
           in
           {
-            # Use managed versions at work.
-            inherit (pkgs)
-              binutils
-            ;
-
             inherit google-cloud-sdk;
-
             rsrcdump = pkgs.callPackage ./rsrcdump.nix {};
             tclip = pkgs.callPackage ./tclip {};
           };
