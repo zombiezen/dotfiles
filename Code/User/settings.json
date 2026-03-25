@@ -70,6 +70,7 @@
     "githubPullRequests.telemetry.enabled": false,
     "update.showReleaseNotes": false,
     "vim.gdefault": true,
+    "vim.joinspaces": false,
     "vim.handleKeys": {"<C-p>": false},
     "[cue]": {
         "editor.insertSpaces": false,
