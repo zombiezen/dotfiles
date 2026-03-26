@@ -17,6 +17,7 @@ touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
 mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
 ba = ["bookmark", "advance"]
+push-wip = ["git", "push", "--config=git.private-commits=private()"]
 
 {{- if ne .chezmoi.os "windows" }}
 # Move descendants of a revision onto trunk().
@@ -40,7 +41,7 @@ command = ["gofmt"]
 patterns = ["glob:'**/*.go'"]
 
 [git]
-private-commits = "description(glob:'private:*') | description(glob:'wip:*') | diff_lines(glob:'*TODO(now)*')"
+private-commits = "private() | wip()"
 
 [revsets]
 bookmark-advance-to = "first_parent(@)"
@@ -51,6 +52,8 @@ bookmark-advance-to = "first_parent(@)"
 'fp(x, depth)' = 'first_parent(x, depth)'
 'branches_off(base, x)' = 'roots(base..x):: ~ ::x'
 'branches_off(x)' = 'branches_off(trunk(), x)'
+'private()' = 'description(glob:"private:*")'
+'wip()' = 'description(glob:"wip:*") | diff_lines(glob:"*TODO(now)*")'
 
 [template-aliases]
 'commit_timestamp(commit)' = 'commit.author().timestamp()'
