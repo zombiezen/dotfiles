@@ -19,14 +19,7 @@ mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
 ba = ["bookmark", "advance"]
 push-wip = ["git", "push", "--config=git.private-commits=private()"]
 
-{{- if ne .chezmoi.os "windows" }}
-# Move descendants of a revision onto trunk().
-converge = ["util", "exec", "--", "bash", "-c", """
-set -euo pipefail
-jj rebase --source="($1)+" --onto='trunk()'
-jj abandon --quiet "$1"
-""", ""]
-{{- end }}
+converge = ["util", "exec", "--", "jj-converge"]
 
 # Frequently, I will keep a "private" bookmark
 # that contains local-only changes that I don't want to share.
