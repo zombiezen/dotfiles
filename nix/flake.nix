@@ -5,6 +5,7 @@
     nixpkgs.url = "nixpkgs";
     deltat.url = "github:zombiezen/deltat/v0.2.0";
     gg.url = "github:gg-scm/gg/87491309f384566c7587fa9ed0b55fbd51a312e4";
+    jj-domino.url = "github:zombiezen/jj-domino/v0.2.0";
     jupyter-ivy.url = "github:zombiezen/jupyter-ivy";
     sqlite-notebook.url = "github:zombiezen/sqlite-notebook";
     flake-utils.url = "flake-utils";
@@ -94,6 +95,7 @@
 
             deltat = inputs.deltat.packages.${system}.default;
             gg-scm = inputs.gg.packages.${system}.default;
+            jj-domino = inputs.jj-domino.packages.${system}.default;
             jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
             sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
 
