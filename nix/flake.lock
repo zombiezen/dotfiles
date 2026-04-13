@@ -263,21 +263,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-gcloud": {
-      "locked": {
-        "lastModified": 1764756470,
-        "narHash": "sha256-XjplTgPDBPNnNlrzocVYqjrac1jTrVA9tbmfQyDEmUc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "84f137743d3c5af0e0186f0306f41fe9ee80c282",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "84f137743d3c5af0e0186f0306f41fe9ee80c282",
-        "type": "indirect"
-      }
-    },
     "nixpkgs-git_2_17_1": {
       "flake": false,
       "locked": {
@@ -434,7 +419,6 @@
         "jj-domino": "jj-domino",
         "jupyter-ivy": "jupyter-ivy",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-gcloud": "nixpkgs-gcloud",
         "sqlite-notebook": "sqlite-notebook"
       }
     },
