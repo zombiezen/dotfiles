@@ -7,7 +7,6 @@ if ! command -v nix > /dev/null; then
 fi
 
 echo "** Installing Nix packages..." 1>&2
-ngrok='{{ contains "ngrok.com" ( get . "email" | default "roxy@zombiezen.com" ) }}'
 gui='{{ get . "gui" | default false }}'
 profile_dir="${XDG_STATE_HOME:-$HOME/.local/state}/nix/profiles"
 mkdir -p "$profile_dir"
@@ -19,6 +18,5 @@ nix build \
   --impure \
   --out-link "$gcroot" \
   --profile "$profile" \
-  --arg ngrok "$ngrok" \
   --arg gui "$gui" \
   --file '{{ .chezmoi.sourceDir }}/nix' profile

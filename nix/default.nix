@@ -1,5 +1,4 @@
 { system ? builtins.currentSystem
-, ngrok ? false
 , gui ? false
 , rev ? null
 }:
@@ -11,7 +10,7 @@ let
 in {
   nixpkgs = flake.lib.nixpkgs system;
 
-  mypkgs = flake.lib.mypkgs { inherit system ngrok gui; };
-  mypkgsList = flake.lib.mypkgsList { inherit system ngrok gui; };
-  profile = flake.lib.mkProfile { inherit system ngrok gui; };
+  mypkgs = flake.lib.mypkgs { inherit system gui; };
+  mypkgsList = flake.lib.mypkgsList { inherit system gui; };
+  profile = flake.lib.mkProfile { inherit system gui; };
 }

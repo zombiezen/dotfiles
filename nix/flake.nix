@@ -155,11 +155,11 @@
             inherit (pkgs) wireshark;
           };
 
-        mypkgs = { system, ngrok ? false, gui ? false }:
+        mypkgs = { system, gui ? false }:
           self.lib.basePackages system //
           nixpkgs.lib.optionalAttrs gui (self.lib.baseGUIPackages system) //
-          nixpkgs.lib.optionalAttrs (!ngrok) (self.lib.personalPackages system) //
-          nixpkgs.lib.optionalAttrs (gui && !ngrok) (self.lib.personalGUIPackages system);
+          self.lib.personalPackages system //
+          nixpkgs.lib.optionalAttrs gui (self.lib.personalGUIPackages system);
 
         mypkgsList = args: builtins.attrValues (self.lib.mypkgs args);
 
