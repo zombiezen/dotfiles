@@ -48,7 +48,7 @@ bookmark-advance-to = "first_parent(@)"
 'branches_off(base, x)' = 'roots(base..x):: ~ ::x'
 'branches_off(x)' = 'branches_off(trunk(), x)'
 'private()' = 'description(glob:"private:*")'
-'wip()' = 'description(glob:"wip:*") | diff_lines(glob:"*TODO(now)*")'
+'wip()' = 'description(glob:"wip:*") | diff_lines_added(glob:"*TODO(now)*")'
 
 [template-aliases]
 'commit_timestamp(commit)' = 'commit.author().timestamp()'
