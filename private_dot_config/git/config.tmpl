@@ -5,11 +5,9 @@
 {{- if eq .chezmoi.os "windows" }}
 	autocrlf = false
 	editor = code --wait
-{{- else }}
-	pager = delta
 {{- end }}
+	pager = delta
 
-{{- if ne .chezmoi.os "windows" }}
 [interactive]
   diffFilter = delta --color-only
 
@@ -17,11 +15,10 @@
 	navigate = true
 
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 
 [diff]
 	colorMoved = default
-{{- end }}
 
 [push]
 	default = upstream
