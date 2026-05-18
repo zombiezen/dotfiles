@@ -69,3 +69,9 @@ paginate = "never"
 --when.commands = ["evolog"]
 [--scope.template-aliases]
 'commit_timestamp(commit)' = 'commit.committer().timestamp()'
+
+[[--scope]]
+--when.commands = ["diff", "show"]
+[--scope.ui]
+pager = "delta"
+diff-formatter = ":git"
