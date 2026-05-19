@@ -60,6 +60,17 @@ time_range.start().local().format("%Y-%m-%d %-I:%M:%S %p") ++
 label("time", ", lasted ") ++ time_range.duration()
 '''
 
+[templates]
+duplicate_description = '''
+concat(
+  "private: ",
+  description.trim_end(),
+  "\n\n(cherry picked from ",
+  commit_id,
+  ")\n",
+)
+'''
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
