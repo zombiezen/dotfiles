@@ -69,6 +69,7 @@
               graphviz-nox
               grpcurl
               gzip
+              harper
               htop
               ivy
               jujutsu
