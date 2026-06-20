@@ -71,6 +71,11 @@ concat(
 )
 '''
 
+# I usually call the remote that is my fork of a repo "zombiezen".
+# As such, I usually want to track all the active branches.
+[remotes.zombiezen]
+auto-track-bookmarks = "* ~ main ~ master"
+
 [[--scope]]
 --when.commands = ["status"]
 [--scope.ui]
