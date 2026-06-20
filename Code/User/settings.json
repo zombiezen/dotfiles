@@ -143,6 +143,7 @@
         "ui.diagnostic.staticcheck": true,
         "ui.semanticTokens": true
     },
+    "harper.linters.ToDoHyphen": false,
     "hexeditor.columnWidth": 16,
     "hexeditor.defaultEndianness": "little",
     "hexeditor.showDecodedText": true,
