@@ -1,0 +1,9 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+--when.repositories = ["~/src/zb.256lights.llc/docs"]
+
+[revsets]
+log = "present(@) | ancestors(immutable_heads().., 2) | trunk() | present(publish@origin)"
+
+[revset-aliases]
+"immutable_heads()" = "builtin_immutable_heads() | present(publish@origin)"
