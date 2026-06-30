@@ -1,5 +1,7 @@
+CRLF
 goroutine
 goroutines
+LF
 SPDX
 TODO
 zb
