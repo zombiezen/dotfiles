@@ -3,7 +3,10 @@
 *.dll
 *.so
 *.dylib
+
+# Go
 *.test
+_artifacts/
 
 # OS files
 ._*
