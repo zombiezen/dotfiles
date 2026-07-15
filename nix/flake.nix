@@ -102,6 +102,7 @@
               buildGoModule = pkgs.buildGo126Module;
             };
             jj-converge = pkgs.callPackage ./jj-converge {};
+            mktempdir = pkgs.callPackage ./mktempdir {};
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
             pkgsite = pkgs.callPackage ./pkgsite {

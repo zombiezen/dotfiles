@@ -84,15 +84,16 @@ alias codot='code ~/dotfiles/dotfiles.code-workspace'
 alias dt=deltat
 alias -g pgd="|& ${PAGER-less}"
 alias -g cdf="| colordiff"
+alias MKTEMPDIR=mktempdir
 
 function tempe {
   local d
-  d="$(MKTEMPDIR)" && pushd "$d" >& /dev/null
+  d="$(mktempdir)" && pushd "$d" >& /dev/null
 }
 
 function tempc {
   local d
-  d="$(MKTEMPDIR)" && code --new-window -- "$d"
+  d="$(mktempdir)" && code --new-window -- "$d"
 }
 
 {{- if ne .chezmoi.os "darwin" }}
