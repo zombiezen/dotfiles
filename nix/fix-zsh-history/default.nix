@@ -20,7 +20,7 @@ writeTextFile {
   '';
 
   meta = {
-    description = "Script to attempt to restore a corrupted .zsh_history file.";
+    description = "Script to attempt to restore a corrupted zsh history file.";
     license = lib.licenses.unlicense;
   };
 }

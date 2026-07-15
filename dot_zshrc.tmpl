@@ -55,13 +55,21 @@ setopt interactivecomments
 
 ## HISTORY ##
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
 # Enable "incognito mode" by prepending space.
-setopt histignorespace
-# Makes multiple terminals share history nicely.
-setopt sharehistory
+setopt hist_ignore_space
+# Include starting timestamp in history file.
+setopt extended_history
+# Append shell commands to history file as they are entered.
+# This makes multiple terminals share history nicely,
+# while keeping each terminal's history to itself.
+# Running the import-history alias (defined below)
+# will import the data from other terminals.
+setopt inc_append_history
+
+alias import-history='fc -RI'
 
 ## GENERAL ALIASES ##
 
