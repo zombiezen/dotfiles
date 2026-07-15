@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Ensure $XDG_RUNTIME_DIR is set and created with proper permissions.
+set -euo pipefail
+
+if [[ -z "${XDG_RUNTIME_DIR:-}" ]]; then
+  # shellcheck disable=SC2016
+  echo '$XDG_RUNTIME_DIR not set' 1>&2
+  return 1
+fi
+sudo bash -c \
+  "mkdir -p '$XDG_RUNTIME_DIR' &&
+  chown $(id -u):$(id -g) '$XDG_RUNTIME_DIR' &&
+  chmod 700 '$XDG_RUNTIME_DIR'"

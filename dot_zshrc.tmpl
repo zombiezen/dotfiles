@@ -2,6 +2,8 @@
 # .zshrc
 # By Roxy Light
 
+umask 022
+
 ## PROMPT ##
 
 function precmd {
@@ -38,60 +40,51 @@ zstyle ':vcs_info:*' nopatch-format ''
 zstyle ':vcs_info:*' formats $'%F{magenta}%R%f/%F{magenta}%S%f' $'@ %b%m %u\n'
 zstyle ':vcs_info:*' actionformats $'%F{magenta}%R%f/%F{magenta}%S%f'  $'@ %b%m [%a]%u\n'
 
-## SHELL VARIABLES ##
+## LINE EDITING ##
 
-umask 022
-
-# Use Vim key bindings
+# Use Vim key bindings.
 bindkey -v
-# Make cd implicit
+# Make cd implicit.
 setopt autocd
-# Add warning for redirecting to existing files
+# Add warning for redirecting to existing files.
 setopt noclobber
-# Add a couple more interesting globs
+# Add a couple more interesting globs.
 setopt extendedglob
-# Allow comments on the command line
+# Allow comments on the command line.
 setopt interactivecomments
 
-# History
+## HISTORY ##
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-# Enable "incognito mode" by prepending space
+# Enable "incognito mode" by prepending space.
 setopt histignorespace
-# Makes multiple terminals share history nicely
+# Makes multiple terminals share history nicely.
 setopt sharehistory
 
-## ALIASES ##
+## GENERAL ALIASES ##
 
 alias ls="ls --color=auto"
+function ll { ls -l -h "$@" }
+function mkcd { mkdir "$@" && cd "${@[-1]}" }
 alias GRP="grep -Hn --color"
 alias ED='export EDITOR=vim && echo "ed is the standard text editor" 1>&2'
 alias bzip2="bzip2 -k"
 alias bunzip2="bunzip2 -k"
 alias codot='code ~/dotfiles/dotfiles.code-workspace'
 alias dt=deltat
-
 alias -g pgd="|& ${PAGER-less}"
 alias -g cdf="| colordiff"
 
-function ll { ls -l -h "$@" }
-function pdb { python -m pdb "$@" }
-function mkcd { mkdir "$@" && cd "${@[-1]}" }
+function tempe {
+  local d
+  d="$(MKTEMPDIR)" && pushd "$d" >& /dev/null
+}
 
-function gitroot {
-  case $# in
-    0)
-      git rev-parse --show-toplevel
-      ;;
-    1)
-      git -C "$1" rev-parse --show-toplevel
-      ;;
-    *)
-      echo "usage: gitroot [DIR]" 1>&2
-      return 64
-      ;;
-  esac
+function tempc {
+  local d
+  d="$(MKTEMPDIR)" && code --new-window -- "$d"
 }
 
 {{- if ne .chezmoi.os "darwin" }}
@@ -106,47 +99,18 @@ function open {
 alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 {{- end }}
 
-function save-nix-shell {
-  if [[ $# -gt 1 ]]; then
-    echo "usage: save-nix-shell [FILE]" 1>&2
-    return 64
-  fi
-  local shellfile="${1:-shell.nix}"
-  nix-build -o "$(dirname "$shellfile")/.nix-shell" "$shellfile" -A inputDerivation
-}
+# Load zmv: The multi-file move
+autoload -U zmv
 
-function GOWEB {
-  GOMAXPROCS=8 nice godoc -http=localhost:6060 "$@"
-}
+## GO ##
 
-mkruntimedir() {
-  if [[ -z "${XDG_RUNTIME_DIR:-}" ]]; then
-    echo '$XDG_RUNTIME_DIR not set' 1>&2
-    return 1
-  fi
-  sudo bash -c \
-    "mkdir -p '$XDG_RUNTIME_DIR' && chown $(id -u):$(id -g) '$XDG_RUNTIME_DIR' && chmod 700 '$XDG_RUNTIME_DIR'"
-}
+function GOWEB { nice pkgsite -http=localhost:6060 -open "$@" }
 
-tempe() {
-  local d
-  d="$(MKTEMPDIR)" && pushd "$d" >& /dev/null
-}
+## PYTHON ##
 
-tempc() {
-  local d
-  d="$(MKTEMPDIR)" && code --new-window -- "$d"
-}
+function pdb { python -m pdb "$@" }
 
-# tmux
-
-function VS { tmux split-window -h "$*" }
-function SP { tmux split-window -v "$*" }
-function NEWT { tmux new-window "$*" }
-
-function CLR { clear && tmux clear-history }
-
-# Ruby
+## RUBY ##
 
 alias bx='bundle exec'
 
@@ -176,9 +140,9 @@ for cmdname in rails rake rspec rubocop solargraph webpack webpack-dev-server; d
 done
 unset cmdname
 
-{{- if and (eq .chezmoi.os "linux") (get .chezmoi.kernel "osrelease" | lower | contains "microsoft") }}
-
 ## SSH AGENT ##
+
+{{- if and (eq .chezmoi.os "linux") (get .chezmoi.kernel "osrelease" | lower | contains "microsoft") }}
 if [[ -z "$SSH_AUTH_SOCK" ]]; then
   auth_socks=( "${TMPDIR:-/tmp}"/ssh-*/agent.*(N) )
   for sf in "${auth_socks[@]}"; do
@@ -196,12 +160,30 @@ if [[ -z "$SSH_AUTH_SOCK" ]]; then
 fi
 {{- end }}
 
-## EXTENSIONS ##
+## TMUX ##
 
-# Load zmv: The multi-file move
-autoload -U zmv
+function VS { tmux split-window -h "$*" }
+function SP { tmux split-window -v "$*" }
+function NEWT { tmux new-window "$*" }
 
-# Load completion
+function CLR { clear && tmux clear-history }
+
+## VS CODE ##
+
+if [[ "$TERM_PROGRAM" == vscode && ! -z "$TERM_PROGRAM_VERSION" ]]; then
+  vscode_minor_version="$(echo "$TERM_PROGRAM_VERSION" | sed -e 's/^1\.//' | sed -e 's/\.[0-9]\+$//')"
+  if [[ "$vscode_minor_version" -ge 70 ]]; then
+    source "$(code --locate-shell-integration-path zsh)"
+  fi
+  unset vscode_minor_version
+fi
+
+## DIRENV ##
+
+eval "$(direnv hook zsh)"
+
+## TAB COMPLETION ##
+
 autoload -U compinit
 compinit
 
@@ -217,14 +199,9 @@ fi
 if command -v jj >& /dev/null; then
   source <(COMPLETE=zsh jj)
 fi
-if [[ "$TERM_PROGRAM" == vscode && ! -z "$TERM_PROGRAM_VERSION" ]]; then
-  vscode_minor_version="$(echo "$TERM_PROGRAM_VERSION" | sed -e 's/^1\.//' | sed -e 's/\.[0-9]\+$//')"
-  if [[ "$vscode_minor_version" -ge 70 ]]; then
-    source "$(code --locate-shell-integration-path zsh)"
-  fi
-  unset vscode_minor_version
-fi
-eval "$(direnv hook zsh)"
+
+## MACHINE-SPECIFIC EXTENSIONS ##
+
 {{- range .zshrc }}
 if [[ -e '{{ . }}' ]]; then
   source '{{ . }}'

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -gt 1 ]]; then
+  echo "usage: save-nix-shell [FILE]" >&2
+  exit 64
+fi
+shellfile="${1:-shell.nix}"
+nix-build -o "$(dirname "$shellfile")/.nix-shell" "$shellfile" -A inputDerivation

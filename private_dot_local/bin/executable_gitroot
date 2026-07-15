@@ -1,0 +1,14 @@
+#!/bin/sh
+# Print root of Git repository.
+case $# in
+  0)
+    git rev-parse --show-toplevel
+    ;;
+  1)
+    git -C "$1" rev-parse --show-toplevel
+    ;;
+  *)
+    echo "usage: gitroot [DIR]" >&2
+    exit 64
+    ;;
+esac
