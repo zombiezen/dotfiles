@@ -13,7 +13,7 @@ editor = "code.cmd --wait"
 {{- end }}
 
 [aliases]
-heads = [ "log", "--no-graph", "--revision=heads(immutable_heads().. ~ (present(@) & empty() & description(''))) | trunk()", "--template=log_name"]
+heads = [ "log", "--no-graph", "--revision=heads(immutable_heads().. ~ (present(@) & pristine())) | trunk()", "--template=log_head"]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
 mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
@@ -53,6 +53,8 @@ bookmark-advance-to = "first_parent(@)"
 'branches_off(x)' = 'branches_off(trunk(), x)'
 'private()' = 'description(glob:"private:*")'
 'wip()' = 'description(glob:"wip:*") | diff_lines_added(glob:"*TODO(now)*")'
+# Commit created by `jj new` and no other modifications.
+'pristine()' = 'heads(all()) & empty() & description("")'
 # TODO(jj v0.44.0): This was merged in https://github.com/jj-vcs/jj/pull/9581.
 # Can remove after that.
 'builtin_log()' = 'present(@) | ancestors(immutable_heads().., 2) | trunk()'
@@ -65,6 +67,32 @@ bookmark-advance-to = "first_parent(@)"
 'format_time_range(time_range)' = '''
 time_range.start().local().format("%Y-%m-%d %-I:%M:%S %p") ++
 label("time", ", lasted ") ++ time_range.duration()
+'''
+
+# Template used by heads alias.
+# Similar to log_name but highlights a head if the commit is the parent of a pristine working copy.
+'log_head' = "log_head(self)"
+'log_head(commit)' = '''
+if(commit.root(),
+  format_root_commit(commit),
+  label(
+    separate(" ",
+      if(commit.current_working_copy() || commit.contained_in("(present(@) & pristine())-"), "working_copy"),
+      if(commit.immutable(), "immutable", "mutable"),
+      if(commit.conflict(), "conflicted"),
+    ),
+    concat(
+      format_short_commit_header_prefer_names(commit) ++ "\n",
+      separate(" ",
+        if(commit.empty(), empty_commit_marker),
+        if(commit.description(),
+          commit.description().first_line(),
+          label(if(commit.empty(), "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+    ),
+  )
+)
 '''
 
 # log_name and log_name_full_description are templates
