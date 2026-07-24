@@ -13,6 +13,7 @@ editor = "code.cmd --wait"
 {{- end }}
 
 [aliases]
+heads = [ "log", "--no-graph", "--revision=trunk() | (heads(immutable_heads().. ~ (present(@) & empty() & description(''))))", "--template=log_name"]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
 mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
@@ -58,6 +59,76 @@ bookmark-advance-to = "first_parent(@)"
 'format_time_range(time_range)' = '''
 time_range.start().local().format("%Y-%m-%d %-I:%M:%S %p") ++
 label("time", ", lasted ") ++ time_range.duration()
+'''
+
+# log_name and log_name_full_description are templates
+# similar to builtin_log_compact and builtin_log_compact_full_description
+# that use format_short_commit_header_prefer_names.
+'log_name' = "log_name(self)"
+'log_name(commit)' = '''
+if(commit.root(),
+  format_root_commit(commit),
+  label(
+    separate(" ",
+      if(commit.current_working_copy(), "working_copy"),
+      if(commit.immutable(), "immutable", "mutable"),
+      if(commit.conflict(), "conflicted"),
+    ),
+    concat(
+      format_short_commit_header_prefer_names(commit) ++ "\n",
+      separate(" ",
+        if(commit.empty(), empty_commit_marker),
+        if(commit.description(),
+          commit.description().first_line(),
+          label(if(commit.empty(), "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+    ),
+  )
+)
+'''
+'log_name_full_description' = "log_name_full_description(self)"
+'log_name_full_description(commit)' = '''
+if(commit.root(),
+  format_root_commit(commit),
+  label(
+    separate(" ",
+      if(commit.current_working_copy(), "working_copy"),
+      if(commit.immutable(), "immutable", "mutable"),
+      if(commit.conflict(), "conflicted"),
+    ),
+    concat(
+      format_short_commit_header_prefer_names(commit) ++ "\n",
+      separate(" ",
+        if(commit.empty(), empty_commit_marker),
+        if(commit.description(),
+          commit.description().first_line(),
+          label(if(commit.empty(), "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+    ),
+  )
+)
+'''
+
+# format_short_commit_header_prefer_names is a template
+# similar to the builtin format_short_commit_header
+# but prefers showing bookmarks/tags over change IDs.
+'format_short_commit_header_prefer_names(commit)' = '''
+separate(" ",
+  coalesce(
+    separate(" ", commit.bookmarks(), commit.tags()),
+    format_short_change_id_with_change_offset(commit),
+  ),
+  format_short_signature(commit.author()),
+  format_timestamp(commit_timestamp(commit)),
+  commit.working_copies(),
+  format_short_commit_id(commit.commit_id()),
+  format_commit_labels(commit),
+  if(config("ui.show-cryptographic-signatures").as_boolean(),
+    format_short_cryptographic_signature(commit.signature())
+  ),
+)
 '''
 
 [templates]
