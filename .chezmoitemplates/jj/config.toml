@@ -13,7 +13,7 @@ editor = "code.cmd --wait"
 {{- end }}
 
 [aliases]
-heads = [ "log", "--no-graph", "--revision=trunk() | (heads(immutable_heads().. ~ (present(@) & empty() & description(''))))", "--template=log_name"]
+heads = [ "log", "--no-graph", "--revision=heads(immutable_heads().. ~ (present(@) & empty() & description(''))) | trunk()", "--template=log_name"]
 touch = ["metaedit", "--update-author-timestamp", "--quiet"]
 mm = ["bookmark", "move", "main"]
 mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
