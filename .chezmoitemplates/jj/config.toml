@@ -19,6 +19,7 @@ mm = ["bookmark", "move", "main"]
 mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
 ba = ["bookmark", "advance"]
 push-wip = ["git", "push", "--config=git.private-commits=private()"]
+builtin-log = ["log", "--revision=builtin_log()"]
 
 converge = ["util", "exec", "--", "jj-converge"]
 domino = ["util", "exec", "--", "jj-domino"]
@@ -52,6 +53,9 @@ bookmark-advance-to = "first_parent(@)"
 'branches_off(x)' = 'branches_off(trunk(), x)'
 'private()' = 'description(glob:"private:*")'
 'wip()' = 'description(glob:"wip:*") | diff_lines_added(glob:"*TODO(now)*")'
+# TODO(jj v0.44.0): This was merged in https://github.com/jj-vcs/jj/pull/9581.
+# Can remove after that.
+'builtin_log()' = 'present(@) | ancestors(immutable_heads().., 2) | trunk()'
 
 [template-aliases]
 'commit_timestamp(commit)' = 'commit.author().timestamp()'
