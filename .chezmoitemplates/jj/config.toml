@@ -40,6 +40,8 @@ patterns = ["glob:'**/*.go'"]
 private-commits = "private() | wip()"
 
 [revsets]
+# Default to the current branch (plus any sub-branches) and trunk().
+log = "present(@) | ancestors((trunk()..present(@))::, 2) | trunk()"
 bookmark-advance-to = "first_parent(@)"
 
 [revset-aliases]
