@@ -152,6 +152,24 @@
         "type": "indirect"
       }
     },
+    "flake-utils_8": {
+      "inputs": {
+        "systems": "systems_7"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "gg": {
       "inputs": {
         "flake-utils": "flake-utils_3",
@@ -410,6 +428,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_8": {
+      "locked": {
+        "lastModified": 1787631388,
+        "narHash": "sha256-vMiXptXarfSdJb1Gkc+FYVOAibuBRj7qxGa8z68q1Uw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ac6b2166e7a9375683b8e98f860f273222337b16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "deltat": "deltat",
@@ -418,7 +452,8 @@
         "jj-domino": "jj-domino",
         "jupyter-ivy": "jupyter-ivy",
         "nixpkgs": "nixpkgs_6",
-        "sqlite-notebook": "sqlite-notebook"
+        "sqlite-notebook": "sqlite-notebook",
+        "tailcat": "tailcat"
       }
     },
     "sqlite-notebook": {
@@ -527,6 +562,41 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_7": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "tailcat": {
+      "inputs": {
+        "flake-utils": "flake-utils_8",
+        "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1788390243,
+        "narHash": "sha256-mITm3Ro0ZITTrSrNG1o1DepS2dxSYQrzTrObHnn2nsM=",
+        "owner": "tailscale",
+        "repo": "tailcat",
+        "rev": "cc6db4948e324e2c3434155a13d0d787ec9df7a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tailscale",
+        "ref": "v0.5.0",
+        "repo": "tailcat",
         "type": "github"
       }
     }

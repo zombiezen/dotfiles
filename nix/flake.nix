@@ -9,6 +9,7 @@
     jupyter-ivy.url = "github:zombiezen/jupyter-ivy";
     sqlite-notebook.url = "github:zombiezen/sqlite-notebook";
     flake-utils.url = "flake-utils";
+    tailcat.url = "github:tailscale/tailcat/v0.5.0";
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
@@ -96,6 +97,7 @@
             jj-domino = inputs.jj-domino.packages.${system}.default;
             jupyter-ivy = inputs.jupyter-ivy.packages.${system}.default;
             sqlite-notebook = inputs.sqlite-notebook.packages.${system}.default;
+            tailcat = inputs.tailcat.packages.${system}.default;
 
             fix-zsh-history = pkgs.callPackage ./fix-zsh-history {};
             gonb = pkgs.callPackage ./gonb.nix {
