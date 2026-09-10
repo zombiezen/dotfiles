@@ -5,13 +5,13 @@
 }:
 
 writeTextFile {
-  name = "jj-converge";
+  name = "jj-converge-squash";
   executable = true;
-  destination = "/bin/jj-converge";
+  destination = "/bin/jj-converge-squash";
   text = ''
     #!${runtimeShell}
     PATH="$PATH":${jujutsu}/bin
-    ${builtins.readFile ./jj-converge.sh}
+    ${builtins.readFile ./jj-converge-squash.sh}
   '';
 
   meta = {

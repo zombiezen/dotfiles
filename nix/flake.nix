@@ -103,7 +103,7 @@
             gonb = pkgs.callPackage ./gonb.nix {
               buildGoModule = pkgs.buildGo126Module;
             };
-            jj-converge = pkgs.callPackage ./jj-converge {};
+            jj-converge-squash = pkgs.callPackage ./jj-converge-squash {};
             mktempdir = pkgs.callPackage ./mktempdir {};
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};

@@ -3,10 +3,10 @@
 set -euo pipefail
 
 if [[ $# -eq 0 ]]; then
-  echo 'usage: jj-converge REVSET [...]' >&2
+  echo 'usage: jj-converge-squash REVSET [...]' >&2
   exit 64
 elif [[ $# -eq 1 && "$1" = --help ]]; then
-  echo 'usage: jj-converge REVSET [...]' >&2
+  echo 'usage: jj-converge-squash REVSET [...]' >&2
   exit
 fi
 
