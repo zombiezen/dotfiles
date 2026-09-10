@@ -21,6 +21,7 @@ expand_revset() {
 curr_op="$(jj operation show --no-graph --no-op-diff --template 'id.short()' @)"
 { echo "To undo: jj operation restore $curr_op"; echo; } >&2
 
+jj git fetch --quiet
 union_args="($(printf '(%s)|' "$@")none())"
 old_commits="$(expand_revset commit_id "heads($union_args)")"
 jj new --quiet --no-edit --insert-after="$old_commits"
