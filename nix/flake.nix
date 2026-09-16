@@ -63,7 +63,7 @@
               gnupg
               gnutar
               go-outline
-              go_1_26
+              go_1_27
               gohack
               gopls
               govulncheck
@@ -101,14 +101,14 @@
 
             fix-zsh-history = pkgs.callPackage ./fix-zsh-history {};
             gonb = pkgs.callPackage ./gonb.nix {
-              buildGoModule = pkgs.buildGo126Module;
+              buildGoModule = pkgs.buildGo127Module;
             };
             jj-converge-squash = pkgs.callPackage ./jj-converge-squash {};
             mktempdir = pkgs.callPackage ./mktempdir {};
             nix-op-key = pkgs.callPackage ./nix-op-key {};
             nix-rebuild-profile = pkgs.callPackage ./nix-rebuild-profile {};
             pkgsite = pkgs.callPackage ./pkgsite {
-              buildGoModule = pkgs.buildGo126Module;
+              buildGoModule = pkgs.buildGo127Module;
             };
             zsh-jj = pkgs.callPackage ./zsh-jj.nix {};
           } // lib.optionalAttrs pkgs.stdenv.targetPlatform.isLinux {
