@@ -19,6 +19,7 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 12,
+    "workbench.experimental.modernUI": false,
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         "*.go": "${capture}_test.go"
