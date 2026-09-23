@@ -20,18 +20,11 @@ mmp = ["bookmark", "move", "--to=first_parent(@)", "main"]
 ba = ["bookmark", "advance"]
 push-wip = ["git", "push", "--config=git.private-commits=private()"]
 builtin-log = ["log", "--revision=builtin_log()"]
+megamerge = ["new", "--message", "private: megamerge"]
 
 converge-squash = ["util", "exec", "--", "jj-converge-squash"]
 domino = ["util", "exec", "--", "jj-domino"]
 submit = ["util", "exec", "--", "jj-domino", "submit"]
-
-# Frequently, I will keep a "private" bookmark
-# that contains local-only changes that I don't want to share.
-# (Usually these shim in some dev tools settings or something.)
-# My working copy commit will then be a merge of the change I want and the "private" branch.
-# This alias untangles the change(s) from the "private" branch.
-rebase-public = ["rebase", "--revisions=private::@- & ~private", "--insert-after=first_parent(private+ & ::@)", "--insert-before=@"]
-rbp = ["rebase-public"]
 
 [fix.tools.gofmt]
 command = ["gofmt"]
@@ -52,6 +45,7 @@ bookmark-advance-to = "first_parent(@)"
 'branches_off(base, x)' = 'roots(base..x):: ~ ::x'
 'branches_off(x)' = 'branches_off(trunk(), x)'
 'private()' = 'description(glob:"private:*")'
+'megamerge()' = 'description(exact:"private: megamerge")'
 'wip()' = 'description(glob:"wip:*") | diff_lines_added(glob:"*TODO(now)*")'
 # Commit created by `jj new` and no other modifications.
 'pristine()' = 'heads(all()) & empty() & description("")'
@@ -176,7 +170,7 @@ concat(
 # I usually call the remote that is my fork of a repo "zombiezen".
 # As such, I usually want to track all the active branches.
 [remotes.zombiezen]
-auto-track-bookmarks = "* ~ main ~ master"
+auto-track-bookmarks = '* ~ main ~ master ~ private ~ megamerge*'
 
 [[--scope]]
 --when.commands = ["status"]
