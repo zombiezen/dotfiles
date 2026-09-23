@@ -45,7 +45,7 @@ bookmark-advance-to = "first_parent(@)"
 'branches_off(base, x)' = 'roots(base..x):: ~ ::x'
 'branches_off(x)' = 'branches_off(trunk(), x)'
 'private()' = 'description(glob:"private:*")'
-'megamerge()' = 'description(exact:"private: megamerge")'
+'megamerge()' = '''description(regex:'\Aprivate: megamerge\n?\z')'''
 'wip()' = 'description(glob:"wip:*") | diff_lines_added(glob:"*TODO(now)*")'
 # Commit created by `jj new` and no other modifications.
 'pristine()' = 'heads(all()) & empty() & description("")'
