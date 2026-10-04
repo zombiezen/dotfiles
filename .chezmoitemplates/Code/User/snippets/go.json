@@ -34,5 +34,31 @@
 		"prefix": "ap",
 		"body": "$1 = append($1, ${0:${TM_SELECTED_TEXT}})",
 		"description": "Snippet for appending to a slice"
+	},
+	"text marshaler/unmarshaler": {
+		"prefix": "enctext",
+		"body": [
+			"var (",
+			"\t_ encoding.TextMarshaler   = (*${2/^\\*//})(nil)",
+			"\t_ encoding.TextAppender    = (*${2/^\\*//})(nil)",
+			"\t_ encoding.TextUnmarshaler = (*${2/^\\*//})(nil)",
+			")",
+			"",
+			"// MarshalText implements [encoding.TextMarshaler].",
+			"func (${1:x} ${2:*T}) MarshalText() ([]byte, error) {",
+			"\treturn $1.AppendText(nil)",
+			"}",
+			"",
+			"// AppendText implements [encoding.TextAppender].",
+			"func ($1 $2) AppendText(dst []byte) ([]byte, error) {",
+			"\treturn dst, errors.New(\"TODO(now)\")$0",
+			"}",
+			"",
+			"// UnmarshalText implements [encoding.TextUnmarshaler].",
+			"func ($1 *${2/^\\*//}) UnmarshalText(text []byte) error {",
+			"\treturn errors.New(\"TODO(now)\")",
+			"}",
+		],
+		"description": "Methods stubs for TextMarshaler/TextAppender/TextUnmarshaler"
 	}
 }
