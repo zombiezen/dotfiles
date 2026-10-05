@@ -60,5 +60,25 @@
 			"}",
 		],
 		"description": "Methods stubs for TextMarshaler/TextAppender/TextUnmarshaler"
-	}
+	},
+	"JSON v2 marshaler/unmarshaler": {
+		"prefix": "encjson2",
+		"body": [
+			"var (",
+			"\t_ json.MarshalerTo     = (*${2/^\\*//})(nil)",
+			"\t_ json.UnmarshalerFrom = (*${2/^\\*//})(nil)",
+			")",
+			"",
+			"// MarshalJSON implements [json.MarshalerTo].",
+			"func (${1:x} ${2:*T}) MarshalJSONTo(out *jsontext.Encoder) error {",
+			"\treturn errors.New(\"TODO(now)\")$0",
+			"}",
+			"",
+			"// UnmarshalText implements [json.UnmarshalerFrom].",
+			"func ($1 *${2/^\\*//}) UnmarshalJSONFrom(in *jsontext.Decoder) error {",
+			"\treturn errors.New(\"TODO(now)\")",
+			"}",
+		],
+		"description": "Methods stubs for MarshalJSONTo/UnmarshalJSONFrom"
+	},
 }
