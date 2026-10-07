@@ -77,6 +77,7 @@
     "vim.gdefault": true,
     "vim.joinspaces": false,
     "vim.handleKeys": {"<C-p>": false},
+    "dotfiles.repository": "zombiezen/dotfiles",
     "[cue]": {
         "editor.insertSpaces": false,
         "editor.detectIndentation": false,
