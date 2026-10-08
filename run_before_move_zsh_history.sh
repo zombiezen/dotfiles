@@ -3,6 +3,7 @@
 # This is to migrate existing machines to my new preferred location.
 set -euo pipefail
 if [[ ! -h .zsh_history ]]; then
+  mkdir -p .local/state
   cat .zsh_history >> .local/state/zsh_history
   rm .zsh_history
 fi
