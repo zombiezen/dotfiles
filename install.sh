@@ -40,7 +40,7 @@ fi
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 "$chezmoi" init --source="$script_dir"
-if [[ -z "$CODER_RUNTIME" ]]; then
+if [[ -z "$CODER_RUNTIME" && -z "$REMOTE_CONTAINERS" ]]; then
   "$chezmoi" apply
 else
   "$chezmoi" apply --force

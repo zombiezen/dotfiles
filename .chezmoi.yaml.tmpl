@@ -1,11 +1,12 @@
 {{- $coder := env "CODER_RUNTIME" | not | not -}}
 {{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $devcontainer := env "REMOTE_CONTAINERS" | not | not -}}
 {{- $cloudshell := env "CLOUD_SHELL" | not | not -}}
-{{- $interactive := and (not (or $coder $codespaces)) stdinIsATTY -}}
+{{- $interactive := and (not (or $coder $codespaces $devcontainer)) stdinIsATTY -}}
 {{- if hasKey . "interactive" -}}
 {{-   $interactive = .interactive -}}
 {{- end -}}
-{{- $manage_ssh := not (or $coder $codespaces) -}}
+{{- $manage_ssh := not (or $coder $codespaces $devcontainer) -}}
 {{- if hasKey . "manage_ssh" -}}
 {{-   $manage_ssh = .manage_ssh -}}
 {{- end -}}
@@ -34,6 +35,7 @@ data:
   interactive: {{ $interactive }}
   gui: {{ if hasKey . "gui" }}{{ .gui }}{{ else }}false{{ end }}
   codespaces: {{ $codespaces }}
+  devcontainer: {{ $devcontainer }}
   cloudshell: {{ $cloudshell }}
   manage_ssh: {{ $manage_ssh }}
   personal_machines_authorized: {{ $personal_machines_authorized }}
