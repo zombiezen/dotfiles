@@ -108,7 +108,6 @@
             pkgsite = pkgs.callPackage ./pkgsite {
               buildGoModule = pkgs.buildGo127Module;
             };
-            zsh-jj = pkgs.callPackage ./zsh-jj.nix {};
           } // lib.optionalAttrs pkgs.stdenv.targetPlatform.isLinux {
             inherit (pkgs) psmisc strace;
             chroot-init = pkgs.callPackage ./chroot-init {};

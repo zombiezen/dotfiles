@@ -90,6 +90,7 @@ path=(
 fpath=(
   "$HOME/.local/state/nix/profiles/profile/share/zsh/site-functions" \
   "$HOME/.nix-profile/share/zsh/site-functions" \
+  "$HOME/.local/share/zsh/site-functions" \
   {{- if hasKey . "fpath" }}
   {{- range .fpath }}
   {{ . | squote }} \

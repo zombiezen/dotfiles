@@ -1,0 +1,18 @@
+{
+  ".local/share/zsh/site-functions/VCS_INFO_detect_jj": {
+    "type": "archive-file",
+    "url": "https://github.com/rkh/zsh-jj/archive/c3d8636d387c3533376b64c752f199b48030d8d5.tar.gz",
+    "checksum": {
+      "sha256": "028a71173c952515c7b568dffd6b8d20a6425edc9d4dfc7e3c03ac6c126d44df"
+    },
+    "path": "zsh-jj-c3d8636d387c3533376b64c752f199b48030d8d5/functions/VCS_INFO_detect_jj"
+  },
+  ".local/share/zsh/site-functions/VCS_INFO_get_data_jj": {
+    "type": "archive-file",
+    "url": "https://github.com/rkh/zsh-jj/archive/c3d8636d387c3533376b64c752f199b48030d8d5.tar.gz",
+    "checksum": {
+      "sha256": "028a71173c952515c7b568dffd6b8d20a6425edc9d4dfc7e3c03ac6c126d44df"
+    },
+    "path": "zsh-jj-c3d8636d387c3533376b64c752f199b48030d8d5/functions/VCS_INFO_get_data_jj"
+  }
+}
