@@ -52,6 +52,17 @@
     "terminal.integrated.scrollback": 10000,
     "terminal.integrated.tabs.hideCondition": "singleGroup",
     "terminal.integrated.initialHint": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh",
+            "icon": "terminal"
+        },
+    },
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.associations": {
