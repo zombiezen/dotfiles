@@ -74,6 +74,8 @@
               ivy
               jujutsu
               jq
+              just
+              just-lsp
               mercurial
               moreutils  # sponge
               nil
